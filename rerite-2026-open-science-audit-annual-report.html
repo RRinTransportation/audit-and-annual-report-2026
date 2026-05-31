@@ -1,0 +1,2718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RERITE 2026 Open Science Audit & Annual Report: Visual Draft</title>
+<style>
+  :root {
+    --paper: #fbfaf6;
+    --ink: #141413;
+    --muted: #68635b;
+    --line: #d9d0bf;
+    --soft: #f0ebe1;
+    --white: #fffefd;
+    --clay: #b75f42;
+    --teal: #2f7d78;
+    --gold: #b6842e;
+    --blue: #496f9e;
+    --green: #6c7e45;
+    --rose: #a75a66;
+    --violet: #6b5e9c;
+    --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --serif: ui-serif, Georgia, "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius: 8px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background:
+      repeating-linear-gradient(90deg, rgba(20,20,19,0.025) 0 1px, transparent 1px 88px),
+      var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  p { max-width: 760px; margin: 0 0 12px; }
+  strong { font-weight: 700; }
+  .page { max-width: 1220px; margin: 0 auto; padding: 36px 24px 90px; }
+
+  .report-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.72fr);
+    gap: 28px;
+    align-items: stretch;
+    border-bottom: 1.5px solid var(--line);
+    padding: 14px 0 34px;
+    margin-bottom: 30px;
+  }
+  .brand-lockup {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 0 0 4px;
+  }
+  .brand-lockup a {
+    display: inline-flex;
+    align-items: center;
+    background: var(--ink);
+    border: 1.5px solid #2e2d29;
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(36, 29, 18, 0.08);
+  }
+  .brand-lockup img {
+    display: block;
+    width: 180px;
+    max-width: 42vw;
+    height: auto;
+  }
+  .brand-lockup span {
+    color: var(--muted);
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+  .hero-copy { display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 60px;
+    line-height: 1.02;
+    font-weight: 500;
+    letter-spacing: 0;
+    margin: 0 0 16px;
+    max-width: 900px;
+  }
+  .dek {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.32;
+    color: #35312b;
+    max-width: 850px;
+  }
+  .meta-strip { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+  .pill {
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .hero-card {
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 450px;
+    box-shadow: 0 18px 50px rgba(36, 29, 18, 0.08);
+  }
+  .hero-card h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .signal-stack { display: grid; gap: 12px; align-content: center; margin: 18px 0; }
+  .signal {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px;
+    background: #fcfbf8;
+  }
+  .signal-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .signal b { font-family: var(--serif); font-size: 34px; line-height: 1; }
+  .signal span { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0; color: var(--muted); }
+  .bar {
+    height: 11px;
+    background: var(--soft);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .fill { height: 100%; border-radius: 999px; width: var(--w); }
+  .fill.teal { background: var(--teal); }
+  .fill.clay { background: var(--clay); }
+  .fill.gold { background: var(--gold); }
+  .hero-card .note { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 42px;
+    align-items: start;
+  }
+  nav { position: sticky; top: 24px; align-self: start; font-size: 13px; }
+  nav .nav-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  nav a {
+    display: block;
+    color: #3c3832;
+    text-decoration: none;
+    border-left: 2px solid var(--line);
+    padding: 5px 0 5px 12px;
+  }
+  nav a:hover { border-color: var(--clay); color: var(--ink); }
+  nav .small-note {
+    margin-top: 20px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  section { margin: 0 0 58px; scroll-margin-top: 24px; }
+  h2 {
+    font-family: var(--serif);
+    font-size: 31px;
+    line-height: 1.14;
+    font-weight: 500;
+    margin: 0 0 10px;
+    letter-spacing: 0;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+  .section-lead { color: #3c3832; font-size: 16px; max-width: 820px; }
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .takeaway {
+    background: #fff8ec;
+    border: 1.5px solid #ddc28d;
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 16px 0 0;
+    max-width: 920px;
+  }
+  .takeaway b { color: var(--ink); }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(118px, 1fr));
+    gap: 8px;
+  }
+  .audience-card {
+    appearance: none;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    min-height: 140px;
+    padding: 12px;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: var(--sans);
+  }
+  .audience-card:hover,
+  .audience-card:focus-visible {
+    outline: 3px solid rgba(47, 125, 120, 0.28);
+    outline-offset: 2px;
+  }
+  .audience-card.is-selected {
+    border-color: var(--teal);
+    box-shadow: inset 0 0 0 3px rgba(47, 125, 120, 0.18);
+  }
+  .audience-card .who {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .audience-card .stat {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1;
+    margin: 12px 0 7px;
+  }
+  .audience-card p {
+    font-size: 12px;
+    color: #4f493f;
+    margin: 0;
+  }
+  .audience-detail {
+    margin-top: 14px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow: hidden;
+  }
+  .audience-detail-head {
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
+    background: #fcfbf8;
+  }
+  .audience-detail-head h4 {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+  .audience-detail-head p {
+    color: #4f493f;
+    margin: 0;
+    max-width: 940px;
+  }
+  .audience-detail-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+    gap: 0;
+  }
+  .stat-pack {
+    padding: 16px;
+    border-right: 1.5px solid var(--line);
+  }
+  .stat-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .stat-item {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 12px;
+    min-height: 116px;
+  }
+  .stat-item b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-item span {
+    display: block;
+    color: #4f493f;
+    font-size: 12.5px;
+  }
+  .audience-actions {
+    padding: 16px;
+    background: #fcfbf8;
+  }
+  .audience-actions h5 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+  .audience-actions p {
+    color: #4f493f;
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .audience-actions .action-block {
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+  }
+
+  figure {
+    margin: 20px 0 0;
+    background: var(--white);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 10px 26px rgba(39, 30, 15, 0.06);
+  }
+  figcaption {
+    border-top: 1px solid var(--line);
+    margin-top: 16px;
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .figure-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .figure-title h3 { margin: 0; }
+  .figure-title .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+
+  .big-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .metric {
+    border: 1.5px solid var(--line);
+    background: #fcfbf8;
+    border-radius: var(--radius);
+    min-height: 150px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .metric .value {
+    font-family: var(--serif);
+    font-size: 42px;
+    line-height: 1;
+  }
+  .metric .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+  .metric p { font-size: 12.5px; color: #4f493f; margin: 8px 0 0; }
+
+  .funnel { display: grid; gap: 10px; }
+  .funnel-row {
+    display: grid;
+    grid-template-columns: 170px 1fr 88px;
+    gap: 12px;
+    align-items: center;
+  }
+  .funnel-label { font-weight: 700; }
+  .funnel-track {
+    height: 42px;
+    background: var(--soft);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+  .funnel-fill {
+    height: 100%;
+    width: var(--w);
+  }
+  .funnel-note {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: calc(100% - 24px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid rgba(217, 208, 191, 0.95);
+    border-radius: 999px;
+    background: rgba(255, 254, 253, 0.9);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+  .funnel-fill.teal { background: var(--teal); }
+  .funnel-fill.gold { background: var(--gold); }
+  .funnel-fill.blue { background: var(--blue); }
+  .funnel-fill.clay { background: var(--clay); }
+  .funnel-fill.rose { background: var(--rose); }
+  .funnel-value { font-family: var(--serif); font-size: 26px; text-align: right; }
+
+  .timeline-graphic {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(82px, 1fr));
+    gap: 8px;
+    align-items: end;
+  }
+  .year-tile {
+    min-height: 170px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .year-tile.core { border-top: 5px solid var(--teal); }
+  .year-tile.watch { border-top: 5px solid var(--gold); background: #fff8ec; }
+  .year-tile .year { font-family: var(--serif); font-size: 25px; line-height: 1; }
+  .year-tile p { font-size: 12px; color: #4f493f; margin: 0; }
+  .year-tile .status {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  .pipe-step {
+    border: 1.5px solid var(--line);
+    background: #fcfbf8;
+    border-radius: var(--radius);
+    padding: 14px;
+    position: relative;
+    min-height: 150px;
+  }
+  .pipe-step::after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    right: -11px;
+    width: 10px;
+    height: 2px;
+    background: var(--line);
+  }
+  .pipe-step:last-child::after { display: none; }
+  .pipe-step b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 7px;
+  }
+  .pipe-step p { font-size: 12.5px; color: #4f493f; margin: 0; }
+  .step-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-family: var(--mono);
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .i1 { background: var(--blue); }
+  .i2 { background: var(--teal); }
+  .i3 { background: var(--gold); }
+  .i4 { background: var(--rose); }
+  .i5 { background: var(--green); }
+
+  .effort-map {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .effort-col {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 13px;
+  }
+  .effort-col h3 { font-size: 18px; margin-bottom: 12px; }
+  .chip {
+    display: block;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    border-left: 5px solid var(--teal);
+    border-radius: var(--radius);
+    padding: 10px;
+    margin-bottom: 9px;
+    font-size: 13px;
+  }
+  .chip.gold { border-left-color: var(--gold); }
+  .chip.rose { border-left-color: var(--rose); }
+
+  .flywheel-wrap {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+  }
+  .flywheel svg { width: 100%; height: auto; display: block; }
+  .fly-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .fly-item {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 13px;
+    min-height: 118px;
+  }
+  .fly-item b { display: block; font-family: var(--serif); font-size: 18px; margin-bottom: 5px; }
+  .fly-item p { font-size: 12.5px; margin: 0; color: #4f493f; }
+
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .activity-card {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 14px;
+    min-height: 178px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 6px solid var(--teal);
+  }
+  .activity-card:nth-child(2) { border-top-color: var(--blue); }
+  .activity-card:nth-child(3) { border-top-color: var(--gold); }
+  .activity-card:nth-child(4) { border-top-color: var(--rose); }
+  .activity-card:nth-child(5) { border-top-color: var(--green); }
+  .activity-card:nth-child(6) { border-top-color: var(--violet); }
+  .activity-card h3 { font-size: 18px; margin: 8px 0 6px; }
+  .activity-card p { margin: 0; font-size: 12.5px; color: #4f493f; }
+
+  .policy-heat {
+    display: grid;
+    grid-template-columns: 180px repeat(5, minmax(88px, 1fr));
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .heat-cell {
+    min-height: 66px;
+    padding: 10px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #fcfbf8;
+    font-size: 12.5px;
+    display: flex;
+    align-items: center;
+  }
+  .heat-cell:nth-child(6n) { border-right: 0; }
+  .heat-head {
+    background: var(--soft);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+    align-items: flex-end;
+  }
+  .heat-rowhead { font-weight: 700; background: var(--white); }
+  .heat-high { background: #dceee9; color: #1f5f58; }
+  .heat-mid { background: #fff0d3; color: #7b5918; }
+  .heat-low { background: #f4e0df; color: #8a463f; }
+  .heat-note { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0; }
+
+  .heat-instruction {
+    color: var(--muted);
+    font-size: 13px;
+    margin: -4px 0 12px;
+  }
+  button.heat-cell {
+    appearance: none;
+    margin: 0;
+    border-top: 0;
+    border-left: 0;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+  }
+  button.heat-cell:hover,
+  button.heat-cell:focus-visible {
+    outline: 3px solid rgba(47, 125, 120, 0.28);
+    outline-offset: -4px;
+  }
+  button.heat-cell.is-selected {
+    box-shadow: inset 0 0 0 3px rgba(20, 20, 19, 0.18);
+  }
+  .cell-cue {
+    display: block;
+    width: fit-content;
+    margin-top: 8px;
+    border: 1px solid rgba(20, 20, 19, 0.18);
+    border-radius: 999px;
+    padding: 2px 7px;
+    background: rgba(255, 254, 253, 0.72);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 9px;
+  }
+  .heat-detail {
+    margin-top: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    overflow: hidden;
+  }
+  .detail-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: start;
+    padding: 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--white);
+  }
+  .detail-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .detail-head h4 {
+    font-family: var(--serif);
+    font-size: 25px;
+    line-height: 1.12;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+  .detail-head p {
+    margin: 0;
+    color: #4f493f;
+    max-width: 880px;
+  }
+  .detail-status {
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    background: var(--soft);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .detail-body {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    gap: 14px;
+    padding: 16px;
+  }
+  .detail-panel {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    padding: 13px;
+  }
+  .detail-panel b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .detail-panel p {
+    margin: 0;
+    color: #4f493f;
+    font-size: 13px;
+  }
+  .source-tiles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .source-tile {
+    display: block;
+    min-height: 126px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    padding: 12px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .source-tile:hover {
+    border-color: var(--teal);
+    background: #f7fbf9;
+  }
+  .source-tile b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .source-tile span {
+    display: block;
+    color: #4f493f;
+    font-size: 12.5px;
+  }
+  .source-tile small {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--teal);
+  }
+
+  .funder-instruction {
+    color: var(--muted);
+    font-size: 13px;
+    margin: -4px 0 12px;
+  }
+  .funder-policy-grid {
+    display: grid;
+    grid-template-columns: 170px repeat(5, minmax(112px, 1fr));
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .funder-grid-cell {
+    min-height: 74px;
+    padding: 10px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #fcfbf8;
+    display: flex;
+    align-items: center;
+  }
+  .funder-grid-cell:nth-child(6n) { border-right: 0; }
+  .funder-head {
+    background: var(--soft);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+    align-items: flex-end;
+  }
+  .funder-rowhead {
+    background: var(--white);
+    display: block;
+  }
+  .funder-rowhead b {
+    display: block;
+    font-size: 14px;
+  }
+  .funder-rowhead span {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  button.funder-grid-cell {
+    appearance: none;
+    margin: 0;
+    border-top: 0;
+    border-left: 0;
+    color: inherit;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    line-height: 1.45;
+    text-align: left;
+    cursor: pointer;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  button.funder-grid-cell:hover,
+  button.funder-grid-cell:focus-visible {
+    outline: 3px solid rgba(47, 125, 120, 0.28);
+    outline-offset: -4px;
+  }
+  button.funder-grid-cell.is-selected {
+    box-shadow: inset 0 0 0 3px rgba(20, 20, 19, 0.18);
+  }
+  .funder-strong { background: #dceee9; color: #1f5f58; }
+  .funder-mid { background: #fff0d3; color: #7b5918; }
+  .funder-watch { background: #f4e0df; color: #8a463f; }
+
+  .roadmap {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(104px, 1fr));
+    gap: 10px;
+  }
+  .stage {
+    background: #fcfbf8;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 13px;
+    min-height: 210px;
+  }
+  .stage-num { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .stage h3 { font-size: 17px; margin-bottom: 8px; }
+  .stage p { font-size: 12.5px; line-height: 1.45; color: #4f493f; margin-bottom: 9px; }
+  .gain {
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .guides {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .guide {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    padding: 15px;
+    min-height: 190px;
+  }
+  .guide .role {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: var(--muted);
+  }
+  .guide h3 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 19px;
+  }
+  .guide ul { margin: 0; padding-left: 18px; }
+  .guide li { margin-bottom: 6px; font-size: 13px; }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .column-card {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fcfbf8;
+    min-height: 240px;
+    overflow: hidden;
+    text-align: left;
+    padding: 0;
+    color: inherit;
+    font-family: var(--sans);
+    cursor: pointer;
+  }
+  button.column-card {
+    appearance: none;
+    margin: 0;
+  }
+  .column-card:hover,
+  .column-card:focus-visible {
+    outline: 3px solid rgba(47, 125, 120, 0.28);
+    outline-offset: 2px;
+  }
+  .column-card.is-selected {
+    box-shadow: inset 0 0 0 3px rgba(20, 20, 19, 0.15);
+  }
+  .column-art {
+    height: 86px;
+    border-bottom: 1.5px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: end;
+    gap: 5px;
+    padding: 12px;
+  }
+  .column-art span {
+    display: block;
+    border-radius: 5px 5px 0 0;
+    background: var(--teal);
+    min-height: 14px;
+  }
+  .column-card:nth-child(2) .column-art span { background: var(--gold); }
+  .column-card:nth-child(3) .column-art span { background: var(--blue); }
+  .column-body { padding: 15px; }
+  .column-body h3 { font-size: 19px; }
+  .column-body p { font-size: 13px; color: #4f493f; margin: 0; }
+  .column-cue {
+    display: inline-block;
+    margin-top: 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 8px;
+    background: var(--white);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+  }
+
+  .feature-preview {
+    margin-top: 16px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--white);
+  }
+  .feature-preview-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--line);
+    background: #fcfbf8;
+  }
+  .feature-preview-head span {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .feature-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+    gap: 0;
+    min-height: 430px;
+  }
+  .feature-copy {
+    padding: 22px;
+    border-right: 1.5px solid var(--line);
+  }
+  .feature-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .feature-copy h4 {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.05;
+    font-weight: 500;
+    margin: 0 0 12px;
+  }
+  .feature-dek {
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.35;
+    color: #35312b;
+    margin-bottom: 16px;
+  }
+  .feature-excerpt {
+    color: #4f493f;
+    font-size: 14px;
+    max-width: 760px;
+  }
+  .feature-pull {
+    margin: 18px 0;
+    padding: 13px 15px;
+    border-left: 5px solid var(--teal);
+    background: #f7fbf9;
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.18;
+  }
+  .feature-side {
+    padding: 18px;
+    background: #fcfbf8;
+    display: grid;
+    gap: 14px;
+    align-content: start;
+  }
+  .mini-graphic {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    min-height: 152px;
+    padding: 14px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 7px;
+    align-items: end;
+  }
+  .mini-graphic span {
+    display: block;
+    border-radius: 5px 5px 0 0;
+    min-height: 22px;
+    background: var(--teal);
+  }
+  .feature-notes {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    padding: 13px;
+  }
+  .feature-notes b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .feature-notes ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+  .feature-notes li {
+    margin-bottom: 7px;
+    font-size: 13px;
+    color: #4f493f;
+  }
+  .feature-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  details {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    margin: 12px 0;
+    overflow: hidden;
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 13px 15px;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+  summary::-webkit-details-marker { display: none; }
+  details .details-body {
+    border-top: 1px solid var(--line);
+    padding: 13px 15px 15px;
+    color: #4f493f;
+  }
+  .source-list { columns: 2 320px; column-gap: 32px; font-size: 13px; }
+  .source-list li { break-inside: avoid; margin-bottom: 9px; }
+
+  .status {
+    display: inline-block;
+    border-radius: 999px;
+    padding: 3px 8px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background: var(--soft);
+    color: var(--muted);
+  }
+  .status.shipped { background: #e0eee9; color: #1f5f58; }
+  .status.planned { background: #fff0d3; color: #7b5918; }
+  .status.draft { background: #f4e0df; color: #8a463f; }
+  footer {
+    border-top: 1.5px solid var(--line);
+    margin-top: 58px;
+    padding-top: 18px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 1040px) {
+    h1 { font-size: 48px; }
+    .dek { font-size: 23px; }
+    .report-hero { grid-template-columns: 1fr; }
+    .layout { grid-template-columns: 1fr; }
+    nav { display: none; }
+    .big-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .timeline-graphic { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .audience-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .audience-detail-body { grid-template-columns: 1fr; }
+    .stat-pack { border-right: 0; border-bottom: 1.5px solid var(--line); }
+    .pipeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pipe-step::after { display: none; }
+    .flywheel-wrap { grid-template-columns: 1fr; }
+    .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .policy-heat { grid-template-columns: 160px repeat(5, minmax(76px, 1fr)); overflow-x: auto; }
+    .detail-body { grid-template-columns: 1fr; }
+    .source-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .funder-policy-grid { grid-template-columns: 150px repeat(5, minmax(92px, 1fr)); overflow-x: auto; }
+    .roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .guides, .columns, .effort-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .feature-spread { grid-template-columns: 1fr; }
+    .feature-copy { border-right: 0; border-bottom: 1.5px solid var(--line); }
+  }
+  @media (max-width: 680px) {
+    .page { padding: 24px 16px 72px; }
+    h1 { font-size: 38px; }
+    .dek { font-size: 20px; }
+    .brand-lockup { align-items: flex-start; flex-direction: column; }
+    .brand-lockup img { width: 168px; max-width: 100%; }
+    .brand-lockup span { border-radius: var(--radius); }
+    .feature-copy h4 { font-size: 28px; }
+    .feature-dek { font-size: 18px; }
+    .hero-card { min-height: auto; }
+    .big-grid, .timeline-graphic, .audience-grid, .stat-list, .pipeline, .fly-list, .activity-grid, .roadmap, .guides, .columns, .effort-map { grid-template-columns: 1fr; }
+    .funnel-row { grid-template-columns: 1fr; gap: 6px; }
+    .funnel-value { text-align: left; }
+    .source-tiles { grid-template-columns: 1fr; }
+    .detail-head { grid-template-columns: 1fr; }
+    .funder-policy-grid { display: block; overflow-x: auto; white-space: nowrap; }
+    .funder-grid-cell { display: inline-flex; width: 158px; vertical-align: top; white-space: normal; }
+    .policy-heat { display: block; overflow-x: auto; white-space: nowrap; }
+    .heat-cell { display: inline-flex; width: 150px; vertical-align: top; white-space: normal; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="report-hero">
+    <div class="brand-lockup">
+      <a href="https://www.rerite.org/" aria-label="RERITE website">
+        <img src="rerite-report-assets/rerite-logo.png" alt="RERITE logo">
+      </a>
+      <span>2026 Open Science Audit &amp; Annual Report</span>
+    </div>
+    <div class="hero-copy">
+      <div class="eyebrow">Visual draft v0.2 | prepared May 31, 2026 | for end-of-2026 release</div>
+      <h1>RERITE 2026 Open Science Audit &amp; Annual Report</h1>
+      <p class="dek">
+        A decision-maker's field guide to where transportation research is now, what neighboring communities already do, and how RERITE can move the field from paper-only claims to reusable, translation-ready evidence.
+      </p>
+      <div class="meta-strip">
+        <span class="pill">Core audit: 2019-2025 proposed</span>
+        <span class="pill">2026: annual report + provisional watchlist</span>
+        <span class="pill">Audience: publishers | funders | conferences | universities | researchers</span>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-label="Open science baseline">
+      <div>
+        <div class="kicker">MOST baseline</div>
+        <h2>The field has the raw material for openness. It does not yet have the routine.</h2>
+      </div>
+      <div class="signal-stack">
+        <div class="signal">
+          <div class="signal-top"><span>Open data cited or linked</span><b>29%</b></div>
+          <div class="bar"><div class="fill teal" style="--w:29%"></div></div>
+        </div>
+        <div class="signal">
+          <div class="signal-top"><span>Code repository shared</span><b>5%</b></div>
+          <div class="bar"><div class="fill clay" style="--w:5%"></div></div>
+        </div>
+        <div class="signal">
+          <div class="signal-top"><span>Data repository shared</span><b>4%</b></div>
+          <div class="bar"><div class="fill gold" style="--w:4%"></div></div>
+        </div>
+      </div>
+      <p class="note">Based on the January 2026 MOST preprint analyzing 10,724 Transportation Research series articles from 2019-2024. Refresh before final publication.</p>
+    </aside>
+  </header>
+
+  <div class="layout">
+    <nav aria-label="Report sections">
+      <div class="nav-title">Figures</div>
+      <a href="#executive-summary">1. Baseline</a>
+      <a href="#scope">2. Cutoff</a>
+      <a href="#state">3. Availability Gap</a>
+      <a href="#audience-statistics">3b. Audience Stats</a>
+      <a href="#pipeline">4. Audit Pipeline</a>
+      <a href="#next-metrics">5. Next Metrics</a>
+      <a href="#rerite-story">6. RERITE Flywheel</a>
+      <a href="#policy-scan">7. Policy Heatmap</a>
+      <a href="#funder-policy">8. Funder Compass</a>
+      <a href="#journey">9. Journey Map</a>
+      <a href="#guidelines">10. Guidelines</a>
+      <a href="#columns">11. Columns</a>
+      <a href="#sources">Sources</a>
+      <div class="small-note">Main pages are intentionally visual. Source notes and policy details live at the end.</div>
+    </nav>
+
+    <main>
+      <section id="executive-summary">
+        <div class="kicker">Executive summary</div>
+        <h2>Make openness visible, normal, and worth doing.</h2>
+        <p class="section-lead">
+          The first RERITE report should not read like a compliance manual. It should make one idea obvious: artifact availability is the practical bridge between scientific integrity and transportation practice.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 1. Four numbers that should travel</h3>
+            <span class="num">MOST 2019-2024 baseline</span>
+          </div>
+          <div class="big-grid">
+            <div class="metric">
+              <div class="label">Papers analyzed</div>
+              <div class="value">10,724</div>
+              <p>Full-length Transportation Research series articles.</p>
+            </div>
+            <div class="metric">
+              <div class="label">Quantitative papers</div>
+              <div class="value">10,480</div>
+              <p>Analysis base for code and data availability.</p>
+            </div>
+            <div class="metric">
+              <div class="label">Both code and data</div>
+              <div class="value">3%</div>
+              <p>Shared both a code and data repository.</p>
+            </div>
+            <div class="metric">
+              <div class="label">Incentive signal</div>
+              <div class="value">0</div>
+              <p>No clear citation or review-time reward was detected.</p>
+            </div>
+          </div>
+          <figcaption>
+            The report should repeat these numbers early and often, then move quickly to what decision makers can do about them. Source: <a href="https://arxiv.org/abs/2601.14429">MOST preprint</a>.
+          </figcaption>
+        </figure>
+
+        <div class="takeaway">
+          <b>Primary recommendation.</b> Start with structured availability statements, persistent artifact links, basic link verification, and visible credit. Save full reproduction requirements for pilots, badges, student projects, and high-impact benchmarks.
+        </div>
+      </section>
+
+      <section id="scope">
+        <div class="kicker">Audit scope</div>
+        <h2>Use a stable seven-year spine, then add a 2026 watchlist.</h2>
+        <p class="section-lead">
+          The clean statistical story is 2019-2025. The 2026 story is better treated as current-year activity plus a provisional audit annex.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 2. Recommended cutoff architecture</h3>
+            <span class="num">Designed for December 2026 release</span>
+          </div>
+          <div class="timeline-graphic">
+            <div class="year-tile core"><div class="year">2019</div><p>Baseline year.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2020</div><p>Early data availability statements.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2021</div><p>More computational papers.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2022</div><p>Open science policy pressure grows.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2023</div><p>RERITE public activity starts.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2024</div><p>MOST preprint coverage ends here.</p><div class="status">core</div></div>
+            <div class="year-tile core"><div class="year">2025</div><p>Recommended seventh audit year.</p><div class="status">core</div></div>
+            <div class="year-tile watch"><div class="year">2026</div><p>Use only as a labeled watchlist.</p><div class="status">provisional</div></div>
+          </div>
+          <figcaption>
+            Core audit: January 1, 2019 to December 31, 2025. Policy scan: freeze around October 31, 2026. Annual report activities: update through December 15, 2026.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="state">
+        <div class="kicker">State of the field</div>
+        <h2>The central gap is contribution, not awareness.</h2>
+        <p class="section-lead">
+          Many transportation papers benefit from open datasets. Far fewer contribute processed data, code, models, or workflows back to the field.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 3. The availability funnel</h3>
+            <span class="num">Percent of quantitative papers</span>
+          </div>
+          <div class="funnel">
+            <div class="funnel-row">
+              <div class="funnel-label">Quantitative paper</div>
+              <div class="funnel-track"><div class="funnel-fill blue" style="--w:100%"></div><span class="funnel-note">analysis base</span></div>
+              <div class="funnel-value">100%</div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Cites open data</div>
+              <div class="funnel-track"><div class="funnel-fill teal" style="--w:29%"></div><span class="funnel-note">uses open resources</span></div>
+              <div class="funnel-value">29%</div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Shares code</div>
+              <div class="funnel-track"><div class="funnel-fill clay" style="--w:5%"></div><span class="funnel-note">repository</span></div>
+              <div class="funnel-value">5%</div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Shares data</div>
+              <div class="funnel-track"><div class="funnel-fill gold" style="--w:4%"></div><span class="funnel-note">repository</span></div>
+              <div class="funnel-value">4%</div>
+            </div>
+            <div class="funnel-row">
+              <div class="funnel-label">Shares both</div>
+              <div class="funnel-track"><div class="funnel-fill rose" style="--w:3%"></div><span class="funnel-note">code + data</span></div>
+              <div class="funnel-value">3%</div>
+            </div>
+          </div>
+          <figcaption>
+            The gap between using open data and contributing reusable artifacts is the report's clearest public-interest argument.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="audience-statistics">
+        <div class="kicker">Stakeholder audit dashboard</div>
+        <h2>Use different statistics for different decisions.</h2>
+        <p class="section-lead">
+          The final report should not make every reader infer what matters to them. These are report-ready statistics from the MOST preprint, organized by decision role.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 3b. Audience-specific statistics</h3>
+            <span class="num">MOST 2019-2024, plus final-report metric ideas</span>
+          </div>
+          <div class="audience-grid">
+            <button class="audience-card" type="button" data-audience-key="publishers" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Journals</span>
+              <span class="stat">0</span>
+              <p>TR journals in the study encourage or require code availability statements.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="conferences" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Conferences</span>
+              <span class="stat">15%</span>
+              <p>Approximate code-sharing rate in data-driven modeling and prediction.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="funders" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Funders</span>
+              <span class="stat">67%</span>
+              <p>Neither cite open data nor share a data repository.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="universities" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Universities</span>
+              <span class="stat">31%</span>
+              <p>Include an availability statement in the analysis dataset.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="reviewers" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Reviewers</span>
+              <span class="stat">0.839</span>
+              <p>Fleiss kappa for code-availability extraction.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="rerite" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">RERITE</span>
+              <span class="stat">15</span>
+              <p>Topic groups that can anchor annual subfield tracking.</p>
+            </button>
+            <button class="audience-card" type="button" data-audience-key="researchers" aria-controls="audience-detail" aria-expanded="false">
+              <span class="who">Researchers</span>
+              <span class="stat">56%</span>
+              <p>Code-sharing papers that also include some data repository.</p>
+            </button>
+          </div>
+
+          <div class="audience-detail" id="audience-detail" aria-live="polite">
+            <div class="audience-detail-head">
+              <div class="detail-eyebrow">Selected audience</div>
+              <h4 id="audience-title">Journals and publishers</h4>
+              <p id="audience-summary">Select an audience card to see the most decision-relevant statistics, interpretation, and final-report additions.</p>
+            </div>
+            <div class="audience-detail-body">
+              <div class="stat-pack">
+                <div class="stat-list" id="audience-stats"></div>
+              </div>
+              <div class="audience-actions">
+                <h5>How to use this in the report</h5>
+                <p id="audience-use"></p>
+                <div class="action-block">
+                  <h5>Worth adding before release</h5>
+                  <p id="audience-next"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            These figures come from the January 2026 MOST preprint and should be refreshed when the revised paper, 2025 extension, and final artifact tables are available.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="pipeline">
+        <div class="kicker">Measurement design</div>
+        <h2>Keep the audit lightweight, repeatable, and honest about uncertainty.</h2>
+        <p class="section-lead">
+          The audit should measure artifact availability at scale, then reserve human effort for validation, policy interpretation, and deeper reproduction pilots.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 4. Annual audit pipeline</h3>
+            <span class="num">Volunteer-executable</span>
+          </div>
+          <div class="pipeline">
+            <div class="pipe-step"><div class="step-icon i1">1</div><b>Collect</b><p>Fetch full-text or structured metadata for target journals and years.</p></div>
+            <div class="pipe-step"><div class="step-icon i2">2</div><b>Extract</b><p>Use LLM-assisted prompts for code, data, statements, topics, and links.</p></div>
+            <div class="pipe-step"><div class="step-icon i3">3</div><b>Validate</b><p>Human-code a stratified sample and report agreement.</p></div>
+            <div class="pipe-step"><div class="step-icon i4">4</div><b>Classify</b><p>Sort links by repository type, DOI, license, README, and environment clues.</p></div>
+            <div class="pipe-step"><div class="step-icon i5">5</div><b>Publish</b><p>Release figures, caveats, source tables, and a runbook for next year.</p></div>
+          </div>
+          <figcaption>
+            This keeps the audit within RERITE's volunteer capacity while still improving over the preprint.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="next-metrics">
+        <div class="kicker">Metrics beyond the preprint</div>
+        <h2>Add depth where it is cheap, and sample where it is expensive.</h2>
+        <p class="section-lead">
+          The final report can be more useful than the preprint without requiring a full reproduction study.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 5. What to add next</h3>
+            <span class="num">Effort vs. value</span>
+          </div>
+          <div class="effort-map">
+            <div class="effort-col">
+              <h3>Low effort</h3>
+              <span class="chip">Extend TR series to 2025.</span>
+              <span class="chip">Classify availability statements.</span>
+              <span class="chip">Measure repository host types.</span>
+              <span class="chip">Check link rot and DOI presence.</span>
+            </div>
+            <div class="effort-col">
+              <h3>Medium effort</h3>
+              <span class="chip gold">Scan README, license, environment files.</span>
+              <span class="chip gold">Normalize funding agencies.</span>
+              <span class="chip gold">Add IEEE, Springer, SAGE, INFORMS venues.</span>
+              <span class="chip gold">Build a policy coverage rubric.</span>
+            </div>
+            <div class="effort-col">
+              <h3>High value pilots</h3>
+              <span class="chip rose">Run 30-50 lightweight reproduction attempts.</span>
+              <span class="chip rose">Test coding-agent-assisted artifact review.</span>
+              <span class="chip rose">Audit "available on request" response rates.</span>
+              <span class="chip rose">Benchmark missing datasets by subfield.</span>
+            </div>
+          </div>
+          <figcaption>
+            Recommendation: include low and medium effort metrics in the 2026 report, then frame reproduction attempts as a 2027 pilot.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="rerite-story">
+        <div class="kicker">Annual report</div>
+        <h2>RERITE's story is a flywheel: measure, guide, train, recognize, repeat.</h2>
+        <p class="section-lead">
+          The origin story should be brief and visual: a volunteer group formed because transportation researchers were repeatedly losing time rebuilding what should have been reusable.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 6. The RERITE flywheel</h3>
+            <span class="num">2023-2026 public arc</span>
+          </div>
+          <div class="flywheel-wrap">
+            <div class="flywheel" aria-label="RERITE flywheel diagram">
+              <svg viewBox="0 0 320 320" role="img">
+                <title>RERITE flywheel</title>
+                <defs>
+                  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L8,4 L0,8 z" fill="#756f64"></path>
+                  </marker>
+                </defs>
+                <circle cx="160" cy="160" r="122" fill="none" stroke="#ebe4d8" stroke-width="1.5" stroke-dasharray="2 9"></circle>
+                <g fill="none" stroke="#756f64" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)">
+                  <path d="M207 52 C236 58, 261 72, 276 91"></path>
+                  <path d="M286 166 C288 191, 280 214, 264 229"></path>
+                  <path d="M198 277 C174 288, 146 288, 123 276"></path>
+                  <path d="M61 235 C42 211, 35 187, 42 169"></path>
+                  <path d="M57 96 C72 73, 90 58, 111 49"></path>
+                </g>
+                <circle cx="160" cy="160" r="70" fill="#f0ebe1" stroke="#d9d0bf" stroke-width="2"></circle>
+                <text x="160" y="151" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#141413">RERITE</text>
+                <text x="160" y="177" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#68635b">volunteer engine</text>
+                <g fill="#fffefd" stroke="#d9d0bf" stroke-width="2">
+                  <rect x="116" y="18" width="88" height="52" rx="8"></rect>
+                  <rect x="228" y="101" width="74" height="58" rx="8"></rect>
+                  <rect x="205" y="238" width="82" height="56" rx="8"></rect>
+                  <rect x="34" y="238" width="82" height="56" rx="8"></rect>
+                  <rect x="18" y="101" width="74" height="58" rx="8"></rect>
+                </g>
+                <g font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#141413" text-anchor="middle">
+                  <text x="160" y="50">Measure</text>
+                  <text x="265" y="126">Guide</text>
+                  <text x="246" y="264">Train</text>
+                  <text x="75" y="264">Recognize</text>
+                  <text x="55" y="126">Outreach</text>
+                </g>
+              </svg>
+            </div>
+            <div class="fly-list">
+              <div class="fly-item"><b>Measure</b><p>MOST and the annual audit make the problem concrete.</p></div>
+              <div class="fly-item"><b>Guide</b><p>Guidelines v0.1 turns evidence into checklists.</p></div>
+              <div class="fly-item"><b>Train</b><p>Tutorials, SiL, and junior roles build habits.</p></div>
+              <div class="fly-item"><b>Recognize</b><p>Awards and spotlights make artifacts visible.</p></div>
+            </div>
+          </div>
+          <figcaption>
+            Public milestones include the TRB 2023 session, TRB 2024 workshop, ITSC 2024 tutorial, 2025 tutorials and presentations, the February 2026 newsletter, and the planned June 22, 2026 IEEE IV workshop.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 6b. Origin story and 2026 workplan</h3>
+            <span class="num">First annual report spine</span>
+          </div>
+          <div class="activity-grid">
+            <div class="activity-card">
+              <div><span class="status shipped">origin</span><h3>Reusable transportation research</h3><p>RERITE formed around a practical frustration: too much transportation evidence is locked in prose, private files, fragile code, and undocumented workflows.</p></div>
+            </div>
+            <div class="activity-card">
+              <div><span class="status shipped">Feb 2026</span><h3>Newsletter and invitations</h3><p>The first newsletter framed MOST, the topical collection, the IV workshop, student projects, and volunteer paths as one coordinated open-science push.</p></div>
+            </div>
+            <div class="activity-card">
+              <div><span class="status planned">Jun 22</span><h3>IEEE IV workshop</h3><p>The 2026 workshop is the flagship live convening for reproducibility in intelligent vehicles and intelligent transportation systems.</p></div>
+            </div>
+            <div class="activity-card">
+              <div><span class="status planned">Aug</span><h3>Guidelines v0.1</h3><p>Planned outputs: author checklist, reviewer checklist, editor/publisher one-pager, and a pilot kit for venues or labs.</p></div>
+            </div>
+            <div class="activity-card">
+              <div><span class="status planned">hEART</span><h3>Recognition and visibility</h3><p>The hEART award and communications plan give open artifacts public prestige, not just private gratitude.</p></div>
+            </div>
+            <div class="activity-card">
+              <div><span class="status draft">Oct-Dec</span><h3>MOST report release</h3><p>Strategy target: MOST annual report v0.1 in October, public release by December, and a retrospective that turns lessons into the 2027 roadmap.</p></div>
+            </div>
+          </div>
+          <figcaption>
+            This figure turns the RERITE website and March 2026 strategy memo into an annual-report narrative: origin, public activity, near-term delivery, and the field-building loop.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="policy-scan">
+        <div class="kicker">Neighboring fields</div>
+        <h2>Transportation can borrow policy patterns without copying another field whole.</h2>
+        <p class="section-lead">
+          The useful comparison is not "who is better." It is which policy mechanisms are already normal somewhere else.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 7. Policy heatmap</h3>
+            <span class="num">Simplified 2026 scan</span>
+          </div>
+          <p class="heat-instruction">Click a colored square to inspect that exact community-policy intersection. The detail panel below updates with interpretation and source links.</p>
+          <div class="policy-heat" role="table" aria-label="Clickable policy heatmap">
+            <div class="heat-cell heat-head">Community</div>
+            <div class="heat-cell heat-head">Structured statement</div>
+            <div class="heat-cell heat-head">Code/data artifacts</div>
+            <div class="heat-cell heat-head">Verification</div>
+            <div class="heat-cell heat-head">Badges/rewards</div>
+            <div class="heat-cell heat-head">Exceptions</div>
+
+            <div class="heat-cell heat-rowhead">Transportation</div>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="transportation-statement" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Mixed.</b><br>Data statements in parts of the journal ecosystem.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-low" type="button" data-policy-key="transportation-artifacts" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Low.</b><br>Rare repositories in MOST baseline.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-low" type="button" data-policy-key="transportation-verification" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Emerging.</b><br>No broad artifact review norm.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="transportation-rewards" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Growing.</b><br>Special collections, tutorials, awards.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="transportation-exceptions" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Needed.</b><br>Privacy and proprietary data are central.<span class="cell-cue">Details</span></span></button>
+
+            <div class="heat-cell heat-rowhead">Machine learning</div>
+            <button class="heat-cell heat-high" type="button" data-policy-key="ml-statement" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>High.</b><br>Checklists and reproducibility statements.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="ml-artifacts" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Expected.</b><br>Often encouraged, sometimes decision-relevant.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="ml-verification" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Selective.</b><br>Reviewer checks and artifact tracks.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-high" type="button" data-policy-key="ml-rewards" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Visible.</b><br>Badges, tracks, benchmark prestige.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="ml-exceptions" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Developing.</b><br>Data rights and model risks vary.<span class="cell-cue">Details</span></span></button>
+
+            <div class="heat-cell heat-rowhead">Robotics</div>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="robotics-statement" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Medium.</b><br>Limitations, videos, supplements.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="robotics-artifacts" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Cultural.</b><br>Code, videos, datasets often shared.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-low" type="button" data-policy-key="robotics-verification" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Patchy.</b><br>Physical-system reproduction is hard.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="robotics-rewards" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Demo-driven.</b><br>Visibility often comes through artifacts.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-high" type="button" data-policy-key="robotics-exceptions" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Important.</b><br>Safety, hardware, and lab access constraints.<span class="cell-cue">Details</span></span></button>
+
+            <div class="heat-cell heat-rowhead">Operations research</div>
+            <button class="heat-cell heat-high" type="button" data-policy-key="or-statement" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>High in key journals.</b><br>Code/data statements.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-high" type="button" data-policy-key="or-artifacts" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Strong.</b><br>Management Science, OR, IJOC policies.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="or-verification" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Pre-production.</b><br>Replication packages and frozen repos.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-mid" type="button" data-policy-key="or-rewards" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Journal-level.</b><br>Repository infrastructure.<span class="cell-cue">Details</span></span></button>
+            <button class="heat-cell heat-high" type="button" data-policy-key="or-exceptions" aria-controls="policy-cell-detail" aria-expanded="false"><span><b>Explicit.</b><br>Licensed/proprietary data paths.<span class="cell-cue">Details</span></span></button>
+          </div>
+
+          <div class="heat-detail" id="policy-cell-detail" aria-live="polite">
+            <div class="detail-head">
+              <div>
+                <div class="detail-eyebrow">Selected heatmap cell</div>
+                <h4 id="policy-detail-title">Click a heatmap cell</h4>
+                <p id="policy-detail-summary">Choose any colored square above to see what the rating means and follow through to exact source pages.</p>
+              </div>
+              <span class="detail-status" id="policy-detail-status">Ready</span>
+            </div>
+            <div class="detail-body">
+              <div class="detail-panel">
+                <b>How to read this cell</b>
+                <p id="policy-detail-reading">The heatmap is a quick policy scan, not a legal interpretation. The detail panel keeps the source trail attached to the cell being inspected.</p>
+              </div>
+              <div class="detail-panel">
+                <b>Follow through</b>
+                <div class="source-tiles" id="policy-detail-links"></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            Click any colored cell to expand the exact interpretation and source trail for that community-policy intersection. Venue pages change and should be frozen again before publication.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="funder-policy">
+        <div class="kicker">Government funders</div>
+        <h2>Funders are shifting the default from access to stewardship.</h2>
+        <p class="section-lead">
+          The global policy pattern is clear enough for transportation to act now: make outputs findable, require plans, budget curation, and explain justified restrictions.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 8. Funder policy compass</h3>
+            <span class="num">Public funders, simplified</span>
+          </div>
+          <p class="funder-instruction">Click a cell to inspect the policy mechanism and follow through to exact funder guidance.</p>
+          <div class="funder-policy-grid" id="funder-policy-grid" role="table" aria-label="Clickable funder policy grid"></div>
+
+          <div class="heat-detail" id="funder-detail" aria-live="polite">
+            <div class="detail-head">
+              <div>
+                <div class="detail-eyebrow">Selected funder policy cell</div>
+                <h4 id="funder-detail-title">Click a funder policy cell</h4>
+                <p id="funder-detail-summary">Choose any colored square above to see the relevant policy mechanism and source pages.</p>
+              </div>
+              <span class="detail-status" id="funder-detail-status">Ready</span>
+            </div>
+            <div class="detail-body">
+              <div class="detail-panel">
+                <b>How to read this cell</b>
+                <p id="funder-detail-reading">This grid is a compact policy scan. It distinguishes public-access mandates, data-management expectations, repository and metadata infrastructure, exception pathways, and monitoring or support mechanisms.</p>
+              </div>
+              <div class="detail-panel">
+                <b>Follow through</b>
+                <div class="source-tiles" id="funder-detail-links"></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>
+            Final-report work: verify each policy in October 2026, separate binding requirements from guidance, and add transportation-relevant examples for privacy, proprietary data, security, and Indigenous or community-governed data.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="journey">
+        <div class="kicker">Roadmap</div>
+        <h2>The journey is from hidden work to translation-ready evidence.</h2>
+        <p class="section-lead">
+          This roadmap is a RERITE synthesis, not a single canonical standard. It crosswalks open-science policy, FAIR data, computational reproducibility, artifact review, replication, and translation-readiness frameworks.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 9. Open science and translation journey</h3>
+            <span class="num">RERITE synthesis, source-backed</span>
+          </div>
+          <div class="roadmap">
+            <div class="stage"><div class="stage-num">Stage 0</div><h3>Paper-only claims</h3><p>Methods exist mostly as prose. Artifacts are private or unclear.</p><div class="gain">Gain: published finding.</div></div>
+            <div class="stage"><div class="stage-num">Stage 1</div><h3>Structured disclosure</h3><p>The paper says what exists, where it is, and what cannot be shared.</p><div class="gain">Gain: readers stop guessing.</div></div>
+            <div class="stage"><div class="stage-num">Stage 2</div><h3>FAIR, citable artifacts</h3><p>Code, data, models, scenarios, metadata, licenses, and limits have stable records.</p><div class="gain">Gain: reuse becomes possible.</div></div>
+            <div class="stage"><div class="stage-num">Stage 3</div><h3>Executable workflows</h3><p>Scripts, notebooks, containers, and environments regenerate key results.</p><div class="gain">Gain: verification becomes routine.</div></div>
+            <div class="stage"><div class="stage-num">Stage 4</div><h3>Independent reproduction</h3><p>Reviewers, students, or artifact teams rerun supplied artifacts and document outcomes.</p><div class="gain">Gain: trust has evidence.</div></div>
+            <div class="stage"><div class="stage-num">Stage 5</div><h3>External validation</h3><p>Claims are tested across new data, contexts, scenarios, or implementations.</p><div class="gain">Gain: findings generalize.</div></div>
+            <div class="stage"><div class="stage-num">Stage 6</div><h3>Translation-ready evidence</h3><p>Benchmarks and testbeds support agencies, industry, and practice.</p><div class="gain">Gain: knowledge travels.</div></div>
+          </div>
+          <details>
+            <summary>Source crosswalk and caveats</summary>
+            <div class="details-body">
+              <ul class="source-list">
+                <li><b>Stages 1-2:</b> TOP Guidelines disclosure/requirement/verification logic and FAIR principles for findable, accessible, interoperable, reusable research objects. See <a href="https://www.cos.io/initiatives/top-guidelines?hsLang=en">Center for Open Science TOP Guidelines</a> and <a href="https://www.nature.com/articles/sdata201618">Wilkinson et al. FAIR principles</a>.</li>
+                <li><b>Stage 3:</b> Computational reproducibility depends on capturing code, data, and computational environments. See <a href="https://book.the-turing-way.org/reproducible-research/renv/">The Turing Way on reproducible environments</a>.</li>
+                <li><b>Stages 4-5:</b> Independent reproduction and replication/external validation follow the distinction emphasized by the National Academies and artifact-review programs. See <a href="https://www.nationalacademies.org/read/25303/chapter/6">NASEM Reproducibility and Replicability in Science</a> and <a href="https://www.acm.org/publications/policies/artifact-review-and-badging-current">ACM Artifact Review and Badging</a>.</li>
+                <li><b>Stage 6:</b> Translation-ready evidence is a RERITE adaptation, informed by technology/readiness and translational-science thinking, not a standard open-science maturity level. See <a href="https://esto.nasa.gov/trl/">NASA Technology Readiness Levels</a> and <a href="https://ncats.nih.gov/translation/spectrum">NIH NCATS Translational Science Spectrum</a>.</li>
+              </ul>
+            </div>
+          </details>
+          <figcaption>
+            Transportation is currently concentrated around Stages 0-1, with pockets of Stage 2 in data-driven modeling, intelligent vehicles, and open dataset communities. Stage 6 is intentionally an impact horizon: the field should not claim translation-readiness from artifact availability alone.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="guidelines">
+        <div class="kicker">Centerfold</div>
+        <h2>Guidelines should be memorable enough to repeat in a hallway.</h2>
+        <p class="section-lead">
+          These are deliberately short. A fuller RERITE Guidelines v0.1 can put templates and examples behind them.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 10. Stakeholder quick guide</h3>
+            <span class="num">TL;DR + call to action</span>
+          </div>
+          <div class="guides">
+            <div class="guide"><div class="role">Authors</div><h3>Plan | Package | Point | Protect</h3><ul><li>Plan sharing early.</li><li>Package code, data, and environment.</li><li>Point to persistent links.</li><li>Protect sensitive data with alternatives.</li></ul></div>
+            <div class="guide"><div class="role">Reviewers</div><h3>Ask | Click | Skim | Credit</h3><ul><li>Ask for statements.</li><li>Click the links.</li><li>Skim README and license.</li><li>Credit good artifacts.</li></ul></div>
+            <div class="guide"><div class="role">Editors</div><h3>Require | Verify | Badge | Exempt</h3><ul><li>Require structured statements.</li><li>Verify links.</li><li>Badge artifacts.</li><li>Allow justified exceptions.</li></ul></div>
+            <div class="guide"><div class="role">Conferences</div><h3>Show | Teach | Reward</h3><ul><li>Give open science visible slots.</li><li>Run artifact clinics.</li><li>Create open paper awards.</li></ul></div>
+            <div class="guide"><div class="role">Funders</div><h3>Budget | Require | Reuse</h3><ul><li>Pay for curation.</li><li>Require DMPs and final artifact notes.</li><li>Fund benchmarks and testbeds.</li></ul></div>
+            <div class="guide"><div class="role">PIs and students</div><h3>Train | Template | Recognize</h3><ul><li>Teach Git and repositories.</li><li>Use lab templates.</li><li>Count datasets and software as scholarship.</li></ul></div>
+          </div>
+          <figcaption>
+            This figure can become a one-page handout for editors, conference organizers, and lab groups.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="columns">
+        <div class="kicker">Editorial features</div>
+        <h2>Use short columns to make the report timely.</h2>
+        <p class="section-lead">
+          Three essay slots can add voice without crowding the audit.
+        </p>
+
+        <figure>
+          <div class="figure-title">
+            <h3>Figure 11. Suggested columns</h3>
+            <span class="num">2-3 pages total</span>
+          </div>
+          <div class="columns">
+            <button class="column-card" type="button" data-feature-key="agents" aria-controls="feature-preview" aria-expanded="false">
+              <div class="column-art"><span style="height:20%"></span><span style="height:65%"></span><span style="height:35%"></span><span style="height:80%"></span><span style="height:45%"></span><span style="height:72%"></span><span style="height:52%"></span></div>
+              <div class="column-body"><h3>LLMs and coding agents</h3><p>Agents can help package, inspect, and lightly reproduce work. They also make missing instructions more visible. The column should cover disclosure, sandboxing, and human judgment.</p><span class="column-cue">Preview spread</span></div>
+            </button>
+            <button class="column-card" type="button" data-feature-key="available" aria-controls="feature-preview" aria-expanded="false">
+              <div class="column-art"><span style="height:72%"></span><span style="height:54%"></span><span style="height:39%"></span><span style="height:62%"></span><span style="height:29%"></span><span style="height:77%"></span><span style="height:45%"></span></div>
+              <div class="column-body"><h3>Beyond available on request</h3><p>Replace vague requests with a menu: public repository, controlled access, synthetic data, derived data, simulator, metadata-only record, or justified non-release.</p><span class="column-cue">Preview spread</span></div>
+            </button>
+            <button class="column-card" type="button" data-feature-key="benchmarks" aria-controls="feature-preview" aria-expanded="false">
+              <div class="column-art"><span style="height:32%"></span><span style="height:46%"></span><span style="height:70%"></span><span style="height:56%"></span><span style="height:84%"></span><span style="height:63%"></span><span style="height:74%"></span></div>
+              <div class="column-body"><h3>Benchmarks as infrastructure</h3><p>Open datasets, simulation scenarios, and testbeds are how methods become comparable, useful, and attractive to new talent.</p><span class="column-cue">Preview spread</span></div>
+            </button>
+          </div>
+
+          <div class="feature-preview" id="feature-preview" aria-live="polite">
+            <div class="feature-preview-head">
+              <span id="feature-preview-label">Editorial feature preview</span>
+              <span id="feature-preview-length">~900 words + one sidebar</span>
+            </div>
+            <div class="feature-spread">
+              <div class="feature-copy">
+                <div class="feature-kicker" id="feature-kicker">Column 1 | Tools</div>
+                <h4 id="feature-title">When the reviewer has a pair programmer</h4>
+                <p class="feature-dek" id="feature-dek">Coding agents will not solve reproducibility by magic. They shift the bottleneck: clear artifacts become easier to inspect, while missing instructions become visibly incomplete.</p>
+                <p class="feature-excerpt" id="feature-excerpt">A useful 2026 standard is not "AI reproduced it." It is: a human used an auditable agent workflow to check whether links, environments, and claims line up. The column should show both the promise and the guardrails: disclosure, sandboxing, provenance logs, and human sign-off.</p>
+                <div class="feature-pull" id="feature-pull">Agents make reproducibility debt legible.</div>
+                <div class="feature-footer" id="feature-tags">
+                  <span class="status shipped">agent-assisted review</span>
+                  <span class="status planned">sandbox log</span>
+                  <span class="status draft">human sign-off</span>
+                </div>
+              </div>
+              <aside class="feature-side">
+                <div class="mini-graphic" id="feature-graphic" aria-label="Feature visual sketch">
+                  <span style="height:32%"></span><span style="height:72%"></span><span style="height:48%"></span><span style="height:86%"></span><span style="height:58%"></span>
+                </div>
+                <div class="feature-notes">
+                  <b>How this would appear</b>
+                  <ul id="feature-notes">
+                    <li>One-page column with a large pull quote.</li>
+                    <li>Small visual: artifact check workflow.</li>
+                    <li>Sidebar: what to disclose when using agents.</li>
+                  </ul>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <figcaption>
+            Select a column card to preview the eventual report treatment. The cards stay short; the preview panel carries the sample layout.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="sources">
+        <div class="kicker">Source appendix</div>
+        <h2>Keep sources accessible, but out of the visual flow.</h2>
+        <p class="section-lead">
+          The report should archive policy pages where possible because conference and journal instructions change quickly.
+        </p>
+
+        <details open>
+          <summary>Core RERITE and MOST sources</summary>
+          <div class="details-body">
+            <ul class="source-list">
+              <li><a href="https://arxiv.org/abs/2601.14429">MOST preprint: Measuring the State of Open Science in Transportation Using Large Language Models</a>.</li>
+              <li><a href="https://www.rerite.org/">RERITE website</a>, including <a href="https://www.rerite.org/about.html">About</a>, <a href="https://www.rerite.org/activities.html">Activities</a>, <a href="https://www.rerite.org/newsletter/2026-02.html">February 2026 newsletter</a>, <a href="https://www.rerite.org/MOST/">MOST project page</a>, and <a href="https://www.rerite.org/getinvolved.html">Get Involved</a>.</li>
+              <li><a href="https://www.rerite.org/activities/2026-06-22-ivs-workshop.html">IEEE IV 2026 RERITE workshop page</a>.</li>
+              <li><a href="reference/RERITE_2026_Strategy-2026-03-03.md">Internal RERITE near-term strategy memo, March-December 2026</a>.</li>
+              <li><a href="https://www.unesco.org/en/open-science/about?hub=66370">UNESCO Recommendation on Open Science</a> and <a href="https://www.unesco.org/en/articles/step-towards-global-open-science-monitoring?hub=686">UNESCO open science monitoring principles</a>.</li>
+              <li><a href="https://www.cos.io/initiatives/top-guidelines?hsLang=en">Center for Open Science TOP Guidelines</a>.</li>
+              <li><a href="https://www.nature.com/articles/sdata201618">FAIR Guiding Principles for scientific data management and stewardship</a>.</li>
+              <li><a href="https://book.the-turing-way.org/reproducible-research/renv/">The Turing Way: Reproducible Environments</a>.</li>
+              <li><a href="https://www.nationalacademies.org/read/25303/chapter/6">National Academies: Reproducibility and Replicability in Science</a>.</li>
+              <li><a href="https://www.acm.org/publications/policies/artifact-review-and-badging-current">ACM Artifact Review and Badging</a>.</li>
+              <li><a href="https://esto.nasa.gov/trl/">NASA Technology Readiness Levels</a> and <a href="https://ncats.nih.gov/translation/spectrum">NIH NCATS Translational Science Spectrum</a>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Conference and journal policy sources</summary>
+          <div class="details-body">
+            <ul class="source-list">
+              <li><a href="https://neurips.cc/Conferences/2026/MainTrackHandbook">NeurIPS 2026 Main Track Handbook</a>.</li>
+              <li><a href="https://icml.cc/Conferences/2026/AuthorInstructions">ICML 2026 Author Instructions</a>.</li>
+              <li><a href="https://iclr.cc/Conferences/2026/AuthorGuide">ICLR 2026 Author Guide</a>.</li>
+              <li><a href="https://kdd2026.kdd.org/call-for-artifact-badging/">KDD 2026 Artifact Badging</a>.</li>
+              <li><a href="https://www.sciencedirect.com/journal/transportation-research-part-d-transport-and-environment/publish/guide-for-authors">Transportation Research Part D guide for authors</a>.</li>
+              <li><a href="https://journals.sagepub.com/author-instructions/trr">Transportation Research Record submission guidelines</a>.</li>
+              <li><a href="https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/research-reproducibility/">IEEE Author Center conference reproducibility guidance</a>.</li>
+              <li><a href="https://www.corl.org/contributions/instruction-for-authors">CoRL 2026 author instructions</a>.</li>
+              <li><a href="https://roboticsconference.org/information/cfp/">RSS 2026 call for papers</a>.</li>
+              <li><a href="https://2026.ieee-icra.org/contribute/final-author-instructions/">ICRA 2026 final author instructions</a>.</li>
+              <li><a href="https://pubsonline.informs.org/page/mnsc/code-and-data-disclosure-policy">Management Science Code and Data Disclosure Policy</a>.</li>
+              <li><a href="https://pubsonline.informs.org/page/opre/code-and-data-disclosure-policy">Operations Research Code and Data Disclosure Policy</a>.</li>
+              <li><a href="https://pubsonline.informs.org/page/ijoc/softwarepolicy">INFORMS Journal on Computing Software Policy</a>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Governmental funder policy sources</summary>
+          <div class="details-body">
+            <ul class="source-list">
+              <li><a href="https://www.whitehouse.gov/wp-content/uploads/2022/08/08-2022-OSTP-Public-access-Memo.pdf">OSTP 2022 public access memorandum</a>.</li>
+              <li><a href="https://www.nsf.gov/funding/data-management-plan">NSF data management and sharing plan guidance</a>.</li>
+              <li><a href="https://grants.nih.gov/policy-and-compliance/policy-topics/sharing-policies/dms/policy-overview">NIH Data Management and Sharing Policy overview</a>.</li>
+              <li><a href="https://science.nasa.gov/researchers/science-information-policy/">NASA SMD Scientific Information Policy</a>.</li>
+              <li><a href="https://rea.ec.europa.eu/open-science_en">European Commission Horizon open science guidance</a>.</li>
+              <li><a href="https://www.ukri.org/publications/ukri-open-access-policy/uk-research-and-innovation-open-access-policy/">UKRI Open Access Policy</a>.</li>
+              <li><a href="https://science.gc.ca/site/science/en/interagency-research-funding/policies-and-guidelines/research-data-management/tri-agency-research-data-management-policy?Open=1&amp;wbdisable=false">Canada Tri-Agency RDM Policy</a>.</li>
+              <li><a href="https://www.arc.gov.au/about-arc/strategies-and-policies/open-access-policy">ARC Open Access Policy 2026</a>.</li>
+              <li><a href="https://anr.fr/en/anrs-role-in-research/commitments/open-science/">ANR Open Science policy</a>.</li>
+              <li><a href="https://www.jst.go.jp/EN/about/openscience/policy_openscience_en_r4.pdf">JST Open Access and Research Data Management policy</a>.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    Draft prepared as a visual working artifact for RERITE. Statistics from the January 2026 MOST preprint should be refreshed once the final paper, data, and code are available.
+  </footer>
+</div>
+<script>
+  const featurePreviews = {
+    agents: {
+      label: "Editorial feature preview",
+      length: "~900 words + one sidebar",
+      kicker: "Column 1 | Tools",
+      title: "When the reviewer has a pair programmer",
+      dek: "Coding agents will not solve reproducibility by magic. They shift the bottleneck: clear artifacts become easier to inspect, while missing instructions become visibly incomplete.",
+      excerpt: "A useful 2026 standard is not \"AI reproduced it.\" It is: a human used an auditable agent workflow to check whether links, environments, and claims line up. The column should show both the promise and the guardrails: disclosure, sandboxing, provenance logs, and human sign-off.",
+      pull: "Agents make reproducibility debt legible.",
+      tags: [
+        ["agent-assisted review", "shipped"],
+        ["sandbox log", "planned"],
+        ["human sign-off", "draft"]
+      ],
+      bars: ["32%", "72%", "48%", "86%", "58%"],
+      color: "#2f7d78",
+      notes: [
+        "One-page column with a large pull quote.",
+        "Small visual: artifact check workflow.",
+        "Sidebar: what to disclose when using agents."
+      ]
+    },
+    available: {
+      label: "Editorial feature preview",
+      length: "~750 words + menu graphic",
+      kicker: "Column 2 | Access",
+      title: "The end of \"available on request\"",
+      dek: "A request-only sentence sounds generous, but it often leaves future readers with a dead end. The replacement is a clear menu of release pathways.",
+      excerpt: "The report can make this practical rather than scolding: public repository when possible; controlled access when necessary; synthetic data when privacy is the barrier; derived data when raw traces cannot move; metadata-only records when even the object cannot be released.",
+      pull: "Not every artifact can be open. Every artifact can be accounted for.",
+      tags: [
+        ["public repo", "shipped"],
+        ["controlled access", "planned"],
+        ["justified limits", "draft"]
+      ],
+      bars: ["78%", "48%", "64%", "34%", "70%"],
+      color: "#b6842e",
+      notes: [
+        "One-page field guide with a decision menu.",
+        "Visual: replace a vague request sentence with six concrete pathways.",
+        "Sidebar: sample availability statement language."
+      ]
+    },
+    benchmarks: {
+      label: "Editorial feature preview",
+      length: "~850 words + infrastructure sketch",
+      kicker: "Column 3 | Translation",
+      title: "Benchmarks are field infrastructure",
+      dek: "Open datasets, simulation scenarios, and testbeds are not side products. They are the roads that let methods travel from paper to practice.",
+      excerpt: "A benchmark is a public invitation: compare here, improve this, document tradeoffs, and make the next claim easier to understand. For transportation, that can mean shared scenarios, synthetic corridors, calibrated simulators, safety cases, or curated challenge datasets.",
+      pull: "Translation needs more than findings. It needs shared places to test them.",
+      tags: [
+        ["datasets", "shipped"],
+        ["scenarios", "planned"],
+        ["testbeds", "draft"]
+      ],
+      bars: ["42%", "56%", "82%", "66%", "88%"],
+      color: "#496f9e",
+      notes: [
+        "Two-column column page with an infrastructure sketch.",
+        "Visual: pipeline from paper claim to benchmark to practice.",
+        "Sidebar: candidate transportation benchmark areas for 2027."
+      ]
+    }
+  };
+
+  const audienceInsights = {
+    publishers: {
+      title: "Journals and publishers",
+      summary: "The journal-level lesson is that soft encouragement is not enough. The study reports no TR journal in scope encouraged or required a code availability statement, while data-statement policies varied across journals.",
+      stats: [
+        ["0", "journals in the study encouraged or required a code availability statement, as reported in the preprint."],
+        ["TR-C", "was more likely to have a data repository; TR-B and TR-C were more likely to have code repositories."],
+        ["31%", "of quantitative papers had an availability statement overall; 74% of code-sharing papers did."],
+        ["269 vs 254", "mean review days for papers with code available vs without code available; no review-time benefit was detected."]
+      ],
+      use: "Make the publisher section a policy conversion argument: require structured code and data availability statements, verify links, badge verified artifacts, and recognize open-science labor through CRediT or similar contribution language.",
+      next: "For the final report, add a journal-by-journal 2025 policy table: data statement required, code statement required, link verification, badge or reward, exception pathway, and whether the policy language appears in submission systems."
+    },
+    conferences: {
+      title: "Conferences",
+      summary: "Conference organizers should focus attention where behavior can spread: high-sharing subfields can model practice, while low-sharing subfields need clinics, templates, and awards.",
+      stats: [
+        ["15%", "approximate code-sharing rate for data-driven modeling and prediction, the highest-sharing topic group."],
+        ["45%", "approximate data-citation rate in COVID-19 and active-transport or urban-environment topic areas."],
+        ["5% / 4%", "overall code repository and data repository rates among quantitative papers."],
+        ["79%", "code availability level cited by the paper as achieved in parts of machine learning without compulsory release."]
+      ],
+      use: "Frame conferences as norm-setting venues: best open paper awards, artifact clinics, tutorial slots, reproducibility keynote sessions, and visible artifact showcases can make open practice prestigious before it becomes compulsory.",
+      next: "Add a conference scan for TRB, ITSC, IV, hEART, TRISTAN, and related venues: author-instruction language, artifact awards, tutorial history, accepted-paper artifact links, and whether proceedings support availability statements."
+    },
+    funders: {
+      title: "Funding agencies",
+      summary: "For funders, the important finding is the asymmetry between using shared resources and contributing reusable resources back to the system.",
+      stats: [
+        ["67%", "of quantitative papers neither cite open data nor provide a data repository."],
+        ["29% vs 4%", "cite or link open data vs share a data repository."],
+        ["<4%", "likely contributed new data, because some repositories repackage existing datasets."],
+        ["Low-use topics", "include supply chain/logistics, road infrastructure, resilience, and evacuation-style areas identified as benchmark opportunities."]
+      ],
+      use: "Use the funder section to argue that open science is research infrastructure. Funders can require plans, budget curation, support benchmark datasets, and reduce repeated data collection across grants.",
+      next: "Before release, normalize funding acknowledgments for the 2019-2025 corpus and estimate artifact rates by funder family: national research agencies, transportation departments, EU programs, foundations, and industry sponsors."
+    },
+    universities: {
+      title: "Universities and research institutions",
+      summary: "The university story is capacity building. Transportation research is overwhelmingly quantitative, but the field has not yet made artifact packaging a normal research skill.",
+      stats: [
+        ["97.7%", "of full-length papers in the corpus were classified as quantitative studies: 10,480 of 10,724."],
+        ["31%", "had an availability statement overall, leaving statement quality and completeness as a training opportunity."],
+        ["74% vs 29%", "availability-statement presence among code-sharing papers vs papers without code available."],
+        ["38.6% vs 26.2%", "open-access share among code-sharing papers vs papers without code available, descriptive rather than causal."]
+      ],
+      use: "Make universities responsible for skills and incentives: Git, archiving, licensing, README writing, containers, sensitive-data alternatives, and promotion criteria that count datasets, benchmarks, software, and reproductions.",
+      next: "Add an institution-level appendix for the final report: top publishing universities, whether they publish RDM or open-science policies, and whether artifact rates differ by institution or lab ecosystem."
+    },
+    reviewers: {
+      title: "Reviewers and editors",
+      summary: "The reviewer lesson is that code availability can be checked reliably, but data availability is more ambiguous and needs structured questions.",
+      stats: [
+        ["0.839", "Fleiss kappa for code-availability extraction, with 96.9% overall agreement."],
+        ["0.522", "Fleiss kappa for whether data was cited or linked; moderate agreement."],
+        ["0.399", "Fleiss kappa for whether a data repository was available; fair agreement and genuine ambiguity."],
+        ["0.636 vs 0.839", "text search vs LLM Fleiss kappa for code availability; simple link search overestimates."]
+      ],
+      use: "Give reviewers a narrow checklist: ask for a statement, click links, skim README, license, and environment files, verify whether data is cited or contributed, and credit good artifacts without trying to fully reproduce everything.",
+      next: "Run a 30-50 paper reviewer pilot in 2026 or 2027: measure time to complete link checks, disagreement types, broken links, README quality, licenses, environments, and reviewer confidence."
+    },
+    rerite: {
+      title: "RERITE members",
+      summary: "For RERITE, the study is a measurement engine and a prioritization map. The audit can be repeated, but caveats and validation must stay visible.",
+      stats: [
+        ["10,724", "full-length Transportation Research articles processed across TR-A through TR-F and TR-IP."],
+        ["10,480", "quantitative studies retained for the main code and data availability analysis."],
+        ["96", "manual validation papers used for human-LLM agreement assessment."],
+        ["15", "LDA topic groups that can support subfield dashboards and targeted training."]
+      ],
+      use: "Use the RERITE section to define the annual audit product: a repeatable dataset, validation report, policy scan, stakeholder dashboard, and public runbook that gets better each year.",
+      next: "Extend the corpus to 2025, freeze a 2026 policy snapshot, and publish the codebook: exact prompts, validation sample design, link classification, uncertainty labels, and data dictionary."
+    },
+    researchers: {
+      title: "Researchers, students, and PIs",
+      summary: "The individual-researcher story should be practical: artifact sharing is rare enough to stand out, and code sharing often travels with better data packaging.",
+      stats: [
+        ["528", "papers with code available out of 10,480 quantitative studies."],
+        ["62%", "of code-sharing papers linked GitHub; 22% used another service."],
+        ["56% vs 0.8%", "some data repository among code-sharing papers vs papers without code available."],
+        ["No bump", "no significant citation advantage was detected for sharing code or data."]
+      ],
+      use: "Tell authors to share for reuse, future-self benefit, revision readiness, student continuity, and field credibility. The minimum viable package is a persistent link, README, license, environment note, and either data or a clear exception.",
+      next: "For final release, add exemplar artifacts: one student-friendly code package, one controlled-access data statement, one synthetic-data example, and one derived-data example from transportation papers."
+    }
+  };
+
+  function setAudienceInsight(key, selectedButton) {
+    const insight = audienceInsights[key];
+    if (!insight) return;
+
+    document.querySelectorAll("[data-audience-key]").forEach((button) => {
+      const active = button === selectedButton;
+      button.classList.toggle("is-selected", active);
+      button.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+
+    document.getElementById("audience-title").textContent = insight.title;
+    document.getElementById("audience-summary").textContent = insight.summary;
+    document.getElementById("audience-use").textContent = insight.use;
+    document.getElementById("audience-next").textContent = insight.next;
+
+    const stats = document.getElementById("audience-stats");
+    stats.replaceChildren();
+    insight.stats.forEach(([value, label]) => {
+      const item = document.createElement("div");
+      item.className = "stat-item";
+      const stat = document.createElement("b");
+      stat.textContent = value;
+      const text = document.createElement("span");
+      text.textContent = label;
+      item.append(stat, text);
+      stats.append(item);
+    });
+  }
+
+  function setFeaturePreview(key, selectedButton) {
+    const preview = featurePreviews[key];
+    if (!preview) return;
+
+    document.querySelectorAll("[data-feature-key]").forEach((button) => {
+      const active = button === selectedButton;
+      button.classList.toggle("is-selected", active);
+      button.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+
+    document.getElementById("feature-preview-label").textContent = preview.label;
+    document.getElementById("feature-preview-length").textContent = preview.length;
+    document.getElementById("feature-kicker").textContent = preview.kicker;
+    document.getElementById("feature-title").textContent = preview.title;
+    document.getElementById("feature-dek").textContent = preview.dek;
+    document.getElementById("feature-excerpt").textContent = preview.excerpt;
+    document.getElementById("feature-pull").textContent = preview.pull;
+
+    const tags = document.getElementById("feature-tags");
+    tags.replaceChildren();
+    preview.tags.forEach(([label, state]) => {
+      const tag = document.createElement("span");
+      tag.className = `status ${state}`;
+      tag.textContent = label;
+      tags.append(tag);
+    });
+
+    const graphic = document.getElementById("feature-graphic");
+    graphic.replaceChildren();
+    preview.bars.forEach((height) => {
+      const bar = document.createElement("span");
+      bar.style.height = height;
+      bar.style.background = preview.color;
+      graphic.append(bar);
+    });
+
+    const notes = document.getElementById("feature-notes");
+    notes.replaceChildren();
+    preview.notes.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      notes.append(li);
+    });
+  }
+
+  const policySources = {
+    most: {
+      label: "MOST preprint",
+      href: "https://arxiv.org/abs/2601.14429",
+      note: "Transportation open-science baseline: code, data, repository, and topic patterns."
+    },
+    mostProject: {
+      label: "RERITE MOST project",
+      href: "https://www.rerite.org/MOST/",
+      note: "Project page and explorer for the measurement effort."
+    },
+    trd: {
+      label: "Transportation Research Part D",
+      href: "https://www.sciencedirect.com/journal/transportation-research-part-d-transport-and-environment/publish/guide-for-authors",
+      note: "Guide for authors with data, statement, and research-object guidance."
+    },
+    trr: {
+      label: "Transportation Research Record",
+      href: "https://journals.sagepub.com/author-instructions/trr",
+      note: "Journal submission guidelines for TRR authors."
+    },
+    ieee: {
+      label: "IEEE reproducibility guidance",
+      href: "https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/research-reproducibility/",
+      note: "Conference guidance for data, code, repositories, and reproducibility."
+    },
+    ivWorkshop: {
+      label: "RERITE IEEE IV 2026 workshop",
+      href: "https://www.rerite.org/activities/2026-06-22-ivs-workshop.html",
+      note: "Workshop page for reproducibility in intelligent vehicles and transportation systems."
+    },
+    newsletter: {
+      label: "RERITE February 2026 newsletter",
+      href: "https://www.rerite.org/newsletter/2026-02.html",
+      note: "Newsletter covering MOST, workshops, student projects, and volunteer opportunities."
+    },
+    neurips: {
+      label: "NeurIPS 2026 handbook",
+      href: "https://neurips.cc/Conferences/2026/MainTrackHandbook",
+      note: "Main-track handbook for a leading machine learning venue."
+    },
+    icml: {
+      label: "ICML 2026 instructions",
+      href: "https://icml.cc/Conferences/2026/AuthorInstructions",
+      note: "Author instructions for a top machine learning conference."
+    },
+    iclr: {
+      label: "ICLR 2026 guide",
+      href: "https://iclr.cc/Conferences/2026/AuthorGuide",
+      note: "Author guide for submissions, supplements, and reproducibility-facing material."
+    },
+    kdd: {
+      label: "KDD 2026 artifact badging",
+      href: "https://kdd2026.kdd.org/call-for-artifact-badging/",
+      note: "Artifact badge workflow for availability, functionality, and reuse signals."
+    },
+    corl: {
+      label: "CoRL author instructions",
+      href: "https://www.corl.org/contributions/instruction-for-authors",
+      note: "Robotics learning conference instructions and supporting-material expectations."
+    },
+    rss: {
+      label: "RSS call for papers",
+      href: "https://roboticsconference.org/information/cfp/",
+      note: "Call for papers for a top robotics conference."
+    },
+    icra: {
+      label: "ICRA 2026 final instructions",
+      href: "https://2026.ieee-icra.org/contribute/final-author-instructions/",
+      note: "Final author instructions for a major IEEE robotics conference."
+    },
+    mnsc: {
+      label: "Management Science policy",
+      href: "https://pubsonline.informs.org/page/mnsc/code-and-data-disclosure-policy",
+      note: "Code and data disclosure policy for a flagship INFORMS journal."
+    },
+    opre: {
+      label: "Operations Research policy",
+      href: "https://pubsonline.informs.org/page/opre/code-and-data-disclosure-policy",
+      note: "Code and data disclosure policy for Operations Research."
+    },
+    ijoc: {
+      label: "IJOC software policy",
+      href: "https://pubsonline.informs.org/page/ijoc/softwarepolicy",
+      note: "Software policy and repository infrastructure for computational artifacts."
+    }
+  };
+
+  const funderSources = {
+    ostp: {
+      label: "OSTP 2022 public access memo",
+      href: "https://www.whitehouse.gov/wp-content/uploads/2022/08/08-2022-OSTP-Public-access-Memo.pdf",
+      note: "U.S. public-access direction for federally funded research outputs."
+    },
+    nsf: {
+      label: "NSF data management plans",
+      href: "https://www.nsf.gov/funding/data-management-plan",
+      note: "NSF guidance on data management and sharing plans."
+    },
+    nih: {
+      label: "NIH DMS policy",
+      href: "https://grants.nih.gov/policy-and-compliance/policy-topics/sharing-policies/dms/policy-overview",
+      note: "NIH Data Management and Sharing Policy overview."
+    },
+    nasa: {
+      label: "NASA SMD information policy",
+      href: "https://science.nasa.gov/researchers/science-information-policy/",
+      note: "NASA scientific information, data, software, and open-science guidance."
+    },
+    ec: {
+      label: "European Commission open science",
+      href: "https://rea.ec.europa.eu/open-science_en",
+      note: "Horizon Europe open-science practices and obligations."
+    },
+    ukri: {
+      label: "UKRI open access policy",
+      href: "https://www.ukri.org/publications/ukri-open-access-policy/uk-research-and-innovation-open-access-policy/",
+      note: "UKRI open access requirements and data access statement expectations."
+    },
+    canada: {
+      label: "Canada Tri-Agency RDM policy",
+      href: "https://science.gc.ca/site/science/en/interagency-research-funding/policies-and-guidelines/research-data-management/tri-agency-research-data-management-policy?Open=1&wbdisable=false",
+      note: "Canadian institutional strategies, DMPs, and data-deposit policy."
+    },
+    arc: {
+      label: "ARC open access policy",
+      href: "https://www.arc.gov.au/about-arc/strategies-and-policies/open-access-policy",
+      note: "Australian Research Council open access, DOI, and metadata requirements."
+    },
+    anr: {
+      label: "ANR open science policy",
+      href: "https://anr.fr/en/anrs-role-in-research/commitments/open-science/",
+      note: "French National Research Agency open science commitments and DMP expectations."
+    },
+    jst: {
+      label: "JST open access and RDM policy",
+      href: "https://www.jst.go.jp/EN/about/openscience/policy_openscience_en_r4.pdf",
+      note: "Japan Science and Technology Agency open access and research data management policy."
+    },
+    unesco: {
+      label: "UNESCO open science",
+      href: "https://www.unesco.org/en/open-science/about?hub=66370",
+      note: "Global recommendation framing access, reuse, equity, and open knowledge."
+    },
+    unescoMonitor: {
+      label: "UNESCO monitoring principles",
+      href: "https://www.unesco.org/en/articles/step-towards-global-open-science-monitoring?hub=686",
+      note: "Principles for global open-science monitoring."
+    }
+  };
+
+  const funderColumns = [
+    { key: "access", label: "Public access" },
+    { key: "plans", label: "DMP/data plans" },
+    { key: "repo", label: "Repository/metadata" },
+    { key: "exceptions", label: "Exceptions" },
+    { key: "monitor", label: "Monitoring/support" }
+  ];
+
+  const funderRows = [
+    {
+      key: "us",
+      name: "United States",
+      org: "OSTP, NSF, NIH, NASA",
+      sources: [funderSources.ostp, funderSources.nsf, funderSources.nih, funderSources.nasa],
+      cells: {
+        access: ["strong", "No embargo", "Federal policy is moving toward immediate public access for federally funded publications.", "Transportation funders can align grant reporting with no-embargo article access and machine-readable output records."],
+        plans: ["strong", "Required plans", "NSF DMPs, NIH DMS plans, and NASA guidance make data planning a normal proposal-stage requirement.", "Use this as the model for requiring transportation projects to budget curation and identify shareable artifacts before data collection begins."],
+        repo: ["strong", "Data + software", "Agency policies increasingly point beyond articles to data, software, metadata, and persistent access.", "Transportation grants should ask where datasets, code, scenarios, and documentation will live after the project ends."],
+        exceptions: ["mid", "Allow limits", "U.S. agency policies allow justified limits for privacy, security, confidentiality, and other constraints.", "The report should translate these limits into transportation examples: mobility traces, vendor feeds, safety-critical systems, and agency contracts."],
+        monitor: ["mid", "Agency uptake", "Implementation varies by agency and program, with growing training and compliance infrastructure.", "The final report can track which transportation programs check DMP follow-through, not just whether a plan was submitted."]
+      }
+    },
+    {
+      key: "eu",
+      name: "European Union",
+      org: "Horizon Europe",
+      sources: [funderSources.ec],
+      cells: {
+        access: ["strong", "Open default", "Horizon Europe frames open access as a core funded-research obligation.", "This gives transportation a mature model for tying publication access to grant compliance."],
+        plans: ["strong", "DMP expected", "DMPs and research-output management are built into Horizon open-science practice.", "Use this to motivate DMP templates that include code, data, models, simulation cases, and benchmarks."],
+        repo: ["strong", "Trusted repos", "The EU model emphasizes trusted repositories and reusable research outputs.", "Transportation can borrow the repository language while adding domain-specific metadata for networks, sensors, scenarios, and geographic context."],
+        exceptions: ["strong", "As open as possible", "The EU's familiar principle is to be as open as possible and as closed as necessary.", "This is the cleanest phrase for balancing openness with privacy, proprietary data, safety, and infrastructure-security constraints."],
+        monitor: ["strong", "Embedded practice", "Open-science practices are part of the Horizon funding lifecycle.", "The final report should compare this integrated model with transportation programs where open science appears only in narrative guidance."]
+      }
+    },
+    {
+      key: "uk",
+      name: "United Kingdom",
+      org: "UKRI",
+      sources: [funderSources.ukri],
+      cells: {
+        access: ["strong", "Immediate OA", "UKRI policy sets strong expectations for open access to research articles and outputs.", "This is useful for publishers and universities because licensing and access routes are explicit."],
+        plans: ["mid", "Data statement", "UKRI policy links publications to data access statements and supporting information.", "For transportation, data access statements are a bridge between article access and reusable research products."],
+        repo: ["mid", "Link + license", "The policy emphasizes access routes, licensing, and discoverability.", "The audit can measure whether papers use persistent links and clear licenses, not just whether a URL appears."],
+        exceptions: ["strong", "Rights-aware", "UKRI policy language recognizes rights, permissions, and legitimate constraints.", "This helps shape exception language for commercially licensed data, vulnerable populations, and restricted mobility traces."],
+        monitor: ["strong", "Policy monitoring", "UKRI includes policy monitoring and compliance language.", "The final report can ask which transportation funders actually monitor sharing outcomes after award closeout."]
+      }
+    },
+    {
+      key: "canada",
+      name: "Canada",
+      org: "Tri-Agency RDM",
+      sources: [funderSources.canada],
+      cells: {
+        access: ["mid", "RDM focus", "The Tri-Agency policy foregrounds responsible data management rather than only article access.", "This is a good reminder that transportation openness is stewardship, not just download links."],
+        plans: ["strong", "Phased DMPs", "The policy uses institutional strategies and phased data-management planning.", "Universities can use this to build lab-level and department-level reproducibility expectations."],
+        repo: ["mid", "FAIR deposit", "The policy points toward FAIR principles and data deposit when appropriate.", "Transportation repositories should support metadata about geography, time, instruments, consent, and processing."],
+        exceptions: ["strong", "Governance", "The policy explicitly recognizes Indigenous data governance and ethical stewardship.", "This is essential for transportation work involving communities, equity, surveillance risk, or local data sovereignty."],
+        monitor: ["mid", "Institutional", "Implementation flows through institutions as well as grants.", "The report can examine whether high-publishing universities have usable RDM services for transportation labs."]
+      }
+    },
+    {
+      key: "australia",
+      name: "Australia",
+      org: "ARC",
+      sources: [funderSources.arc],
+      cells: {
+        access: ["strong", "2026 OA", "ARC's 2026 policy update strengthens open access expectations for funded research outputs.", "The report can cite this as a current example of open access policy still actively evolving."],
+        plans: ["mid", "Manage outputs", "The policy connects access with research-output management and reporting.", "For transportation grants, this suggests asking for final artifact notes, not just article citations."],
+        repo: ["strong", "DOI + metadata", "ARC emphasizes DOI use and metadata for discoverability.", "This maps directly onto audit metrics that are cheap to collect: DOI presence, repository host, and metadata completeness."],
+        exceptions: ["strong", "Cultural care", "The policy includes culturally aware requirements and legitimate constraints.", "Transportation open science should similarly treat community-governed and sensitive mobility data as stewardship questions."],
+        monitor: ["mid", "Compliance", "The policy creates a clearer basis for compliance and reporting.", "RERITE can compare policy language with actual artifact rates in funded transportation publications."]
+      }
+    },
+    {
+      key: "france",
+      name: "France",
+      org: "ANR",
+      sources: [funderSources.anr],
+      cells: {
+        access: ["strong", "Open science", "ANR aligns funded research with France's open-science commitments.", "This gives the report a European national funder example alongside Horizon Europe."],
+        plans: ["strong", "DMP since 2019", "ANR has required DMPs for funded projects since 2019.", "This is a strong precedent for making transportation data planning routine rather than exceptional."],
+        repo: ["mid", "Deposit expected", "ANR points researchers toward open repositories and FAIR-oriented practices.", "The audit can ask whether repository links are persistent, citable, and visible in the article."],
+        exceptions: ["strong", "Closed when needed", "ANR uses the same open-where-possible, closed-where-necessary logic.", "This can help RERITE write exception templates that are permissive enough for sensitive data and strict enough to avoid vague non-sharing."],
+        monitor: ["mid", "National alignment", "ANR policy is part of a broader national open-science ecosystem.", "The final report can distinguish funder requirements from national infrastructure and university support."]
+      }
+    },
+    {
+      key: "japan",
+      name: "Japan",
+      org: "JST",
+      sources: [funderSources.jst],
+      cells: {
+        access: ["strong", "Open access", "JST policy expects open access for research results under its programs.", "This broadens the report beyond North American and European policy examples."],
+        plans: ["strong", "PI DMP", "JST expects principal investigators to prepare data management plans.", "For PIs, this reinforces that artifact planning is a leadership task, not only a student afterthought."],
+        repo: ["strong", "Metadata", "JST policy emphasizes metadata creation and management for research data.", "RERITE can translate this into minimum metadata for transportation artifacts."],
+        exceptions: ["strong", "Explicit limits", "JST recognizes limits such as confidentiality, security, privacy, and industry data.", "This is highly relevant to transportation partnerships with public agencies and private mobility providers."],
+        monitor: ["mid", "Program level", "Implementation is tied to program and project management.", "The final report can look for whether funded transportation papers acknowledge DMPs or link project-level outputs."]
+      }
+    },
+    {
+      key: "unesco",
+      name: "Global norm",
+      org: "UNESCO",
+      sources: [funderSources.unesco, funderSources.unescoMonitor],
+      cells: {
+        access: ["mid", "Access", "UNESCO frames access to scientific knowledge as part of open science.", "This helps the report connect funder policy to a global public-interest frame."],
+        plans: ["mid", "Stewardship", "UNESCO emphasizes open-science practices, infrastructures, and capacities rather than a single DMP mandate.", "Use it as a broad frame for training, infrastructure, and inclusion."],
+        repo: ["mid", "Commons", "The UNESCO frame values open infrastructures and knowledge commons.", "Transportation can use this to argue for shared benchmarks, testbeds, and repositories as field infrastructure."],
+        exceptions: ["strong", "Equity", "UNESCO foregrounds equity, inclusion, and local context in open science.", "The report should avoid a one-size-fits-all openness model and account for community governance and uneven resources."],
+        monitor: ["strong", "Global monitor", "UNESCO has advanced principles for global open-science monitoring.", "This validates RERITE's audit role while reminding readers that metrics should be transparent, contextual, and not punitive."]
+      }
+    }
+  ];
+
+  function makeSourceTile(source) {
+    const anchor = document.createElement("a");
+    anchor.className = "source-tile";
+    anchor.href = source.href;
+    anchor.target = "_blank";
+    anchor.rel = "noreferrer";
+
+    const title = document.createElement("b");
+    title.textContent = source.label;
+    const note = document.createElement("span");
+    note.textContent = source.note;
+    const cue = document.createElement("small");
+    cue.textContent = "Open source page";
+
+    anchor.append(title, note, cue);
+    return anchor;
+  }
+
+  function renderFunderGrid() {
+    const grid = document.getElementById("funder-policy-grid");
+    if (!grid) return;
+
+    grid.replaceChildren();
+    const corner = document.createElement("div");
+    corner.className = "funder-grid-cell funder-head";
+    corner.textContent = "Funder";
+    grid.append(corner);
+
+    funderColumns.forEach((column) => {
+      const head = document.createElement("div");
+      head.className = "funder-grid-cell funder-head";
+      head.textContent = column.label;
+      grid.append(head);
+    });
+
+    funderRows.forEach((row) => {
+      const rowHead = document.createElement("div");
+      rowHead.className = "funder-grid-cell funder-rowhead";
+      const name = document.createElement("b");
+      name.textContent = row.name;
+      const org = document.createElement("span");
+      org.textContent = row.org;
+      rowHead.append(name, org);
+      grid.append(rowHead);
+
+      funderColumns.forEach((column) => {
+        const [level, label, summary] = row.cells[column.key];
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `funder-grid-cell funder-${level}`;
+        button.dataset.funderKey = `${row.key}-${column.key}`;
+        button.setAttribute("aria-controls", "funder-detail");
+        button.setAttribute("aria-expanded", "false");
+
+        const wrap = document.createElement("span");
+        const title = document.createElement("b");
+        title.textContent = label;
+        const br = document.createElement("br");
+        const text = document.createTextNode(summary);
+        const cue = document.createElement("span");
+        cue.className = "cell-cue";
+        cue.textContent = "Details";
+        wrap.append(title, br, text, cue);
+        button.append(wrap);
+        grid.append(button);
+      });
+    });
+  }
+
+  function setFunderDetail(key, selectedButton) {
+    const [rowKey, columnKey] = key.split("-");
+    const row = funderRows.find((candidate) => candidate.key === rowKey);
+    const column = funderColumns.find((candidate) => candidate.key === columnKey);
+    if (!row || !column) return;
+
+    const [level, label, summary, reading] = row.cells[column.key];
+    document.querySelectorAll("[data-funder-key]").forEach((button) => {
+      const active = button === selectedButton;
+      button.classList.toggle("is-selected", active);
+      button.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+
+    document.getElementById("funder-detail-title").textContent = `${row.name} - ${column.label}`;
+    document.getElementById("funder-detail-summary").textContent = summary;
+    document.getElementById("funder-detail-status").textContent = label;
+    document.getElementById("funder-detail-reading").textContent = reading;
+
+    const links = document.getElementById("funder-detail-links");
+    links.replaceChildren();
+    row.sources.forEach((source) => links.append(makeSourceTile(source)));
+  }
+
+  const policyCellDetails = {
+    "transportation-statement": {
+      status: "Mixed",
+      title: "Transportation - Structured statement",
+      summary: "Some transportation venues and publishers support data statements, but the field has not yet turned them into a uniformly visible author-review-editor workflow.",
+      reading: "Interpret this as a policy availability gap, not an absence of guidance. The next practical step is a structured statement template that separates public, controlled, synthetic, derived, and unavailable artifacts.",
+      links: [policySources.trd, policySources.trr, policySources.ieee]
+    },
+    "transportation-artifacts": {
+      status: "Low",
+      title: "Transportation - Code/data artifacts",
+      summary: "The MOST baseline found very low repository sharing: about 5% code repositories, 4% data repositories, and 3% sharing both among quantitative papers.",
+      reading: "This is the core audit finding. Transportation uses open resources more often than it contributes reusable artifacts back to the field.",
+      links: [policySources.most, policySources.mostProject]
+    },
+    "transportation-verification": {
+      status: "Emerging",
+      title: "Transportation - Verification",
+      summary: "Transportation does not yet have a broad artifact-review norm comparable to artifact tracks or replication-package checks in some neighboring communities.",
+      reading: "A realistic first move is link and metadata verification, followed by small artifact-review pilots for selected venues, workshops, and student projects.",
+      links: [policySources.ieee, policySources.ivWorkshop, policySources.newsletter]
+    },
+    "transportation-rewards": {
+      status: "Growing",
+      title: "Transportation - Badges/rewards",
+      summary: "RERITE activities, topical collections, tutorials, and awards show a growing recognition layer, but it is not yet standard journal or conference infrastructure.",
+      reading: "Recognition can be lightweight: badges, spotlight talks, reproducible-paper awards, artifact clinics, and reviewer credit all help make artifact work visible.",
+      links: [policySources.ivWorkshop, policySources.newsletter, policySources.mostProject]
+    },
+    "transportation-exceptions": {
+      status: "Needed",
+      title: "Transportation - Exceptions",
+      summary: "Privacy, proprietary data, security, and agency or vendor restrictions are central in transportation, so open science must include legitimate non-release paths.",
+      reading: "The goal is not to force impossible disclosure. The goal is to make restrictions explicit and offer alternatives such as metadata, synthetic data, derived data, controlled access, or simulation scenarios.",
+      links: [policySources.trd, policySources.ieee, policySources.most]
+    },
+    "ml-statement": {
+      status: "High",
+      title: "Machine learning - Structured statement",
+      summary: "Major ML venues have normalized checklists, reproducibility discussion, and structured submission expectations.",
+      reading: "Transportation can borrow the template idea without copying ML wholesale: ask every paper the same small set of artifact questions at submission.",
+      links: [policySources.neurips, policySources.icml, policySources.iclr]
+    },
+    "ml-artifacts": {
+      status: "Expected",
+      title: "Machine learning - Code/data artifacts",
+      summary: "ML venues often encourage artifact release, and artifacts can affect review discussion, benchmarking, visibility, and community uptake.",
+      reading: "The transportable lesson is expectation-setting. Even when artifacts are optional, submission systems can ask for links, licenses, limits, and planned release dates.",
+      links: [policySources.neurips, policySources.icml, policySources.iclr]
+    },
+    "ml-verification": {
+      status: "Selective",
+      title: "Machine learning - Verification",
+      summary: "Verification is uneven but more mature than in transportation, with reviewer checks, reproducibility materials, and artifact tracks in selected venues.",
+      reading: "This suggests a staged path: start with link checks and structured statements, then add selected artifact review where community capacity exists.",
+      links: [policySources.kdd, policySources.neurips, policySources.iclr]
+    },
+    "ml-rewards": {
+      status: "Visible",
+      title: "Machine learning - Badges/rewards",
+      summary: "Badges, benchmarks, artifact tracks, and highly visible open-source releases create prestige around reusable research products.",
+      reading: "Transportation needs similar public signals so artifact labor counts as scholarly contribution rather than hidden service work.",
+      links: [policySources.kdd, policySources.neurips]
+    },
+    "ml-exceptions": {
+      status: "Developing",
+      title: "Machine learning - Exceptions",
+      summary: "ML policy has to manage data rights, model risks, compute limits, privacy, and safety concerns.",
+      reading: "This is relevant to transportation because sensitive mobility data, proprietary sensor data, and model-risk issues need explicit exception categories.",
+      links: [policySources.neurips, policySources.iclr, policySources.kdd]
+    },
+    "robotics-statement": {
+      status: "Medium",
+      title: "Robotics - Structured statement",
+      summary: "Robotics venues often rely on limitations, videos, supplements, and system details, but structured open-science statements are less uniform than in ML.",
+      reading: "Transportation can learn from robotics by treating video, simulation, hardware details, and field conditions as part of the reproducibility record.",
+      links: [policySources.corl, policySources.rss, policySources.icra]
+    },
+    "robotics-artifacts": {
+      status: "Cultural",
+      title: "Robotics - Code/data artifacts",
+      summary: "Robotics has a strong artifact culture around code, videos, datasets, simulators, and demos, even when formal policies vary.",
+      reading: "This is a useful peer model for intelligent vehicles: artifacts are persuasive because they show systems in context, not only because they enable exact reruns.",
+      links: [policySources.corl, policySources.rss, policySources.icra]
+    },
+    "robotics-verification": {
+      status: "Patchy",
+      title: "Robotics - Verification",
+      summary: "Independent reproduction is difficult when results depend on hardware, lab setup, field conditions, safety constraints, or scarce equipment.",
+      reading: "Transportation should distinguish verification of claims, verification of artifacts, and full reproduction of a physical or fielded system.",
+      links: [policySources.corl, policySources.icra, policySources.ieee]
+    },
+    "robotics-rewards": {
+      status: "Demo-driven",
+      title: "Robotics - Badges/rewards",
+      summary: "Robotics often rewards artifacts through demos, videos, datasets, and system visibility rather than through formal journal badges alone.",
+      reading: "For transportation conferences, artifact showcases and reproducible-demo sessions may be more natural than purely documentary compliance.",
+      links: [policySources.rss, policySources.corl, policySources.icra]
+    },
+    "robotics-exceptions": {
+      status: "Important",
+      title: "Robotics - Exceptions",
+      summary: "Safety, hardware access, proprietary platforms, and lab constraints make exceptions an unavoidable part of robotics reproducibility.",
+      reading: "The lesson for transportation is to design exception pathways that are honest and useful: describe constraints, share what can be shared, and document enough context for comparison.",
+      links: [policySources.icra, policySources.ieee, policySources.corl]
+    },
+    "or-statement": {
+      status: "High",
+      title: "Operations research - Structured statement",
+      summary: "Several key OR journals have clear code and data disclosure policies with explicit author obligations.",
+      reading: "This is one of the strongest neighboring models for transportation journals because the methods, data constraints, and solver dependencies often overlap.",
+      links: [policySources.mnsc, policySources.opre, policySources.ijoc]
+    },
+    "or-artifacts": {
+      status: "Strong",
+      title: "Operations research - Code/data artifacts",
+      summary: "Management Science, Operations Research, and IJOC provide concrete policies and infrastructure for computational artifacts and replication packages.",
+      reading: "Transportation can adapt this model for simulation, optimization, empirical modeling, benchmarks, and scenario libraries.",
+      links: [policySources.mnsc, policySources.opre, policySources.ijoc]
+    },
+    "or-verification": {
+      status: "Pre-production",
+      title: "Operations research - Verification",
+      summary: "Some OR workflows require replication materials before production, with repositories or packages frozen for long-term access.",
+      reading: "The useful pattern is timing: request artifact materials early enough that missing code, data, or documentation can be fixed before publication.",
+      links: [policySources.mnsc, policySources.opre, policySources.ijoc]
+    },
+    "or-rewards": {
+      status: "Journal-level",
+      title: "Operations research - Badges/rewards",
+      summary: "OR recognition is often embedded in journal infrastructure rather than public badges: repository records, policy compliance, and replication packages.",
+      reading: "Transportation journals could start with visible repository links and reproducibility labels before building more elaborate badges.",
+      links: [policySources.mnsc, policySources.opre, policySources.ijoc]
+    },
+    "or-exceptions": {
+      status: "Explicit",
+      title: "Operations research - Exceptions",
+      summary: "OR policies explicitly handle licensed software, proprietary datasets, confidential data, and cases where full artifact release is impossible.",
+      reading: "This is directly relevant for transportation, where commercial data, agency contracts, and licensed tools are common barriers to full openness.",
+      links: [policySources.mnsc, policySources.opre, policySources.ijoc]
+    }
+  };
+
+  function setPolicyDetail(key, selectedButton) {
+    const detail = policyCellDetails[key];
+    if (!detail) return;
+
+    document.querySelectorAll("[data-policy-key]").forEach((button) => {
+      const active = button === selectedButton;
+      button.classList.toggle("is-selected", active);
+      button.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+
+    document.getElementById("policy-detail-title").textContent = detail.title;
+    document.getElementById("policy-detail-summary").textContent = detail.summary;
+    document.getElementById("policy-detail-status").textContent = detail.status;
+    document.getElementById("policy-detail-reading").textContent = detail.reading;
+
+    const links = document.getElementById("policy-detail-links");
+    links.replaceChildren();
+    detail.links.forEach((source) => {
+      const anchor = document.createElement("a");
+      anchor.className = "source-tile";
+      anchor.href = source.href;
+      anchor.target = "_blank";
+      anchor.rel = "noreferrer";
+
+      const title = document.createElement("b");
+      title.textContent = source.label;
+      const note = document.createElement("span");
+      note.textContent = source.note;
+      const cue = document.createElement("small");
+      cue.textContent = "Open source page";
+
+      anchor.append(title, note, cue);
+      links.append(anchor);
+    });
+  }
+
+  renderFunderGrid();
+
+  document.querySelectorAll("[data-policy-key]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setPolicyDetail(button.dataset.policyKey, button);
+    });
+  });
+
+  document.querySelectorAll("[data-funder-key]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setFunderDetail(button.dataset.funderKey, button);
+    });
+  });
+
+  document.querySelectorAll("[data-feature-key]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setFeaturePreview(button.dataset.featureKey, button);
+    });
+  });
+
+  document.querySelectorAll("[data-audience-key]").forEach((button) => {
+    button.addEventListener("click", () => {
+      setAudienceInsight(button.dataset.audienceKey, button);
+    });
+  });
+
+  const firstPolicyCell = document.querySelector("[data-policy-key]");
+  if (firstPolicyCell) {
+    setPolicyDetail(firstPolicyCell.dataset.policyKey, firstPolicyCell);
+  }
+
+  const firstFunderCell = document.querySelector("[data-funder-key]");
+  if (firstFunderCell) {
+    setFunderDetail(firstFunderCell.dataset.funderKey, firstFunderCell);
+  }
+
+  const firstFeatureCard = document.querySelector("[data-feature-key]");
+  if (firstFeatureCard) {
+    setFeaturePreview(firstFeatureCard.dataset.featureKey, firstFeatureCard);
+  }
+
+  const firstAudienceCard = document.querySelector("[data-audience-key]");
+  if (firstAudienceCard) {
+    setAudienceInsight(firstAudienceCard.dataset.audienceKey, firstAudienceCard);
+  }
+</script>
+</body>
+</html>
