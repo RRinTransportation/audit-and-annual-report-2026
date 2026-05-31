@@ -1608,17 +1608,16 @@
         <nav aria-label="Report sections">
           <div class="nav-title">Figures</div>
           <a href="#executive-summary">1. Baseline</a>
-          <a href="#scope">2. Cutoff</a>
-          <a href="#state">3. Availability Gap</a>
-          <a href="#audience-statistics">3b. Audience Stats</a>
-          <a href="#pipeline">4. Audit Pipeline</a>
-          <a href="#next-metrics">5. Next Metrics</a>
-          <a href="#rerite-story">6. RERITE Flywheel</a>
-          <a href="#policy-scan">7. Policy Heatmap</a>
-          <a href="#funder-policy">8. Funder Compass</a>
-          <a href="#journey">9. Journey Map</a>
-          <a href="#guidelines">10. Guidelines</a>
-          <a href="#columns">11. Columns</a>
+          <a href="#state">2. Availability Gap</a>
+          <a href="#audience-statistics">3. Audience Stats</a>
+          <a href="#rerite-story">4. RERITE Flywheel</a>
+          <a href="#journey">5. Journey Map</a>
+          <a href="#policy-scan">6. Policy Heatmap</a>
+          <a href="#funder-policy">7. Funder Compass</a>
+          <a href="#guidelines">8. Guidelines</a>
+          <a href="#columns">9. Columns</a>
+          <a href="#pipeline">10. Audit Pipeline</a>
+          <a href="#next-metrics">11. Next Metrics</a>
           <a href="#sources">Sources</a>
           <div class="small-note">
             Main pages are intentionally visual. Source notes and policy details
@@ -1677,69 +1676,6 @@
               and visible credit. Save full reproduction requirements for
               pilots, badges, student projects, and high-impact benchmarks.
             </div>
-          </section>
-
-          <section id="scope">
-            <div class="kicker">Audit scope</div>
-            <h2>Use a stable seven-year spine, then add a 2026 watchlist.</h2>
-            <p class="section-lead">
-              The clean statistical story is 2019-2025. The 2026 story is better
-              treated as current-year activity plus a provisional audit annex.
-            </p>
-
-            <figure>
-              <div class="figure-title">
-                <h3>Figure 2. Recommended cutoff architecture</h3>
-                <span class="num">Designed for December 2026 release</span>
-              </div>
-              <div class="timeline-graphic">
-                <div class="year-tile core">
-                  <div class="year">2019</div>
-                  <p>Baseline year.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2020</div>
-                  <p>Early data availability statements.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2021</div>
-                  <p>More computational papers.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2022</div>
-                  <p>Open science policy pressure grows.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2023</div>
-                  <p>RERITE public activity starts.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2024</div>
-                  <p>MOST preprint coverage ends here.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile core">
-                  <div class="year">2025</div>
-                  <p>Recommended seventh audit year.</p>
-                  <div class="status">core</div>
-                </div>
-                <div class="year-tile watch">
-                  <div class="year">2026</div>
-                  <p>Use only as a labeled watchlist.</p>
-                  <div class="status">provisional</div>
-                </div>
-              </div>
-              <figcaption>
-                Core audit: January 1, 2019 to December 31, 2025. Policy scan:
-                freeze around October 31, 2026. Annual report activities: update
-                through December 15, 2026.
-              </figcaption>
-            </figure>
           </section>
 
           <section id="state">
@@ -1942,126 +1878,6 @@
                 These figures come from the January 2026 MOST preprint and
                 should be refreshed when the revised paper, 2025 extension, and
                 final artifact tables are available.
-              </figcaption>
-            </figure>
-          </section>
-
-          <section id="pipeline">
-            <div class="kicker">Measurement design</div>
-            <h2>
-              Keep the audit lightweight, repeatable, and honest about
-              uncertainty.
-            </h2>
-            <p class="section-lead">
-              The audit should measure artifact availability at scale, then
-              reserve human effort for validation, policy interpretation, and
-              deeper reproduction pilots.
-            </p>
-
-            <figure>
-              <div class="figure-title">
-                <h3>Figure 4. Annual audit pipeline</h3>
-                <span class="num">Volunteer-executable</span>
-              </div>
-              <div class="pipeline">
-                <div class="pipe-step">
-                  <div class="step-icon i1">1</div>
-                  <b>Collect</b>
-                  <p>
-                    Fetch full-text or structured metadata for target journals
-                    and years.
-                  </p>
-                </div>
-                <div class="pipe-step">
-                  <div class="step-icon i2">2</div>
-                  <b>Extract</b>
-                  <p>
-                    Use LLM-assisted prompts for code, data, statements, topics,
-                    and links.
-                  </p>
-                </div>
-                <div class="pipe-step">
-                  <div class="step-icon i3">3</div>
-                  <b>Validate</b>
-                  <p>Human-code a stratified sample and report agreement.</p>
-                </div>
-                <div class="pipe-step">
-                  <div class="step-icon i4">4</div>
-                  <b>Classify</b>
-                  <p>
-                    Sort links by repository type, DOI, license, README, and
-                    environment clues.
-                  </p>
-                </div>
-                <div class="pipe-step">
-                  <div class="step-icon i5">5</div>
-                  <b>Publish</b>
-                  <p>
-                    Release figures, caveats, source tables, and a runbook for
-                    next year.
-                  </p>
-                </div>
-              </div>
-              <figcaption>
-                This keeps the audit within RERITE's volunteer capacity while
-                still improving over the preprint.
-              </figcaption>
-            </figure>
-          </section>
-
-          <section id="next-metrics">
-            <div class="kicker">Metrics beyond the preprint</div>
-            <h2>
-              Add depth where it is cheap, and sample where it is expensive.
-            </h2>
-            <p class="section-lead">
-              The final report can be more useful than the preprint without
-              requiring a full reproduction study.
-            </p>
-
-            <figure>
-              <div class="figure-title">
-                <h3>Figure 5. What to add next</h3>
-                <span class="num">Effort vs. value</span>
-              </div>
-              <div class="effort-map">
-                <div class="effort-col">
-                  <h3>Low effort</h3>
-                  <span class="chip">Extend TR series to 2025.</span>
-                  <span class="chip">Classify availability statements.</span>
-                  <span class="chip">Measure repository host types.</span>
-                  <span class="chip">Check link rot and DOI presence.</span>
-                </div>
-                <div class="effort-col">
-                  <h3>Medium effort</h3>
-                  <span class="chip gold"
-                    >Scan README, license, environment files.</span
-                  >
-                  <span class="chip gold">Normalize funding agencies.</span>
-                  <span class="chip gold"
-                    >Add IEEE, Springer, SAGE, INFORMS venues.</span
-                  >
-                  <span class="chip gold">Build a policy coverage rubric.</span>
-                </div>
-                <div class="effort-col">
-                  <h3>High value pilots</h3>
-                  <span class="chip rose"
-                    >Run 30-50 lightweight reproduction attempts.</span
-                  >
-                  <span class="chip rose"
-                    >Test coding-agent-assisted artifact review.</span
-                  >
-                  <span class="chip rose"
-                    >Audit "available on request" response rates.</span
-                  >
-                  <span class="chip rose"
-                    >Benchmark missing datasets by subfield.</span
-                  >
-                </div>
-              </div>
-              <figcaption>
-                Recommendation: include low and medium effort metrics in the
-                2026 report, then frame reproduction attempts as a 2027 pilot.
               </figcaption>
             </figure>
           </section>
@@ -2288,6 +2104,155 @@
                 This figure turns the RERITE website and March 2026 strategy
                 memo into an annual-report narrative: origin, public activity,
                 near-term delivery, and the field-building loop.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section id="journey">
+            <div class="kicker">Roadmap</div>
+            <h2>
+              The journey is from hidden work to translation-ready evidence.
+            </h2>
+            <p class="section-lead">
+              This roadmap is a RERITE synthesis, not a single canonical
+              standard. It crosswalks open-science policy, FAIR data,
+              computational reproducibility, artifact review, replication, and
+              translation-readiness frameworks.
+            </p>
+
+            <figure>
+              <div class="figure-title">
+                <h3>Figure 9. Open science and translation journey</h3>
+                <span class="num">RERITE synthesis, source-backed</span>
+              </div>
+              <div class="roadmap">
+                <div class="stage">
+                  <div class="stage-num">Stage 0</div>
+                  <h3>Paper-only claims</h3>
+                  <p>
+                    Methods exist mostly as prose. Artifacts are private or
+                    unclear.
+                  </p>
+                  <div class="gain">Gain: published finding.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 1</div>
+                  <h3>Structured disclosure</h3>
+                  <p>
+                    The paper says what exists, where it is, and what cannot be
+                    shared.
+                  </p>
+                  <div class="gain">Gain: readers stop guessing.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 2</div>
+                  <h3>FAIR, citable artifacts</h3>
+                  <p>
+                    Code, data, models, scenarios, metadata, licenses, and
+                    limits have stable records.
+                  </p>
+                  <div class="gain">Gain: reuse becomes possible.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 3</div>
+                  <h3>Executable workflows</h3>
+                  <p>
+                    Scripts, notebooks, containers, and environments regenerate
+                    key results.
+                  </p>
+                  <div class="gain">Gain: verification becomes routine.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 4</div>
+                  <h3>Independent reproduction</h3>
+                  <p>
+                    Reviewers, students, or artifact teams rerun supplied
+                    artifacts and document outcomes.
+                  </p>
+                  <div class="gain">Gain: trust has evidence.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 5</div>
+                  <h3>External validation</h3>
+                  <p>
+                    Claims are tested across new data, contexts, scenarios, or
+                    implementations.
+                  </p>
+                  <div class="gain">Gain: findings generalize.</div>
+                </div>
+                <div class="stage">
+                  <div class="stage-num">Stage 6</div>
+                  <h3>Translation-ready evidence</h3>
+                  <p>
+                    Benchmarks and testbeds support agencies, industry, and
+                    practice.
+                  </p>
+                  <div class="gain">Gain: knowledge travels.</div>
+                </div>
+              </div>
+              <details>
+                <summary>Source crosswalk and caveats</summary>
+                <div class="details-body">
+                  <ul class="source-list">
+                    <li>
+                      <b>Stages 1-2:</b> TOP Guidelines
+                      disclosure/requirement/verification logic and FAIR
+                      principles for findable, accessible, interoperable,
+                      reusable research objects. See
+                      <a
+                        href="https://www.cos.io/initiatives/top-guidelines?hsLang=en"
+                        >Center for Open Science TOP Guidelines</a
+                      >
+                      and
+                      <a href="https://www.nature.com/articles/sdata201618"
+                        >Wilkinson et al. FAIR principles</a
+                      >.
+                    </li>
+                    <li>
+                      <b>Stage 3:</b> Computational reproducibility depends on
+                      capturing code, data, and computational environments. See
+                      <a
+                        href="https://book.the-turing-way.org/reproducible-research/renv/"
+                        >The Turing Way on reproducible environments</a
+                      >.
+                    </li>
+                    <li>
+                      <b>Stages 4-5:</b> Independent reproduction and
+                      replication/external validation follow the distinction
+                      emphasized by the National Academies and artifact-review
+                      programs. See
+                      <a
+                        href="https://www.nationalacademies.org/read/25303/chapter/6"
+                        >NASEM Reproducibility and Replicability in Science</a
+                      >
+                      and
+                      <a
+                        href="https://www.acm.org/publications/policies/artifact-review-and-badging-current"
+                        >ACM Artifact Review and Badging</a
+                      >.
+                    </li>
+                    <li>
+                      <b>Stage 6:</b> Translation-ready evidence is a RERITE
+                      adaptation, informed by technology/readiness and
+                      translational-science thinking, not a standard
+                      open-science maturity level. See
+                      <a href="https://esto.nasa.gov/trl/"
+                        >NASA Technology Readiness Levels</a
+                      >
+                      and
+                      <a href="https://ncats.nih.gov/translation/spectrum"
+                        >NIH NCATS Translational Science Spectrum</a
+                      >.
+                    </li>
+                  </ul>
+                </div>
+              </details>
+              <figcaption>
+                Transportation is currently concentrated around Stages 0-1, with
+                pockets of Stage 2 in data-driven modeling, intelligent
+                vehicles, and open dataset communities. Stage 6 is intentionally
+                an impact horizon: the field should not claim
+                translation-readiness from artifact availability alone.
               </figcaption>
             </figure>
           </section>
@@ -2695,155 +2660,6 @@
             </figure>
           </section>
 
-          <section id="journey">
-            <div class="kicker">Roadmap</div>
-            <h2>
-              The journey is from hidden work to translation-ready evidence.
-            </h2>
-            <p class="section-lead">
-              This roadmap is a RERITE synthesis, not a single canonical
-              standard. It crosswalks open-science policy, FAIR data,
-              computational reproducibility, artifact review, replication, and
-              translation-readiness frameworks.
-            </p>
-
-            <figure>
-              <div class="figure-title">
-                <h3>Figure 9. Open science and translation journey</h3>
-                <span class="num">RERITE synthesis, source-backed</span>
-              </div>
-              <div class="roadmap">
-                <div class="stage">
-                  <div class="stage-num">Stage 0</div>
-                  <h3>Paper-only claims</h3>
-                  <p>
-                    Methods exist mostly as prose. Artifacts are private or
-                    unclear.
-                  </p>
-                  <div class="gain">Gain: published finding.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 1</div>
-                  <h3>Structured disclosure</h3>
-                  <p>
-                    The paper says what exists, where it is, and what cannot be
-                    shared.
-                  </p>
-                  <div class="gain">Gain: readers stop guessing.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 2</div>
-                  <h3>FAIR, citable artifacts</h3>
-                  <p>
-                    Code, data, models, scenarios, metadata, licenses, and
-                    limits have stable records.
-                  </p>
-                  <div class="gain">Gain: reuse becomes possible.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 3</div>
-                  <h3>Executable workflows</h3>
-                  <p>
-                    Scripts, notebooks, containers, and environments regenerate
-                    key results.
-                  </p>
-                  <div class="gain">Gain: verification becomes routine.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 4</div>
-                  <h3>Independent reproduction</h3>
-                  <p>
-                    Reviewers, students, or artifact teams rerun supplied
-                    artifacts and document outcomes.
-                  </p>
-                  <div class="gain">Gain: trust has evidence.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 5</div>
-                  <h3>External validation</h3>
-                  <p>
-                    Claims are tested across new data, contexts, scenarios, or
-                    implementations.
-                  </p>
-                  <div class="gain">Gain: findings generalize.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 6</div>
-                  <h3>Translation-ready evidence</h3>
-                  <p>
-                    Benchmarks and testbeds support agencies, industry, and
-                    practice.
-                  </p>
-                  <div class="gain">Gain: knowledge travels.</div>
-                </div>
-              </div>
-              <details>
-                <summary>Source crosswalk and caveats</summary>
-                <div class="details-body">
-                  <ul class="source-list">
-                    <li>
-                      <b>Stages 1-2:</b> TOP Guidelines
-                      disclosure/requirement/verification logic and FAIR
-                      principles for findable, accessible, interoperable,
-                      reusable research objects. See
-                      <a
-                        href="https://www.cos.io/initiatives/top-guidelines?hsLang=en"
-                        >Center for Open Science TOP Guidelines</a
-                      >
-                      and
-                      <a href="https://www.nature.com/articles/sdata201618"
-                        >Wilkinson et al. FAIR principles</a
-                      >.
-                    </li>
-                    <li>
-                      <b>Stage 3:</b> Computational reproducibility depends on
-                      capturing code, data, and computational environments. See
-                      <a
-                        href="https://book.the-turing-way.org/reproducible-research/renv/"
-                        >The Turing Way on reproducible environments</a
-                      >.
-                    </li>
-                    <li>
-                      <b>Stages 4-5:</b> Independent reproduction and
-                      replication/external validation follow the distinction
-                      emphasized by the National Academies and artifact-review
-                      programs. See
-                      <a
-                        href="https://www.nationalacademies.org/read/25303/chapter/6"
-                        >NASEM Reproducibility and Replicability in Science</a
-                      >
-                      and
-                      <a
-                        href="https://www.acm.org/publications/policies/artifact-review-and-badging-current"
-                        >ACM Artifact Review and Badging</a
-                      >.
-                    </li>
-                    <li>
-                      <b>Stage 6:</b> Translation-ready evidence is a RERITE
-                      adaptation, informed by technology/readiness and
-                      translational-science thinking, not a standard
-                      open-science maturity level. See
-                      <a href="https://esto.nasa.gov/trl/"
-                        >NASA Technology Readiness Levels</a
-                      >
-                      and
-                      <a href="https://ncats.nih.gov/translation/spectrum"
-                        >NIH NCATS Translational Science Spectrum</a
-                      >.
-                    </li>
-                  </ul>
-                </div>
-              </details>
-              <figcaption>
-                Transportation is currently concentrated around Stages 0-1, with
-                pockets of Stage 2 in data-driven modeling, intelligent
-                vehicles, and open dataset communities. Stage 6 is intentionally
-                an impact horizon: the field should not claim
-                translation-readiness from artifact availability alone.
-              </figcaption>
-            </figure>
-          </section>
-
           <section id="guidelines">
             <div class="kicker">Centerfold</div>
             <h2>
@@ -3089,6 +2905,126 @@
                 Select a column card to preview the eventual report treatment.
                 The cards stay short; the preview panel carries the sample
                 layout.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section id="pipeline">
+            <div class="kicker">Measurement design</div>
+            <h2>
+              Keep the audit lightweight, repeatable, and honest about
+              uncertainty.
+            </h2>
+            <p class="section-lead">
+              The audit should measure artifact availability at scale, then
+              reserve human effort for validation, policy interpretation, and
+              deeper reproduction pilots.
+            </p>
+
+            <figure>
+              <div class="figure-title">
+                <h3>Figure 4. Annual audit pipeline</h3>
+                <span class="num">Volunteer-executable</span>
+              </div>
+              <div class="pipeline">
+                <div class="pipe-step">
+                  <div class="step-icon i1">1</div>
+                  <b>Collect</b>
+                  <p>
+                    Fetch full-text or structured metadata for target journals
+                    and years.
+                  </p>
+                </div>
+                <div class="pipe-step">
+                  <div class="step-icon i2">2</div>
+                  <b>Extract</b>
+                  <p>
+                    Use LLM-assisted prompts for code, data, statements, topics,
+                    and links.
+                  </p>
+                </div>
+                <div class="pipe-step">
+                  <div class="step-icon i3">3</div>
+                  <b>Validate</b>
+                  <p>Human-code a stratified sample and report agreement.</p>
+                </div>
+                <div class="pipe-step">
+                  <div class="step-icon i4">4</div>
+                  <b>Classify</b>
+                  <p>
+                    Sort links by repository type, DOI, license, README, and
+                    environment clues.
+                  </p>
+                </div>
+                <div class="pipe-step">
+                  <div class="step-icon i5">5</div>
+                  <b>Publish</b>
+                  <p>
+                    Release figures, caveats, source tables, and a runbook for
+                    next year.
+                  </p>
+                </div>
+              </div>
+              <figcaption>
+                This keeps the audit within RERITE's volunteer capacity while
+                still improving over the preprint.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section id="next-metrics">
+            <div class="kicker">Metrics beyond the preprint</div>
+            <h2>
+              Add depth where it is cheap, and sample where it is expensive.
+            </h2>
+            <p class="section-lead">
+              The final report can be more useful than the preprint without
+              requiring a full reproduction study.
+            </p>
+
+            <figure>
+              <div class="figure-title">
+                <h3>Figure 5. What to add next</h3>
+                <span class="num">Effort vs. value</span>
+              </div>
+              <div class="effort-map">
+                <div class="effort-col">
+                  <h3>Low effort</h3>
+                  <span class="chip">Extend TR series to 2025.</span>
+                  <span class="chip">Classify availability statements.</span>
+                  <span class="chip">Measure repository host types.</span>
+                  <span class="chip">Check link rot and DOI presence.</span>
+                </div>
+                <div class="effort-col">
+                  <h3>Medium effort</h3>
+                  <span class="chip gold"
+                    >Scan README, license, environment files.</span
+                  >
+                  <span class="chip gold">Normalize funding agencies.</span>
+                  <span class="chip gold"
+                    >Add IEEE, Springer, SAGE, INFORMS venues.</span
+                  >
+                  <span class="chip gold">Build a policy coverage rubric.</span>
+                </div>
+                <div class="effort-col">
+                  <h3>High value pilots</h3>
+                  <span class="chip rose"
+                    >Run 30-50 lightweight reproduction attempts.</span
+                  >
+                  <span class="chip rose"
+                    >Test coding-agent-assisted artifact review.</span
+                  >
+                  <span class="chip rose"
+                    >Audit "available on request" response rates.</span
+                  >
+                  <span class="chip rose"
+                    >Benchmark missing datasets by subfield.</span
+                  >
+                </div>
+              </div>
+              <figcaption>
+                Recommendation: include low and medium effort metrics in the
+                2026 report, then frame reproduction attempts as a 2027 pilot.
               </figcaption>
             </figure>
           </section>
