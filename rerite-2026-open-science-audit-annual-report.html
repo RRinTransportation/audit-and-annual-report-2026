@@ -31,6 +31,7 @@
       }
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: 18px;
       }
       body {
         margin: 0;
@@ -224,6 +225,30 @@
         font-size: 12.5px;
         color: var(--muted);
         margin: 0;
+      }
+      .hero-scroll-cue {
+        grid-column: 1 / -1;
+        justify-self: center;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--muted);
+        padding: 6px 11px;
+        font-family: var(--mono);
+        font-size: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .hero-scroll-cue::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-2px);
       }
 
       .layout {
@@ -695,6 +720,38 @@
       .chip.rose {
         border-left-color: var(--rose);
       }
+      .feedback-callout {
+        margin-top: 12px;
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: #f7fbf9;
+        padding: 15px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 14px;
+        align-items: start;
+      }
+      .feedback-callout b {
+        display: block;
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .feedback-callout p {
+        margin: 0;
+        color: #4f493f;
+        font-size: 13px;
+      }
+      .feedback-callout ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .feedback-callout li {
+        color: #4f493f;
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
 
       .flywheel-wrap {
         display: grid;
@@ -771,6 +828,191 @@
         font-size: 12.5px;
         color: #4f493f;
       }
+      .origin-story {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .origin-step {
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: #fcfbf8;
+        padding: 14px;
+        min-height: 172px;
+        position: relative;
+      }
+      .origin-step::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        width: 12px;
+        border-top: 1.5px solid var(--line);
+      }
+      .origin-step:last-child::after {
+        display: none;
+      }
+      .origin-step h3 {
+        font-size: 18px;
+        margin: 8px 0 7px;
+      }
+      .origin-step p {
+        margin: 0;
+        color: #4f493f;
+        font-size: 12.5px;
+      }
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .impact-card {
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: #fcfbf8;
+        padding: 14px;
+        min-height: 210px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 10px;
+        border-left: 6px solid var(--teal);
+      }
+      .impact-card:nth-child(2) {
+        border-left-color: var(--blue);
+      }
+      .impact-card:nth-child(3) {
+        border-left-color: var(--gold);
+      }
+      .impact-card:nth-child(4) {
+        border-left-color: var(--rose);
+      }
+      .impact-card:nth-child(5) {
+        border-left-color: var(--green);
+      }
+      .impact-card:nth-child(6) {
+        border-left-color: var(--violet);
+      }
+      .impact-card h3 {
+        font-size: 18px;
+        margin: 8px 0 6px;
+      }
+      .impact-card p {
+        margin: 0;
+        color: #4f493f;
+        font-size: 12.5px;
+      }
+      .impact-note {
+        border-top: 1px solid var(--line);
+        padding-top: 9px;
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .team-board {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .team-card {
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: #fcfbf8;
+        padding: 14px;
+        min-height: 214px;
+      }
+      .team-card.wide {
+        grid-column: 1 / -1;
+        min-height: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.62fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .team-card h3 {
+        font-size: 19px;
+        margin: 8px 0 8px;
+      }
+      .team-card p {
+        margin: 0;
+        color: #4f493f;
+        font-size: 12.5px;
+      }
+      .name-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 12px;
+      }
+      .name-cloud span {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        color: #3c3832;
+        padding: 4px 8px;
+        font-size: 11.5px;
+      }
+      .team-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .team-links a {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        padding: 4px 9px;
+        color: var(--teal);
+        font-family: var(--mono);
+        font-size: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      .ack-panel {
+        margin-top: 12px;
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        overflow: hidden;
+      }
+      .ack-panel h3 {
+        margin: 0;
+        padding: 15px;
+        border-bottom: 1px solid var(--line);
+        font-size: 22px;
+      }
+      .ack-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+      }
+      .ack-item {
+        padding: 14px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        min-height: 130px;
+      }
+      .ack-item:nth-child(3n) {
+        border-right: 0;
+      }
+      .ack-item b {
+        display: block;
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 6px;
+      }
+      .ack-item p {
+        margin: 0;
+        color: #4f493f;
+        font-size: 12.5px;
+      }
+      .ack-release-note {
+        padding: 12px 15px;
+        background: #fcfbf8;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
 
       .policy-heat {
         display: grid;
@@ -829,6 +1071,78 @@
         font-size: 13px;
         margin: -4px 0 12px;
       }
+      .explorer-split {
+        display: block;
+      }
+      .explorer-main {
+        min-width: 0;
+      }
+      .explorer-detail {
+        margin-top: 12px;
+      }
+      .explorer-detail.is-floating {
+        position: fixed;
+        right: max(18px, calc((100vw - 1220px) / 2 + 24px));
+        bottom: 18px;
+        z-index: 40;
+        width: min(620px, calc(100vw - 36px));
+        max-height: min(74vh, 720px);
+        overflow: auto;
+      }
+      .explorer-detail .heat-detail {
+        margin-top: 0;
+      }
+      .explorer-detail.is-floating .heat-detail {
+        border-color: rgba(47, 125, 120, 0.48);
+        box-shadow: 0 24px 70px rgba(36, 29, 18, 0.24);
+      }
+      .explorer-detail .detail-head {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        padding: 14px;
+      }
+      .explorer-detail.is-floating .detail-head {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+      .explorer-detail .detail-head h4 {
+        font-size: 21px;
+      }
+      .explorer-detail .detail-body {
+        grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+        gap: 12px;
+        padding: 14px;
+      }
+      .explorer-detail .detail-panel {
+        padding: 12px;
+      }
+      .explorer-detail .source-tiles {
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      }
+      .explorer-detail .source-tile {
+        min-height: auto;
+        padding: 10px;
+      }
+      .explorer-detail .source-tile small {
+        margin-top: 7px;
+      }
+      .explorer-detail.is-floating .detail-body {
+        grid-template-columns: 1fr;
+      }
+      .explorer-detail.is-floating .source-tiles {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .explorer-main .policy-heat {
+        grid-template-columns: 184px repeat(5, minmax(118px, 1fr));
+      }
+      .explorer-main .heat-cell {
+        min-height: 84px;
+        padding: 11px;
+      }
+      .explorer-main .heat-head {
+        font-size: 10px;
+      }
       button.heat-cell {
         appearance: none;
         margin: 0;
@@ -844,6 +1158,22 @@
         justify-content: center;
         position: relative;
       }
+      .policy-heat button.heat-cell {
+        font-size: 12px;
+        line-height: 1.34;
+      }
+      .policy-heat button.heat-cell > span {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+      }
+      .policy-heat button.heat-cell b {
+        display: block;
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 3px;
+      }
       button.heat-cell:hover,
       button.heat-cell:focus-visible {
         outline: 3px solid rgba(47, 125, 120, 0.28);
@@ -853,7 +1183,7 @@
         box-shadow: inset 0 0 0 3px rgba(20, 20, 19, 0.18);
       }
       .cell-cue {
-        display: block;
+        display: none;
         width: fit-content;
         margin-top: 8px;
         border: 1px solid rgba(20, 20, 19, 0.18);
@@ -908,6 +1238,32 @@
         background: var(--soft);
         color: var(--muted);
         white-space: nowrap;
+      }
+      .inspector-actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+      .inspector-close {
+        display: none;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--muted);
+        padding: 5px 9px;
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .explorer-detail.is-floating .inspector-close {
+        display: inline-flex;
+      }
+      .inspector-close:hover,
+      .inspector-close:focus-visible {
+        border-color: var(--teal);
+        color: var(--teal);
       }
       .detail-body {
         display: grid;
@@ -1031,6 +1387,28 @@
         align-items: flex-start;
         justify-content: center;
       }
+      .funder-compact {
+        display: grid;
+        gap: 5px;
+        width: 100%;
+      }
+      .funder-compact b {
+        font-size: 13px;
+        line-height: 1.25;
+      }
+      .cell-brief {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        color: currentColor;
+        font-size: 11.5px;
+        line-height: 1.28;
+        opacity: 0.82;
+      }
+      .funder-compact .cell-cue {
+        margin-top: 0;
+      }
       button.funder-grid-cell:hover,
       button.funder-grid-cell:focus-visible {
         outline: 3px solid rgba(47, 125, 120, 0.28);
@@ -1050,6 +1428,23 @@
       .funder-watch {
         background: #f4e0df;
         color: #8a463f;
+      }
+      .explorer-main .funder-policy-grid {
+        grid-template-columns: 180px repeat(5, minmax(116px, 1fr));
+      }
+      .explorer-main .funder-grid-cell {
+        min-height: 88px;
+        padding: 10px;
+        font-size: 12px;
+      }
+      .explorer-main .funder-head {
+        font-size: 10px;
+      }
+      .explorer-main .funder-rowhead b {
+        font-size: 13.5px;
+      }
+      .explorer-main .funder-rowhead span {
+        font-size: 10.5px;
       }
 
       .roadmap {
@@ -1087,6 +1482,266 @@
         font-size: 12px;
         font-weight: 700;
       }
+      .journey-diagram {
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: #fcfbf8;
+        margin-bottom: 14px;
+        overflow: hidden;
+      }
+      .journey-diagram-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: baseline;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        background: var(--white);
+      }
+      .journey-diagram-head b {
+        font-family: var(--serif);
+        font-size: 21px;
+        font-weight: 500;
+      }
+      .journey-diagram-head span {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+      .journey-diagram-scroll {
+        overflow-x: auto;
+      }
+      .journey-diagram-inner {
+        min-width: 820px;
+        padding: 14px 16px 16px;
+      }
+      .journey-axis {
+        display: grid;
+        grid-template-columns: 142px repeat(7, minmax(72px, 1fr));
+        gap: 6px;
+        align-items: end;
+        margin-bottom: 8px;
+      }
+      .journey-axis > span,
+      .journey-stage-trigger {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .journey-axis .axis-stage {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 5px;
+        text-align: center;
+      }
+      .journey-stage-trigger {
+        appearance: none;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        background: transparent;
+        cursor: help;
+        line-height: 1.2;
+        min-height: 28px;
+        position: relative;
+        width: 100%;
+      }
+      .journey-stage-trigger:hover,
+      .journey-stage-trigger:focus-visible {
+        color: var(--teal);
+        outline: 2px solid rgba(47, 125, 120, 0.3);
+        outline-offset: 2px;
+      }
+      .stage-hover-card {
+        position: absolute;
+        left: 50%;
+        top: calc(100% + 10px);
+        z-index: 12;
+        width: 238px;
+        transform: translateX(-50%) translateY(-4px);
+        border: 1.5px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--white);
+        box-shadow: 0 18px 44px rgba(36, 29, 18, 0.2);
+        color: #3c3832;
+        font-family: var(--sans);
+        font-size: 12.5px;
+        line-height: 1.45;
+        opacity: 0;
+        padding: 12px;
+        pointer-events: none;
+        text-align: left;
+        text-transform: none;
+        transition:
+          opacity 160ms ease,
+          transform 160ms ease,
+          visibility 160ms ease;
+        visibility: hidden;
+      }
+      .stage-hover-card::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: -7px;
+        width: 12px;
+        height: 12px;
+        background: var(--white);
+        border-left: 1.5px solid var(--line);
+        border-top: 1.5px solid var(--line);
+        transform: translateX(-50%) rotate(45deg);
+      }
+      .journey-stage-trigger:hover .stage-hover-card,
+      .journey-stage-trigger:focus-visible .stage-hover-card {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        visibility: visible;
+      }
+      .journey-stage-trigger:nth-child(2) .stage-hover-card,
+      .journey-stage-trigger:nth-child(3) .stage-hover-card {
+        left: 0;
+        transform: translateY(-4px);
+      }
+      .journey-stage-trigger:nth-child(2) .stage-hover-card::before,
+      .journey-stage-trigger:nth-child(3) .stage-hover-card::before {
+        left: 34px;
+      }
+      .journey-stage-trigger:nth-last-child(-n + 2) .stage-hover-card {
+        left: auto;
+        right: 0;
+        transform: translateY(-4px);
+      }
+      .journey-stage-trigger:nth-last-child(-n + 2) .stage-hover-card::before {
+        left: auto;
+        right: 34px;
+      }
+      .journey-stage-trigger:nth-child(2):hover .stage-hover-card,
+      .journey-stage-trigger:nth-child(2):focus-visible .stage-hover-card,
+      .journey-stage-trigger:nth-child(3):hover .stage-hover-card,
+      .journey-stage-trigger:nth-child(3):focus-visible .stage-hover-card,
+      .journey-stage-trigger:nth-last-child(-n + 2):hover .stage-hover-card,
+      .journey-stage-trigger:nth-last-child(-n + 2):focus-visible
+        .stage-hover-card {
+        transform: translateY(0);
+      }
+      .stage-hover-card b {
+        display: block;
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.15;
+        margin: 5px 0 7px;
+      }
+      .stage-hover-copy {
+        display: block;
+        margin: 0 0 8px;
+      }
+      .stage-hover-card .gain {
+        display: block;
+        font-size: 12px;
+        margin-top: 8px;
+      }
+      .journey-row {
+        display: grid;
+        grid-template-columns: 142px minmax(0, 1fr);
+        gap: 6px;
+        align-items: center;
+        margin-bottom: 7px;
+      }
+      .journey-row-label {
+        font-family: var(--mono);
+        font-size: 10px;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .journey-track {
+        min-height: 34px;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(72px, 1fr));
+        gap: 6px;
+        position: relative;
+      }
+      .journey-track::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent calc((100% - 36px) / 7),
+            rgba(20, 20, 19, 0.08) calc((100% - 36px) / 7),
+            rgba(20, 20, 19, 0.08) calc((100% - 36px) / 7 + 1px)
+          );
+        pointer-events: none;
+      }
+      .journey-bar {
+        grid-column: var(--start) / var(--end);
+        min-height: 34px;
+        border: 1.5px solid var(--line);
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 10px;
+        color: #143f3b;
+        background: #dceee9;
+        font-size: 11.5px;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .journey-bar.gold {
+        background: #fff0d3;
+        color: #7b5918;
+      }
+      .journey-bar.clay {
+        background: #f4e0df;
+        color: #8a463f;
+      }
+      .journey-bar.blue {
+        background: #e1e8f2;
+        color: #34577f;
+      }
+      .journey-bar.green {
+        background: #e7eddc;
+        color: #4f6032;
+      }
+      .journey-current .journey-bar {
+        border-style: dashed;
+        background: var(--white);
+        color: var(--muted);
+      }
+      .journey-current .journey-bar.pocket {
+        background: #fff8e8;
+        color: #7b5918;
+      }
+      .journey-note-strip {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .journey-note-strip span {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--muted);
+        padding: 4px 9px;
+        font-family: var(--mono);
+        font-size: 10px;
+      }
+      .roadmap-fallback {
+        margin-top: 12px;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .roadmap-fallback {
+          display: none;
+        }
+      }
 
       .guides {
         display: grid;
@@ -1123,23 +1778,15 @@
 
       .columns {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: 1fr;
         gap: 14px;
       }
-      .column-card {
+      .column-card,
+      details.column-card {
         border: 1.5px solid var(--line);
         border-radius: var(--radius);
         background: #fcfbf8;
-        min-height: 240px;
         overflow: hidden;
-        text-align: left;
-        padding: 0;
-        color: inherit;
-        font-family: var(--sans);
-        cursor: pointer;
-      }
-      button.column-card {
-        appearance: none;
         margin: 0;
       }
       .column-card:hover,
@@ -1147,12 +1794,26 @@
         outline: 3px solid rgba(47, 125, 120, 0.28);
         outline-offset: 2px;
       }
-      .column-card.is-selected {
-        box-shadow: inset 0 0 0 3px rgba(20, 20, 19, 0.15);
+      .column-card[open] {
+        box-shadow: inset 0 0 0 2px rgba(47, 125, 120, 0.2);
+      }
+      .column-summary {
+        display: grid;
+        grid-template-columns: 128px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 0;
+        font-family: var(--sans);
+        cursor: pointer;
+      }
+      .column-summary::-webkit-details-marker {
+        display: none;
       }
       .column-art {
-        height: 86px;
+        height: 100%;
+        min-height: 120px;
         border-bottom: 1.5px solid var(--line);
+        border-right: 1.5px solid var(--line);
         display: grid;
         grid-template-columns: repeat(7, 1fr);
         align-items: end;
@@ -1165,26 +1826,28 @@
         background: var(--teal);
         min-height: 14px;
       }
-      .column-card:nth-child(2) .column-art span {
+      .column-card:nth-of-type(2) .column-art span {
         background: var(--gold);
       }
-      .column-card:nth-child(3) .column-art span {
+      .column-card:nth-of-type(3) .column-art span {
         background: var(--blue);
       }
       .column-body {
-        padding: 15px;
+        padding: 14px 0;
       }
       .column-body h3 {
-        font-size: 19px;
+        font-size: 22px;
+        margin-bottom: 6px;
       }
       .column-body p {
-        font-size: 13px;
+        max-width: 760px;
+        font-size: 13.5px;
         color: #4f493f;
         margin: 0;
       }
       .column-cue {
-        display: inline-block;
-        margin-top: 12px;
+        display: inline-flex;
+        margin-right: 14px;
         border: 1px solid var(--line);
         border-radius: 999px;
         padding: 3px 8px;
@@ -1193,51 +1856,76 @@
         font-family: var(--mono);
         font-size: 10px;
       }
-
-      .feature-preview {
-        margin-top: 16px;
-        border: 1.5px solid var(--line);
-        border-radius: var(--radius);
-        overflow: hidden;
+      .column-card[open] .column-cue {
+        color: var(--teal);
+        border-color: rgba(47, 125, 120, 0.42);
+      }
+      .column-cue .cue-close {
+        display: none;
+      }
+      .column-card[open] .cue-open {
+        display: none;
+      }
+      .column-card[open] .cue-close {
+        display: inline;
+      }
+      .column-panel {
+        border-top: 1.5px solid var(--line);
         background: var(--white);
       }
-      .feature-preview-head {
-        display: flex;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 13px 15px;
-        border-bottom: 1px solid var(--line);
-        background: #fcfbf8;
-      }
-      .feature-preview-head span {
-        font-family: var(--mono);
-        font-size: 10px;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .feature-spread {
+      .column-panel-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(260px, 0.52fr);
+        grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.52fr);
         gap: 0;
-        min-height: 430px;
       }
-      .feature-copy {
-        padding: 22px;
+      .column-main {
+        padding: 20px;
         border-right: 1.5px solid var(--line);
       }
+      .column-main h4 {
+        font-family: var(--serif);
+        font-size: 30px;
+        line-height: 1.1;
+        font-weight: 500;
+        margin: 0 0 10px;
+      }
+      .column-main .feature-dek,
+      .column-main .feature-excerpt {
+        max-width: 780px;
+      }
+      .column-side {
+        padding: 16px;
+        background: #fcfbf8;
+        display: grid;
+        align-content: start;
+        gap: 12px;
+      }
+      .column-draft {
+        margin-top: 16px;
+        border-top: 1.5px solid var(--line);
+        padding-top: 14px;
+      }
+      .column-draft h5 {
+        font-family: var(--serif);
+        font-size: 23px;
+        line-height: 1.16;
+        font-weight: 500;
+        margin: 0 0 10px;
+      }
+      .column-draft p {
+        max-width: 800px;
+        color: #3c3832;
+        font-size: 14px;
+        line-height: 1.68;
+        margin-bottom: 12px;
+      }
+
       .feature-kicker {
         font-family: var(--mono);
         font-size: 10px;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 10px;
-      }
-      .feature-copy h4 {
-        font-family: var(--serif);
-        font-size: 34px;
-        line-height: 1.05;
-        font-weight: 500;
-        margin: 0 0 12px;
       }
       .feature-dek {
         font-family: var(--serif);
@@ -1259,13 +1947,6 @@
         font-family: var(--serif);
         font-size: 23px;
         line-height: 1.18;
-      }
-      .feature-side {
-        padding: 18px;
-        background: #fcfbf8;
-        display: grid;
-        gap: 14px;
-        align-content: start;
       }
       .mini-graphic {
         border: 1.5px solid var(--line);
@@ -1375,6 +2056,20 @@
         font-size: 13px;
       }
 
+      @media (min-width: 900px) {
+        html {
+          scroll-snap-type: y proximity;
+        }
+        .report-hero {
+          min-height: calc(100vh - 72px);
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+        }
+        #executive-summary {
+          scroll-snap-align: start;
+        }
+      }
+
       @media (max-width: 1040px) {
         h1 {
           font-size: 48px;
@@ -1416,11 +2111,56 @@
         .flywheel-wrap {
           grid-template-columns: 1fr;
         }
+        .origin-story {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .origin-step::after {
+          display: none;
+        }
         .activity-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        .impact-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .team-card.wide {
+          grid-template-columns: 1fr;
+        }
+        .ack-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .ack-item:nth-child(3n) {
+          border-right: 1px solid var(--line);
+        }
+        .ack-item:nth-child(2n) {
+          border-right: 0;
+        }
+        .explorer-split {
+          grid-template-columns: 1fr;
+        }
+        .explorer-detail {
+          position: static;
+          max-height: none;
+          overflow: visible;
+        }
+        .explorer-detail .heat-detail {
+          margin-top: 14px;
+        }
+        .explorer-detail.is-floating {
+          right: 16px;
+          bottom: 16px;
+          width: calc(100vw - 32px);
+          max-height: 78vh;
+        }
+        .explorer-detail .detail-head,
+        .explorer-detail .detail-body {
+          grid-template-columns: 1fr;
+        }
+        .explorer-detail .source-tiles {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
         .policy-heat {
-          grid-template-columns: 160px repeat(5, minmax(76px, 1fr));
+          grid-template-columns: 170px repeat(5, minmax(118px, 1fr));
           overflow-x: auto;
         }
         .detail-body {
@@ -1430,21 +2170,34 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
         .funder-policy-grid {
-          grid-template-columns: 150px repeat(5, minmax(92px, 1fr));
+          grid-template-columns: 170px repeat(5, minmax(128px, 1fr));
           overflow-x: auto;
         }
         .roadmap {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        .journey-diagram-head {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 4px;
+        }
         .guides,
-        .columns,
-        .effort-map {
+        .effort-map,
+        .feedback-callout {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-        .feature-spread {
+        .column-summary {
+          grid-template-columns: 96px minmax(0, 1fr);
+        }
+        .column-cue {
+          grid-column: 2;
+          margin: -4px 14px 12px 0;
+          width: fit-content;
+        }
+        .column-panel-grid {
           grid-template-columns: 1fr;
         }
-        .feature-copy {
+        .column-main {
           border-right: 0;
           border-bottom: 1.5px solid var(--line);
         }
@@ -1470,8 +2223,25 @@
         .brand-lockup span {
           border-radius: var(--radius);
         }
-        .feature-copy h4 {
-          font-size: 28px;
+        .column-summary {
+          grid-template-columns: 1fr;
+        }
+        .column-art {
+          min-height: 74px;
+          border-right: 0;
+        }
+        .column-body {
+          padding: 14px 14px 0;
+        }
+        .column-cue {
+          grid-column: auto;
+          margin: 0 14px 14px;
+        }
+        .column-main {
+          padding: 16px;
+        }
+        .column-main h4 {
+          font-size: 25px;
         }
         .feature-dek {
           font-size: 18px;
@@ -1485,12 +2255,20 @@
         .stat-list,
         .pipeline,
         .fly-list,
+        .origin-story,
         .activity-grid,
+        .impact-grid,
+        .team-board,
+        .ack-grid,
         .roadmap,
         .guides,
         .columns,
-        .effort-map {
+        .effort-map,
+        .feedback-callout {
           grid-template-columns: 1fr;
+        }
+        .journey-diagram-inner {
+          min-width: 760px;
         }
         .funnel-row {
           grid-template-columns: 1fr;
@@ -1502,6 +2280,23 @@
         .source-tiles {
           grid-template-columns: 1fr;
         }
+        .explorer-detail .source-tiles {
+          grid-template-columns: 1fr;
+        }
+        .explorer-detail.is-floating {
+          right: 12px;
+          bottom: 12px;
+          width: calc(100vw - 24px);
+          max-height: 82vh;
+        }
+        .team-card.wide {
+          grid-template-columns: 1fr;
+        }
+        .ack-item,
+        .ack-item:nth-child(2n),
+        .ack-item:nth-child(3n) {
+          border-right: 0;
+        }
         .detail-head {
           grid-template-columns: 1fr;
         }
@@ -1512,7 +2307,7 @@
         }
         .funder-grid-cell {
           display: inline-flex;
-          width: 158px;
+          width: 220px;
           vertical-align: top;
           white-space: normal;
         }
@@ -1523,7 +2318,7 @@
         }
         .heat-cell {
           display: inline-flex;
-          width: 150px;
+          width: 190px;
           vertical-align: top;
           white-space: normal;
         }
@@ -1602,6 +2397,7 @@
             before final publication.
           </p>
         </aside>
+        <a class="hero-scroll-cue" href="#executive-summary">Start audit</a>
       </header>
 
       <div class="layout">
@@ -1616,8 +2412,9 @@
           <a href="#funder-policy">7. Funder Compass</a>
           <a href="#guidelines">8. Guidelines</a>
           <a href="#columns">9. Columns</a>
-          <a href="#pipeline">10. Audit Pipeline</a>
-          <a href="#next-metrics">11. Next Metrics</a>
+          <a href="#pipeline">10. Behind Scenes</a>
+          <a href="#next-metrics">11. Future Metrics</a>
+          <a href="#team-acknowledgements">12. Team</a>
           <a href="#sources">Sources</a>
           <div class="small-note">
             Main pages are intentionally visual. Source notes and policy details
@@ -2008,7 +2805,7 @@
                   </div>
                   <div class="fly-item">
                     <b>Guide</b>
-                    <p>Guidelines v0.1 turns evidence into checklists.</p>
+                    <p>Evidence becomes checklists, examples, and source trails.</p>
                   </div>
                   <div class="fly-item">
                     <b>Train</b>
@@ -2023,87 +2820,144 @@
               <figcaption>
                 Public milestones include the TRB 2023 session, TRB 2024
                 workshop, ITSC 2024 tutorial, 2025 tutorials and presentations,
-                the February 2026 newsletter, and the planned June 22, 2026 IEEE
-                IV workshop.
+                the February 2026 newsletter, and the June 22, 2026 IEEE IV
+                workshop.
               </figcaption>
             </figure>
 
             <figure>
               <div class="figure-title">
-                <h3>Figure 6b. Origin story and 2026 workplan</h3>
-                <span class="num">First annual report spine</span>
+                <h3>Figure 6b. Origin story</h3>
+                <span class="num">Why RERITE exists</span>
               </div>
-              <div class="activity-grid">
-                <div class="activity-card">
-                  <div>
-                    <span class="status shipped">origin</span>
-                    <h3>Reusable transportation research</h3>
-                    <p>
-                      RERITE formed around a practical frustration: too much
-                      transportation evidence is locked in prose, private files,
-                      fragile code, and undocumented workflows.
-                    </p>
-                  </div>
+              <div class="origin-story">
+                <div class="origin-step">
+                  <span class="status shipped">problem</span>
+                  <h3>Hidden research labor</h3>
+                  <p>
+                    Too much transportation evidence sits in prose, private
+                    files, fragile code, and undocumented workflows.
+                  </p>
                 </div>
-                <div class="activity-card">
-                  <div>
-                    <span class="status shipped">Feb 2026</span>
-                    <h3>Newsletter and invitations</h3>
-                    <p>
-                      The first newsletter framed MOST, the topical collection,
-                      the IV workshop, student projects, and volunteer paths as
-                      one coordinated open-science push.
-                    </p>
-                  </div>
+                <div class="origin-step">
+                  <span class="status shipped">insight</span>
+                  <h3>Transparency beats memory</h3>
+                  <p>
+                    The field needs durable links, clear limits, reusable
+                    artifacts, and a culture that rewards making work inspectable.
+                  </p>
                 </div>
-                <div class="activity-card">
-                  <div>
-                    <span class="status planned">Jun 22</span>
-                    <h3>IEEE IV workshop</h3>
-                    <p>
-                      The 2026 workshop is the flagship live convening for
-                      reproducibility in intelligent vehicles and intelligent
-                      transportation systems.
-                    </p>
-                  </div>
+                <div class="origin-step">
+                  <span class="status shipped">community</span>
+                  <h3>A volunteer engine</h3>
+                  <p>
+                    RERITE organizes researchers who want open science,
+                    reproducible research, and replicable studies to become
+                    transportation norms.
+                  </p>
                 </div>
-                <div class="activity-card">
-                  <div>
-                    <span class="status planned">Aug</span>
-                    <h3>Guidelines v0.1</h3>
-                    <p>
-                      Planned outputs: author checklist, reviewer checklist,
-                      editor/publisher one-pager, and a pilot kit for venues or
-                      labs.
-                    </p>
-                  </div>
-                </div>
-                <div class="activity-card">
-                  <div>
-                    <span class="status planned">hEART</span>
-                    <h3>Recognition and visibility</h3>
-                    <p>
-                      The hEART award and communications plan give open
-                      artifacts public prestige, not just private gratitude.
-                    </p>
-                  </div>
-                </div>
-                <div class="activity-card">
-                  <div>
-                    <span class="status draft">Oct-Dec</span>
-                    <h3>MOST report release</h3>
-                    <p>
-                      Strategy target: MOST annual report v0.1 in October,
-                      public release by December, and a retrospective that turns
-                      lessons into the 2027 roadmap.
-                    </p>
-                  </div>
+                <div class="origin-step">
+                  <span class="status shipped">arc</span>
+                  <h3>From sessions to infrastructure</h3>
+                  <p>
+                    Public activity moved from TRB sessions and tutorials
+                    toward measurement, policy guidance, open resources, and
+                    recognition.
+                  </p>
                 </div>
               </div>
               <figcaption>
-                This figure turns the RERITE website and March 2026 strategy
-                memo into an annual-report narrative: origin, public activity,
-                near-term delivery, and the field-building loop.
+                Separate the origin story from the annual highlights: this
+                figure explains why the working group exists and what kind of
+                field problem it was created to address.
+              </figcaption>
+            </figure>
+
+            <figure>
+              <div class="figure-title">
+                <h3>Figure 6c. 2026 highlights and impact</h3>
+                <span class="num">Annual report evidence</span>
+              </div>
+              <div class="impact-grid">
+                <div class="impact-card">
+                  <div>
+                    <span class="status shipped">measurement</span>
+                    <h3>MOST made the baseline visible</h3>
+                    <p>
+                      The MOST project put a field-scale open-science baseline
+                      in public view, with 10,000+ transportation papers and
+                      LLM-assisted validation.
+                    </p>
+                  </div>
+                  <div class="impact-note">Impact: decision makers get numbers.</div>
+                </div>
+                <div class="impact-card">
+                  <div>
+                    <span class="status shipped">public tool</span>
+                    <h3>Explorer turned evidence into a source trail</h3>
+                    <p>
+                      The MOST explorer lets readers inspect papers with code or
+                      data availability signals instead of treating the audit as
+                      a static claim.
+                    </p>
+                  </div>
+                  <div class="impact-note">Impact: readers can verify examples.</div>
+                </div>
+                <div class="impact-card">
+                  <div>
+                    <span class="status shipped">resources</span>
+                    <h3>Open datasets and benchmarks were curated</h3>
+                    <p>
+                      The 2026 awesome-rerite catalog collects reusable
+                      transportation datasets, benchmarks, scenarios, tools, and
+                      standards.
+                    </p>
+                  </div>
+                  <div class="impact-note">Impact: reuse becomes easier to start.</div>
+                </div>
+                <div class="impact-card">
+                  <div>
+                    <span class="status">Jun 22, 2026</span>
+                    <h3>IEEE IV workshop focused the IV community</h3>
+                    <p>
+                      The half-day workshop centers datasets, benchmarks, and
+                      testbeds for trustworthy intelligent-vehicle research.
+                    </p>
+                  </div>
+                  <div class="impact-note">
+                    Impact: convenes datasets, benchmarks, testbeds.
+                  </div>
+                </div>
+                <div class="impact-card">
+                  <div>
+                    <span class="status shipped">publication venue</span>
+                    <h3>ETRR collection created a home for examples</h3>
+                    <p>
+                      The topical collection on reproducible research gives
+                      transportation authors a venue for tools, case studies,
+                      and open-science practice.
+                    </p>
+                  </div>
+                  <div class="impact-note">Impact: reusable work has a channel.</div>
+                </div>
+                <div class="impact-card">
+                  <div>
+                    <span class="status shipped">community</span>
+                    <h3>Volunteer roles made participation concrete</h3>
+                    <p>
+                      Public calls for audit, resource curation, tutorial,
+                      newsletter, and community roles convert interest into
+                      specific jobs.
+                    </p>
+                  </div>
+                  <div class="impact-note">Impact: capacity is organized.</div>
+                </div>
+              </div>
+              <figcaption>
+                This is a highlights and impact panel, not a workplan. For the
+                end-of-2026 release, update the IEEE IV card with attendance,
+                artifacts, decisions, and follow-on commitments from the June
+                22, 2026 workshop.
               </figcaption>
             </figure>
           </section>
@@ -2125,71 +2979,279 @@
                 <h3>Figure 9. Open science and translation journey</h3>
                 <span class="num">RERITE synthesis, source-backed</span>
               </div>
-              <div class="roadmap">
-                <div class="stage">
-                  <div class="stage-num">Stage 0</div>
-                  <h3>Paper-only claims</h3>
-                  <p>
-                    Methods exist mostly as prose. Artifacts are private or
-                    unclear.
-                  </p>
-                  <div class="gain">Gain: published finding.</div>
+              <div
+                class="journey-diagram"
+                aria-labelledby="journey-diagram-title"
+                aria-describedby="journey-diagram-help"
+              >
+                <div class="journey-diagram-head">
+                  <b id="journey-diagram-title"
+                    >What accumulates as the field matures</b
+                  >
+                  <span id="journey-diagram-help"
+                    >hover or focus stage labels for detail</span
+                  >
                 </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 1</div>
-                  <h3>Structured disclosure</h3>
-                  <p>
-                    The paper says what exists, where it is, and what cannot be
-                    shared.
-                  </p>
-                  <div class="gain">Gain: readers stop guessing.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 2</div>
-                  <h3>FAIR, citable artifacts</h3>
-                  <p>
-                    Code, data, models, scenarios, metadata, licenses, and
-                    limits have stable records.
-                  </p>
-                  <div class="gain">Gain: reuse becomes possible.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 3</div>
-                  <h3>Executable workflows</h3>
-                  <p>
-                    Scripts, notebooks, containers, and environments regenerate
-                    key results.
-                  </p>
-                  <div class="gain">Gain: verification becomes routine.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 4</div>
-                  <h3>Independent reproduction</h3>
-                  <p>
-                    Reviewers, students, or artifact teams rerun supplied
-                    artifacts and document outcomes.
-                  </p>
-                  <div class="gain">Gain: trust has evidence.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 5</div>
-                  <h3>External validation</h3>
-                  <p>
-                    Claims are tested across new data, contexts, scenarios, or
-                    implementations.
-                  </p>
-                  <div class="gain">Gain: findings generalize.</div>
-                </div>
-                <div class="stage">
-                  <div class="stage-num">Stage 6</div>
-                  <h3>Translation-ready evidence</h3>
-                  <p>
-                    Benchmarks and testbeds support agencies, industry, and
-                    practice.
-                  </p>
-                  <div class="gain">Gain: knowledge travels.</div>
+                <div class="journey-diagram-scroll">
+                  <div class="journey-diagram-inner">
+                    <div class="journey-axis">
+                      <span></span>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 0, paper-only claims. Methods exist mostly as prose. Artifacts are private or unclear. Gain: published finding."
+                      >
+                        0 Paper
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 0</span>
+                          <b>Paper-only claims</b>
+                          <span class="stage-hover-copy">
+                            Methods exist mostly as prose. Artifacts are
+                            private or unclear.
+                          </span>
+                          <span class="gain">Gain: published finding.</span>
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 1, structured disclosure. The paper says what exists, where it is, and what cannot be shared. Gain: readers stop guessing."
+                      >
+                        1 State
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 1</span>
+                          <b>Structured disclosure</b>
+                          <span class="stage-hover-copy">
+                            The paper says what exists, where it is, and what
+                            cannot be shared.
+                          </span>
+                          <span class="gain">Gain: readers stop guessing.</span>
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 2, FAIR, citable artifacts. Code, data, models, scenarios, metadata, licenses, and limits have stable records. Gain: reuse becomes possible."
+                      >
+                        2 Cite
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 2</span>
+                          <b>FAIR, citable artifacts</b>
+                          <span class="stage-hover-copy">
+                            Code, data, models, scenarios, metadata, licenses,
+                            and limits have stable records.
+                          </span>
+                          <span class="gain">Gain: reuse becomes possible.</span>
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 3, executable workflows. Scripts, notebooks, containers, and environments regenerate key results. Gain: verification becomes routine."
+                      >
+                        3 Run
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 3</span>
+                          <b>Executable workflows</b>
+                          <span class="stage-hover-copy">
+                            Scripts, notebooks, containers, and environments
+                            regenerate key results.
+                          </span>
+                          <span class="gain"
+                            >Gain: verification becomes routine.</span
+                          >
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 4, independent reproduction. Reviewers, students, or artifact teams rerun supplied artifacts and document outcomes. Gain: trust has evidence."
+                      >
+                        4 Check
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 4</span>
+                          <b>Independent reproduction</b>
+                          <span class="stage-hover-copy">
+                            Reviewers, students, or artifact teams rerun
+                            supplied artifacts and document outcomes.
+                          </span>
+                          <span class="gain">Gain: trust has evidence.</span>
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 5, external validation. Claims are tested across new data, contexts, scenarios, or implementations. Gain: findings generalize."
+                      >
+                        5 Test
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 5</span>
+                          <b>External validation</b>
+                          <span class="stage-hover-copy">
+                            Claims are tested across new data, contexts,
+                            scenarios, or implementations.
+                          </span>
+                          <span class="gain">Gain: findings generalize.</span>
+                        </span>
+                      </button>
+                      <button
+                        class="axis-stage journey-stage-trigger"
+                        type="button"
+                        aria-label="Stage 6, translation-ready evidence. Benchmarks and testbeds support agencies, industry, and practice. Gain: knowledge travels."
+                      >
+                        6 Use
+                        <span class="stage-hover-card" aria-hidden="true">
+                          <span class="stage-num">Stage 6</span>
+                          <b>Translation-ready evidence</b>
+                          <span class="stage-hover-copy">
+                            Benchmarks and testbeds support agencies, industry,
+                            and practice.
+                          </span>
+                          <span class="gain">Gain: knowledge travels.</span>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="journey-row journey-current">
+                      <div class="journey-row-label">Field position</div>
+                      <div class="journey-track">
+                        <span class="journey-bar" style="--start: 1; --end: 3"
+                          >Most transportation: stages 0-1</span
+                        >
+                        <span
+                          class="journey-bar pocket"
+                          style="--start: 3; --end: 4"
+                          >Pockets at 2</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-row">
+                      <div class="journey-row-label">Visibility</div>
+                      <div class="journey-track">
+                        <span class="journey-bar" style="--start: 2; --end: 8"
+                          >Readers know what exists and what is withheld</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-row">
+                      <div class="journey-row-label">Reuse</div>
+                      <div class="journey-track">
+                        <span
+                          class="journey-bar gold"
+                          style="--start: 3; --end: 8"
+                          >Artifacts become citable, findable, and reusable</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-row">
+                      <div class="journey-row-label">Verification</div>
+                      <div class="journey-track">
+                        <span
+                          class="journey-bar clay"
+                          style="--start: 4; --end: 8"
+                          >Workflows regenerate key results</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-row">
+                      <div class="journey-row-label">Trust</div>
+                      <div class="journey-track">
+                        <span
+                          class="journey-bar blue"
+                          style="--start: 5; --end: 8"
+                          >Independent checks document what holds</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-row">
+                      <div class="journey-row-label">Translation</div>
+                      <div class="journey-track">
+                        <span
+                          class="journey-bar green"
+                          style="--start: 6; --end: 8"
+                          >External tests and testbeds help knowledge travel</span
+                        >
+                      </div>
+                    </div>
+                    <div class="journey-note-strip">
+                      <span>Not a compliance ladder</span>
+                      <span>Each stage adds a public good</span>
+                      <span>Exceptions stay visible</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <details class="roadmap-fallback">
+                <summary>Show all stage descriptions</summary>
+                <div class="details-body">
+                  <div class="roadmap">
+                    <div class="stage">
+                      <div class="stage-num">Stage 0</div>
+                      <h3>Paper-only claims</h3>
+                      <p>
+                        Methods exist mostly as prose. Artifacts are private or
+                        unclear.
+                      </p>
+                      <div class="gain">Gain: published finding.</div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 1</div>
+                      <h3>Structured disclosure</h3>
+                      <p>
+                        The paper says what exists, where it is, and what
+                        cannot be shared.
+                      </p>
+                      <div class="gain">Gain: readers stop guessing.</div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 2</div>
+                      <h3>FAIR, citable artifacts</h3>
+                      <p>
+                        Code, data, models, scenarios, metadata, licenses, and
+                        limits have stable records.
+                      </p>
+                      <div class="gain">Gain: reuse becomes possible.</div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 3</div>
+                      <h3>Executable workflows</h3>
+                      <p>
+                        Scripts, notebooks, containers, and environments
+                        regenerate key results.
+                      </p>
+                      <div class="gain">
+                        Gain: verification becomes routine.
+                      </div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 4</div>
+                      <h3>Independent reproduction</h3>
+                      <p>
+                        Reviewers, students, or artifact teams rerun supplied
+                        artifacts and document outcomes.
+                      </p>
+                      <div class="gain">Gain: trust has evidence.</div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 5</div>
+                      <h3>External validation</h3>
+                      <p>
+                        Claims are tested across new data, contexts, scenarios,
+                        or implementations.
+                      </p>
+                      <div class="gain">Gain: findings generalize.</div>
+                    </div>
+                    <div class="stage">
+                      <div class="stage-num">Stage 6</div>
+                      <h3>Translation-ready evidence</h3>
+                      <p>
+                        Benchmarks and testbeds support agencies, industry, and
+                        practice.
+                      </p>
+                      <div class="gain">Gain: knowledge travels.</div>
+                    </div>
+                  </div>
+                </div>
+              </details>
               <details>
                 <summary>Source crosswalk and caveats</summary>
                 <div class="details-body">
@@ -2248,6 +3310,7 @@
                 </div>
               </details>
               <figcaption>
+                Hover or focus the stage labels to reveal the stage text.
                 Transportation is currently concentrated around Stages 0-1, with
                 pockets of Stage 2 in data-driven modeling, intelligent
                 vehicles, and open dataset communities. Stage 6 is intentionally
@@ -2275,20 +3338,22 @@
               </div>
               <p class="heat-instruction">
                 Click a colored square to inspect that exact community-policy
-                intersection. The detail panel below updates with interpretation
-                and source links.
+                intersection. A detail drawer opens with interpretation and
+                source links.
               </p>
-              <div
-                class="policy-heat"
-                role="table"
-                aria-label="Clickable policy heatmap"
-              >
-                <div class="heat-cell heat-head">Community</div>
-                <div class="heat-cell heat-head">Structured statement</div>
-                <div class="heat-cell heat-head">Code/data artifacts</div>
-                <div class="heat-cell heat-head">Verification</div>
-                <div class="heat-cell heat-head">Badges/rewards</div>
-                <div class="heat-cell heat-head">Exceptions</div>
+              <div class="explorer-split">
+                <div class="explorer-main">
+                  <div
+                    class="policy-heat"
+                    role="table"
+                    aria-label="Clickable policy heatmap"
+                  >
+                    <div class="heat-cell heat-head">Community</div>
+                    <div class="heat-cell heat-head">Structured statement</div>
+                    <div class="heat-cell heat-head">Code/data artifacts</div>
+                    <div class="heat-cell heat-head">Verification</div>
+                    <div class="heat-cell heat-head">Badges/rewards</div>
+                    <div class="heat-cell heat-head">Exceptions</div>
 
                 <div class="heat-cell heat-rowhead">Transportation</div>
                 <button
@@ -2549,38 +3614,54 @@
                     ></span
                   >
                 </button>
-              </div>
-
-              <div
-                class="heat-detail"
-                id="policy-cell-detail"
-                aria-live="polite"
-              >
-                <div class="detail-head">
-                  <div>
-                    <div class="detail-eyebrow">Selected heatmap cell</div>
-                    <h4 id="policy-detail-title">Click a heatmap cell</h4>
-                    <p id="policy-detail-summary">
-                      Choose any colored square above to see what the rating
-                      means and follow through to exact source pages.
-                    </p>
                   </div>
-                  <span class="detail-status" id="policy-detail-status"
-                    >Ready</span
-                  >
                 </div>
-                <div class="detail-body">
-                  <div class="detail-panel">
-                    <b>How to read this cell</b>
-                    <p id="policy-detail-reading">
-                      The heatmap is a quick policy scan, not a legal
-                      interpretation. The detail panel keeps the source trail
-                      attached to the cell being inspected.
-                    </p>
-                  </div>
-                  <div class="detail-panel">
-                    <b>Follow through</b>
-                    <div class="source-tiles" id="policy-detail-links"></div>
+
+                <div class="explorer-detail">
+                  <div
+                    class="heat-detail"
+                    id="policy-cell-detail"
+                    aria-live="polite"
+                  >
+                    <div class="detail-head">
+                      <div>
+                        <div class="detail-eyebrow">Selected heatmap cell</div>
+                        <h4 id="policy-detail-title">Click a heatmap cell</h4>
+                        <p id="policy-detail-summary">
+                          Choose any colored square to see what the rating means
+                          and follow through to exact source pages.
+                        </p>
+                      </div>
+                      <div class="inspector-actions">
+                        <span class="detail-status" id="policy-detail-status"
+                          >Ready</span
+                        >
+                        <button
+                          class="inspector-close"
+                          type="button"
+                          data-close-inspector
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                    <div class="detail-body">
+                      <div class="detail-panel">
+                        <b>How to read this cell</b>
+                        <p id="policy-detail-reading">
+                          The heatmap is a quick policy scan, not a legal
+                          interpretation. The inspector keeps the source trail
+                          attached to the cell being inspected.
+                        </p>
+                      </div>
+                      <div class="detail-panel">
+                        <b>Follow through</b>
+                        <div
+                          class="source-tiles"
+                          id="policy-detail-links"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2610,44 +3691,69 @@
               </div>
               <p class="funder-instruction">
                 Click a cell to inspect the policy mechanism and follow through
-                to exact funder guidance.
+                to exact funder guidance. A detail drawer keeps the explanation
+                and source trail in view.
               </p>
-              <div
-                class="funder-policy-grid"
-                id="funder-policy-grid"
-                role="table"
-                aria-label="Clickable funder policy grid"
-              ></div>
-
-              <div class="heat-detail" id="funder-detail" aria-live="polite">
-                <div class="detail-head">
-                  <div>
-                    <div class="detail-eyebrow">
-                      Selected funder policy cell
-                    </div>
-                    <h4 id="funder-detail-title">Click a funder policy cell</h4>
-                    <p id="funder-detail-summary">
-                      Choose any colored square above to see the relevant policy
-                      mechanism and source pages.
-                    </p>
-                  </div>
-                  <span class="detail-status" id="funder-detail-status"
-                    >Ready</span
-                  >
+              <div class="explorer-split">
+                <div class="explorer-main">
+                  <div
+                    class="funder-policy-grid"
+                    id="funder-policy-grid"
+                    role="table"
+                    aria-label="Clickable funder policy grid"
+                  ></div>
                 </div>
-                <div class="detail-body">
-                  <div class="detail-panel">
-                    <b>How to read this cell</b>
-                    <p id="funder-detail-reading">
-                      This grid is a compact policy scan. It distinguishes
-                      public-access mandates, data-management expectations,
-                      repository and metadata infrastructure, exception
-                      pathways, and monitoring or support mechanisms.
-                    </p>
-                  </div>
-                  <div class="detail-panel">
-                    <b>Follow through</b>
-                    <div class="source-tiles" id="funder-detail-links"></div>
+
+                <div class="explorer-detail">
+                  <div
+                    class="heat-detail"
+                    id="funder-detail"
+                    aria-live="polite"
+                  >
+                    <div class="detail-head">
+                      <div>
+                        <div class="detail-eyebrow">
+                          Selected funder policy cell
+                        </div>
+                        <h4 id="funder-detail-title">
+                          Click a funder policy cell
+                        </h4>
+                        <p id="funder-detail-summary">
+                          Choose any colored square to see the relevant policy
+                          mechanism and source pages.
+                        </p>
+                      </div>
+                      <div class="inspector-actions">
+                        <span class="detail-status" id="funder-detail-status"
+                          >Ready</span
+                        >
+                        <button
+                          class="inspector-close"
+                          type="button"
+                          data-close-inspector
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                    <div class="detail-body">
+                      <div class="detail-panel">
+                        <b>How to read this cell</b>
+                        <p id="funder-detail-reading">
+                          This grid is a compact policy scan. It distinguishes
+                          public-access mandates, data-management expectations,
+                          repository and metadata infrastructure, exception
+                          pathways, and monitoring or support mechanisms.
+                        </p>
+                      </div>
+                      <div class="detail-panel">
+                        <b>Follow through</b>
+                        <div
+                          class="source-tiles"
+                          id="funder-detail-links"
+                        ></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2743,260 +3849,438 @@
 
           <section id="columns">
             <div class="kicker">Editorial features</div>
-            <h2>Use short columns to make the report timely.</h2>
+            <h2>Let columns add voice without taking over the report.</h2>
             <p class="section-lead">
-              Three essay slots can add voice without crowding the audit.
+              Each column can grow to roughly 1000 words, but the reader should
+              open one column directly from the card, skim the spread, and keep
+              moving.
             </p>
 
             <figure>
               <div class="figure-title">
                 <h3>Figure 11. Suggested columns</h3>
-                <span class="num">2-3 pages total</span>
+                <span class="num">Expandable editorial cards</span>
               </div>
               <div class="columns">
-                <button
-                  class="column-card"
-                  type="button"
-                  data-feature-key="agents"
-                  aria-controls="feature-preview"
-                  aria-expanded="false"
-                >
-                  <div class="column-art">
-                    <span style="height: 20%"></span
-                    ><span style="height: 65%"></span
-                    ><span style="height: 35%"></span
-                    ><span style="height: 80%"></span
-                    ><span style="height: 45%"></span
-                    ><span style="height: 72%"></span
-                    ><span style="height: 52%"></span>
-                  </div>
-                  <div class="column-body">
-                    <h3>LLMs and coding agents</h3>
-                    <p>
-                      Agents can help package, inspect, and lightly reproduce
-                      work. They also make missing instructions more visible.
-                      The column should cover disclosure, sandboxing, and human
-                      judgment.
-                    </p>
-                    <span class="column-cue">Preview spread</span>
-                  </div>
-                </button>
-                <button
-                  class="column-card"
-                  type="button"
-                  data-feature-key="available"
-                  aria-controls="feature-preview"
-                  aria-expanded="false"
-                >
-                  <div class="column-art">
-                    <span style="height: 72%"></span
-                    ><span style="height: 54%"></span
-                    ><span style="height: 39%"></span
-                    ><span style="height: 62%"></span
-                    ><span style="height: 29%"></span
-                    ><span style="height: 77%"></span
-                    ><span style="height: 45%"></span>
-                  </div>
-                  <div class="column-body">
-                    <h3>Beyond available on request</h3>
-                    <p>
-                      Replace vague requests with a menu: public repository,
-                      controlled access, synthetic data, derived data,
-                      simulator, metadata-only record, or justified non-release.
-                    </p>
-                    <span class="column-cue">Preview spread</span>
-                  </div>
-                </button>
-                <button
-                  class="column-card"
-                  type="button"
-                  data-feature-key="benchmarks"
-                  aria-controls="feature-preview"
-                  aria-expanded="false"
-                >
-                  <div class="column-art">
-                    <span style="height: 32%"></span
-                    ><span style="height: 46%"></span
-                    ><span style="height: 70%"></span
-                    ><span style="height: 56%"></span
-                    ><span style="height: 84%"></span
-                    ><span style="height: 63%"></span
-                    ><span style="height: 74%"></span>
-                  </div>
-                  <div class="column-body">
-                    <h3>Benchmarks as infrastructure</h3>
-                    <p>
-                      Open datasets, simulation scenarios, and testbeds are how
-                      methods become comparable, useful, and attractive to new
-                      talent.
-                    </p>
-                    <span class="column-cue">Preview spread</span>
-                  </div>
-                </button>
-              </div>
-
-              <div
-                class="feature-preview"
-                id="feature-preview"
-                aria-live="polite"
-              >
-                <div class="feature-preview-head">
-                  <span id="feature-preview-label"
-                    >Editorial feature preview</span
-                  >
-                  <span id="feature-preview-length"
-                    >~900 words + one sidebar</span
-                  >
-                </div>
-                <div class="feature-spread">
-                  <div class="feature-copy">
-                    <div class="feature-kicker" id="feature-kicker">
-                      Column 1 | Tools
-                    </div>
-                    <h4 id="feature-title">
-                      When the reviewer has a pair programmer
-                    </h4>
-                    <p class="feature-dek" id="feature-dek">
-                      Coding agents will not solve reproducibility by magic.
-                      They shift the bottleneck: clear artifacts become easier
-                      to inspect, while missing instructions become visibly
-                      incomplete.
-                    </p>
-                    <p class="feature-excerpt" id="feature-excerpt">
-                      A useful 2026 standard is not "AI reproduced it." It is: a
-                      human used an auditable agent workflow to check whether
-                      links, environments, and claims line up. The column should
-                      show both the promise and the guardrails: disclosure,
-                      sandboxing, provenance logs, and human sign-off.
-                    </p>
-                    <div class="feature-pull" id="feature-pull">
-                      Agents make reproducibility debt legible.
-                    </div>
-                    <div class="feature-footer" id="feature-tags">
-                      <span class="status shipped">agent-assisted review</span>
-                      <span class="status planned">sandbox log</span>
-                      <span class="status draft">human sign-off</span>
-                    </div>
-                  </div>
-                  <aside class="feature-side">
-                    <div
-                      class="mini-graphic"
-                      id="feature-graphic"
-                      aria-label="Feature visual sketch"
-                    >
-                      <span style="height: 32%"></span
+                <details class="column-card">
+                  <summary class="column-summary">
+                    <div class="column-art">
+                      <span style="height: 20%"></span
+                      ><span style="height: 65%"></span
+                      ><span style="height: 35%"></span
+                      ><span style="height: 80%"></span
+                      ><span style="height: 45%"></span
                       ><span style="height: 72%"></span
-                      ><span style="height: 48%"></span
-                      ><span style="height: 86%"></span
-                      ><span style="height: 58%"></span>
+                      ><span style="height: 52%"></span>
                     </div>
-                    <div class="feature-notes">
-                      <b>How this would appear</b>
-                      <ul id="feature-notes">
-                        <li>One-page column with a large pull quote.</li>
-                        <li>Small visual: artifact check workflow.</li>
-                        <li>Sidebar: what to disclose when using agents.</li>
-                      </ul>
+                    <div class="column-body">
+                      <div class="feature-kicker">Column 1 | Tools</div>
+                      <h3>When the reviewer has a pair programmer</h3>
+                      <p>
+                        Coding agents can help inspect artifacts, but only if
+                        the workflow remains auditable, sandboxed, and human
+                        signed.
+                      </p>
                     </div>
-                  </aside>
-                </div>
+                    <span class="column-cue"
+                      ><span class="cue-open">Open draft</span
+                      ><span class="cue-close">Close draft</span></span
+                    >
+                  </summary>
+                  <div class="column-panel">
+                    <div class="column-panel-grid">
+                      <div class="column-main">
+                        <h4>When the reviewer has a pair programmer</h4>
+                        <p class="feature-dek">
+                          Coding agents will not solve reproducibility by magic.
+                          They shift the bottleneck: clear artifacts become
+                          easier to inspect, while missing instructions become
+                          visibly incomplete.
+                        </p>
+                        <p class="feature-excerpt">
+                          A useful 2026 standard is not "AI reproduced it." It
+                          is: a human used an auditable agent workflow to check
+                          whether links, environments, and claims line up. The
+                          column should show both the promise and the guardrails:
+                          disclosure, sandboxing, provenance logs, and human
+                          sign-off.
+                        </p>
+                        <div class="feature-pull">
+                          Agents make reproducibility debt legible.
+                        </div>
+                        <div class="feature-footer">
+                          <span class="status shipped"
+                            >agent-assisted review</span
+                          >
+                          <span class="status planned">sandbox log</span>
+                          <span class="status draft">human sign-off</span>
+                        </div>
+                        <div class="column-draft">
+                          <h5>Draft shelf</h5>
+                          <p>
+                            A coding agent changes the practical meaning of
+                            reproducibility. It can clone a repository, inspect
+                            an environment file, run a notebook, summarize an
+                            error trace, and propose the smallest missing
+                            instruction. That does not make the agent an
+                            authority. It makes the missing parts of the
+                            research object easier to see.
+                          </p>
+                          <p>
+                            For transportation research, this matters because
+                            many artifacts are not elegant software packages.
+                            They are scripts, demand matrices, simulation
+                            settings, notebooks, sensor-processing pipelines,
+                            and instructions that were written under deadline
+                            pressure. An agent can lower the first barrier to
+                            inspection, but only when the authors have given it
+                            something concrete to inspect.
+                          </p>
+                          <p>
+                            The column should therefore avoid a magical claim.
+                            The standard is not that AI reproduced the paper.
+                            The standard is that a human used an auditable,
+                            sandboxed workflow to check links, metadata,
+                            environments, and selected claims. The final column
+                            can end with a short disclosure template: what tool
+                            was used, what it was allowed to do, what was
+                            checked, what failed, and who signed off.
+                          </p>
+                        </div>
+                      </div>
+                      <aside class="column-side">
+                        <div class="mini-graphic" aria-label="Feature visual sketch">
+                          <span style="height: 32%"></span
+                          ><span style="height: 72%"></span
+                          ><span style="height: 48%"></span
+                          ><span style="height: 86%"></span
+                          ><span style="height: 58%"></span>
+                        </div>
+                        <div class="feature-notes">
+                          <b>How this would appear</b>
+                          <ul>
+                            <li>One-page column with a large pull quote.</li>
+                            <li>Small visual: artifact check workflow.</li>
+                            <li>Sidebar: what to disclose when using agents.</li>
+                          </ul>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="column-card">
+                  <summary class="column-summary">
+                    <div class="column-art">
+                      <span style="height: 72%"></span
+                      ><span style="height: 54%"></span
+                      ><span style="height: 39%"></span
+                      ><span style="height: 62%"></span
+                      ><span style="height: 29%"></span
+                      ><span style="height: 77%"></span
+                      ><span style="height: 45%"></span>
+                    </div>
+                    <div class="column-body">
+                      <div class="feature-kicker">Column 2 | Access</div>
+                      <h3>The end of "available on request"</h3>
+                      <p>
+                        Replace vague request sentences with concrete public,
+                        controlled, synthetic, derived, metadata, or justified
+                        non-release paths.
+                      </p>
+                    </div>
+                    <span class="column-cue"
+                      ><span class="cue-open">Open draft</span
+                      ><span class="cue-close">Close draft</span></span
+                    >
+                  </summary>
+                  <div class="column-panel">
+                    <div class="column-panel-grid">
+                      <div class="column-main">
+                        <h4>The end of "available on request"</h4>
+                        <p class="feature-dek">
+                          A request-only sentence sounds generous, but it often
+                          leaves future readers with a dead end. The replacement
+                          is a clear menu of release pathways.
+                        </p>
+                        <p class="feature-excerpt">
+                          The report can make this practical rather than
+                          scolding: public repository when possible; controlled
+                          access when necessary; synthetic data when privacy is
+                          the barrier; derived data when raw traces cannot move;
+                          metadata-only records when even the object cannot be
+                          released.
+                        </p>
+                        <div class="feature-pull">
+                          Not every artifact can be open. Every artifact can be
+                          accounted for.
+                        </div>
+                        <div class="feature-footer">
+                          <span class="status shipped">public repo</span>
+                          <span class="status planned">controlled access</span>
+                          <span class="status draft">justified limits</span>
+                        </div>
+                        <div class="column-draft">
+                          <h5>Draft shelf</h5>
+                          <p>
+                            Available on request is often written with good
+                            intentions. It signals that an author is not hiding
+                            the work. But for a reader two years later, the
+                            sentence can become a closed door: the student has
+                            graduated, the email changed, the data agreement
+                            expired, or the request itself is too vague to
+                            process.
+                          </p>
+                          <p>
+                            The replacement is not one universal demand for
+                            public release. Transportation has legitimate
+                            limits: privacy, agency agreements, proprietary
+                            sensors, security concerns, Indigenous or community
+                            data governance, and vendor contracts. The better
+                            standard is that every artifact has an accountable
+                            path.
+                          </p>
+                          <p>
+                            A practical availability statement can name one of
+                            several routes: public repository, controlled
+                            access, synthetic substitute, derived aggregate,
+                            simulator or scenario package, metadata-only record,
+                            or justified non-release. The column should give
+                            researchers language they can reuse, and it should
+                            tell editors what to ask when a paper says the data
+                            cannot be shared.
+                          </p>
+                        </div>
+                      </div>
+                      <aside class="column-side">
+                        <div class="mini-graphic" aria-label="Feature visual sketch">
+                          <span style="height: 78%"></span
+                          ><span style="height: 48%"></span
+                          ><span style="height: 64%"></span
+                          ><span style="height: 34%"></span
+                          ><span style="height: 70%"></span>
+                        </div>
+                        <div class="feature-notes">
+                          <b>How this would appear</b>
+                          <ul>
+                            <li>One-page field guide with a decision menu.</li>
+                            <li>Graphic: six access pathways.</li>
+                            <li>Sidebar: sample availability statements.</li>
+                          </ul>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="column-card">
+                  <summary class="column-summary">
+                    <div class="column-art">
+                      <span style="height: 32%"></span
+                      ><span style="height: 46%"></span
+                      ><span style="height: 70%"></span
+                      ><span style="height: 56%"></span
+                      ><span style="height: 84%"></span
+                      ><span style="height: 63%"></span
+                      ><span style="height: 74%"></span>
+                    </div>
+                    <div class="column-body">
+                      <div class="feature-kicker">Column 3 | Translation</div>
+                      <h3>Benchmarks are field infrastructure</h3>
+                      <p>
+                        Open datasets, simulation scenarios, and testbeds are
+                        how methods become comparable, useful, and ready for
+                        practice.
+                      </p>
+                    </div>
+                    <span class="column-cue"
+                      ><span class="cue-open">Open draft</span
+                      ><span class="cue-close">Close draft</span></span
+                    >
+                  </summary>
+                  <div class="column-panel">
+                    <div class="column-panel-grid">
+                      <div class="column-main">
+                        <h4>Benchmarks are field infrastructure</h4>
+                        <p class="feature-dek">
+                          Open datasets, simulation scenarios, and testbeds are
+                          not side products. They are the roads that let methods
+                          travel from paper to practice.
+                        </p>
+                        <p class="feature-excerpt">
+                          A benchmark is a public invitation: compare here,
+                          improve this, document tradeoffs, and make the next
+                          claim easier to understand. For transportation, that
+                          can mean shared scenarios, synthetic corridors,
+                          calibrated simulators, safety cases, or curated
+                          challenge datasets.
+                        </p>
+                        <div class="feature-pull">
+                          Translation needs more than findings. It needs shared
+                          places to test them.
+                        </div>
+                        <div class="feature-footer">
+                          <span class="status shipped">datasets</span>
+                          <span class="status planned">scenarios</span>
+                          <span class="status draft">testbeds</span>
+                        </div>
+                        <div class="column-draft">
+                          <h5>Draft shelf</h5>
+                          <p>
+                            A benchmark is a field-level agreement to make
+                            comparison easier. It says: test here, report these
+                            assumptions, document these tradeoffs, and leave the
+                            next researcher with a clearer starting point. In
+                            transportation, that agreement can be a dataset, a
+                            simulation scenario, a calibrated corridor, a safety
+                            case, or a public challenge.
+                          </p>
+                          <p>
+                            Benchmarks are not only technical conveniences. They
+                            are translation infrastructure. Agencies and
+                            companies rarely adopt a method because one paper
+                            reports a promising number. They need to know
+                            whether the method travels across demand levels,
+                            roadway types, sensor conditions, equity
+                            constraints, safety rules, and maintenance
+                            realities.
+                          </p>
+                          <p>
+                            The final column should make benchmark work feel
+                            prestigious rather than administrative. RERITE can
+                            help by naming benchmark gaps, spotlighting
+                            well-curated scenarios, and encouraging funders to
+                            treat datasets and testbeds as durable research
+                            outputs. Open science becomes more persuasive when
+                            it gives the field shared places to test claims.
+                          </p>
+                        </div>
+                      </div>
+                      <aside class="column-side">
+                        <div class="mini-graphic" aria-label="Feature visual sketch">
+                          <span style="height: 42%"></span
+                          ><span style="height: 56%"></span
+                          ><span style="height: 82%"></span
+                          ><span style="height: 66%"></span
+                          ><span style="height: 88%"></span>
+                        </div>
+                        <div class="feature-notes">
+                          <b>How this would appear</b>
+                          <ul>
+                            <li>Two-column page with an infrastructure sketch.</li>
+                            <li>Graphic: claim to benchmark to practice.</li>
+                            <li>Sidebar: candidate benchmark areas for 2027.</li>
+                          </ul>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </details>
               </div>
               <figcaption>
-                Select a column card to preview the eventual report treatment.
-                The cards stay short; the preview panel carries the sample
-                layout.
+                Open a column once to see the concept, layout notes, and draft
+                shelf together. This avoids a separate preview panel while
+                keeping long editorial text collapsed by default.
               </figcaption>
             </figure>
           </section>
 
           <section id="pipeline">
-            <div class="kicker">Measurement design</div>
+            <div class="kicker">Behind the scenes</div>
             <h2>
-              Keep the audit lightweight, repeatable, and honest about
-              uncertainty.
+              How the audit turns a paper corpus into a public field signal.
             </h2>
             <p class="section-lead">
-              The audit should measure artifact availability at scale, then
-              reserve human effort for validation, policy interpretation, and
-              deeper reproduction pilots.
+              This section should give readers confidence without asking them to
+              become methodologists. The annual audit is designed to be
+              lightweight, repeatable, source-traceable, and honest about where
+              automated measurement still needs human judgment.
             </p>
 
             <figure>
               <div class="figure-title">
-                <h3>Figure 4. Annual audit pipeline</h3>
-                <span class="num">Volunteer-executable</span>
+                <h3>Figure 4. Behind the scenes of the audit</h3>
+                <span class="num">Volunteer-executable, reader-auditable</span>
               </div>
               <div class="pipeline">
                 <div class="pipe-step">
                   <div class="step-icon i1">1</div>
-                  <b>Collect</b>
+                  <b>Assemble the corpus</b>
                   <p>
-                    Fetch full-text or structured metadata for target journals
-                    and years.
+                    Define venues and years, freeze source records, and keep
+                    enough metadata for readers to trace what was counted.
                   </p>
                 </div>
                 <div class="pipe-step">
                   <div class="step-icon i2">2</div>
-                  <b>Extract</b>
+                  <b>Read for signals</b>
                   <p>
-                    Use LLM-assisted prompts for code, data, statements, topics,
-                    and links.
+                    Extract code, data, statements, topics, and links using
+                    documented prompts and structured coding rules.
                   </p>
                 </div>
                 <div class="pipe-step">
                   <div class="step-icon i3">3</div>
-                  <b>Validate</b>
-                  <p>Human-code a stratified sample and report agreement.</p>
+                  <b>Check the machine</b>
+                  <p>
+                    Human-code a stratified sample, report agreement, and name
+                    categories where ambiguity remains.
+                  </p>
                 </div>
                 <div class="pipe-step">
                   <div class="step-icon i4">4</div>
-                  <b>Classify</b>
+                  <b>Add context</b>
                   <p>
-                    Sort links by repository type, DOI, license, README, and
-                    environment clues.
+                    Classify repository types, DOI presence, licenses, README
+                    clues, exception language, and policy context.
                   </p>
                 </div>
                 <div class="pipe-step">
                   <div class="step-icon i5">5</div>
-                  <b>Publish</b>
+                  <b>Show the work</b>
                   <p>
-                    Release figures, caveats, source tables, and a runbook for
-                    next year.
+                    Publish figures, caveats, source tables, example records,
+                    and a runbook so next year's audit can improve.
                   </p>
                 </div>
               </div>
               <figcaption>
-                This keeps the audit within RERITE's volunteer capacity while
-                still improving over the preprint.
+                Behind the scenes, the report should be transparent about the
+                audit trail: what was counted automatically, what humans
+                checked, what remains ambiguous, and what should be rerun before
+                publication.
               </figcaption>
             </figure>
           </section>
 
           <section id="next-metrics">
-            <div class="kicker">Metrics beyond the preprint</div>
+            <div class="kicker">Future work and reader feedback</div>
             <h2>
-              Add depth where it is cheap, and sample where it is expensive.
+              The next metrics should be chosen with the community, not guessed
+              in isolation.
             </h2>
             <p class="section-lead">
-              The final report can be more useful than the preprint without
-              requiring a full reproduction study.
+              These are candidate extensions beyond the January 2026 MOST
+              preprint. Some are cheap enough for the 2026 release; others
+              should become scoped pilots only if journals, funders, reviewers,
+              and researchers say they would use the results.
             </p>
 
             <figure>
               <div class="figure-title">
-                <h3>Figure 5. What to add next</h3>
-                <span class="num">Effort vs. value</span>
+                <h3>Figure 5. Candidate future metrics</h3>
+                <span class="num">Feedback wanted: value vs. effort</span>
               </div>
               <div class="effort-map">
                 <div class="effort-col">
-                  <h3>Low effort</h3>
+                  <h3>Likely 2026 add-ons</h3>
                   <span class="chip">Extend TR series to 2025.</span>
                   <span class="chip">Classify availability statements.</span>
                   <span class="chip">Measure repository host types.</span>
                   <span class="chip">Check link rot and DOI presence.</span>
                 </div>
                 <div class="effort-col">
-                  <h3>Medium effort</h3>
+                  <h3>Prioritize with readers</h3>
                   <span class="chip gold"
                     >Scan README, license, environment files.</span
                   >
@@ -3007,7 +4291,7 @@
                   <span class="chip gold">Build a policy coverage rubric.</span>
                 </div>
                 <div class="effort-col">
-                  <h3>High value pilots</h3>
+                  <h3>Possible 2027 pilots</h3>
                   <span class="chip rose"
                     >Run 30-50 lightweight reproduction attempts.</span
                   >
@@ -3022,9 +4306,166 @@
                   >
                 </div>
               </div>
+              <div class="feedback-callout">
+                <div>
+                  <b>Reader invitation</b>
+                  <p>
+                    Treat this figure as a menu, not a promise. The final
+                    report can ask readers which metrics would actually change
+                    editorial policy, funding requirements, review practice,
+                    lab training, or artifact preparation.
+                  </p>
+                </div>
+                <ul>
+                  <li>Which metric would help you make a decision?</li>
+                  <li>Which metric risks becoming punitive or misleading?</li>
+                  <li>Which subfields, venues, or funders should be added first?</li>
+                  <li>Where can readers contribute examples or validation help?</li>
+                </ul>
+              </div>
               <figcaption>
-                Recommendation: include low and medium effort metrics in the
-                2026 report, then frame reproduction attempts as a 2027 pilot.
+                Recommendation: publish the 2026 baseline with a transparent
+                future-work agenda, invite comments, then select a small number
+                of 2027 pilot metrics based on reader demand and volunteer
+                capacity.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section id="team-acknowledgements">
+            <div class="kicker">People and credit</div>
+            <h2>Open science is infrastructure, and infrastructure has people behind it.</h2>
+            <p class="section-lead">
+              The annual report should make contributor labor visible while
+              keeping names easy to refresh before release.
+            </p>
+
+            <figure>
+              <div class="figure-title">
+                <h3>Figure 12. Team and acknowledgements</h3>
+                <span class="num">Release-time refresh required</span>
+              </div>
+              <div class="team-board">
+                <div class="team-card wide">
+                  <div>
+                    <span class="status shipped">RERITE working group</span>
+                    <h3>Steering committee, members, and friends</h3>
+                    <p>
+                      The public team page should remain the source of truth for
+                      the full RERITE roster. In the final report, freeze that
+                      page near publication, confirm spelling and affiliations,
+                      and ask whether any contributors prefer not to be named.
+                    </p>
+                  </div>
+                  <div>
+                    <div class="team-links">
+                      <a href="https://www.rerite.org/team.html">Team page</a>
+                      <a href="https://www.rerite.org/getinvolved.html"
+                        >Get involved</a
+                      >
+                      <a href="https://www.rerite.org/">RERITE home</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="team-card">
+                  <span class="status shipped">MOST project</span>
+                  <h3>Measurement, validation, and explorer</h3>
+                  <p>
+                    Project team listed on the MOST page for the 2026
+                    open-science measurement effort.
+                  </p>
+                  <div class="name-cloud">
+                    <span>Junyi Ji</span>
+                    <span>Ruth Lu</span>
+                    <span>Linda Belkessa</span>
+                    <span>Liming Wang</span>
+                    <span>Silvia Varotto</span>
+                    <span>Yongqi Dong</span>
+                    <span>Nicolas Saunier</span>
+                    <span>Mostafa Ameli</span>
+                    <span>Gregory S. Macfarlane</span>
+                    <span>Bahman Madadi</span>
+                    <span>Cathy Wu</span>
+                  </div>
+                </div>
+
+                <div class="team-card">
+                  <span class="status shipped">IEEE IV 2026 workshop</span>
+                  <h3>Datasets, benchmarks, and testbeds convening</h3>
+                  <p>
+                    Workshop organizers listed on the RERITE IEEE IV 2026
+                    workshop page.
+                  </p>
+                  <div class="name-cloud">
+                    <span>Junyi Ji</span>
+                    <span>Yongqi Dong</span>
+                    <span>Danjue Chen</span>
+                    <span>Zuduo Zheng</span>
+                    <span>Nicolas Saunier</span>
+                    <span>Cathy Wu</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ack-panel">
+                <h3>Acknowledgements</h3>
+                <div class="ack-grid">
+                  <div class="ack-item">
+                    <b>Artifact sharers</b>
+                    <p>
+                      Researchers who made code, data, scenarios, models, and
+                      documentation visible for reuse and inspection.
+                    </p>
+                  </div>
+                  <div class="ack-item">
+                    <b>Reviewers and editors</b>
+                    <p>
+                      People who click links, ask for clearer statements, and
+                      make reusable work count in publication decisions.
+                    </p>
+                  </div>
+                  <div class="ack-item">
+                    <b>Workshop and tutorial communities</b>
+                    <p>
+                      TRB, ITSC, CPS-IoT, IEEE IV, hEART, and other venues where
+                      reproducibility moved from principle to practice.
+                    </p>
+                  </div>
+                  <div class="ack-item">
+                    <b>Students and junior researchers</b>
+                    <p>
+                      The people who often do the painstaking work of packaging,
+                      testing, documenting, and teaching reproducible workflows.
+                    </p>
+                  </div>
+                  <div class="ack-item">
+                    <b>Open-resource maintainers</b>
+                    <p>
+                      Curators of datasets, benchmarks, software, standards, and
+                      examples that let transportation methods be compared.
+                    </p>
+                  </div>
+                  <div class="ack-item">
+                    <b>Institutions and hosts</b>
+                    <p>
+                      Universities, labs, journals, conferences, agencies, and
+                      professional communities that give open-science work room
+                      to become normal.
+                    </p>
+                  </div>
+                </div>
+                <div class="ack-release-note">
+                  Final-report checklist: refresh team names, add ORCIDs where
+                  available, confirm affiliations, list event sponsors and
+                  hosts, and record any data/code/tool contributors who should
+                  be credited separately.
+                </div>
+              </div>
+              <figcaption>
+                This section should be updated in the final production pass from
+                the RERITE team page, MOST project page, IEEE IV 2026 workshop
+                page, and contributor records for the report itself.
               </figcaption>
             </figure>
           </section>
@@ -3051,6 +4492,7 @@
                     <a href="https://www.rerite.org/">RERITE website</a>,
                     including
                     <a href="https://www.rerite.org/about.html">About</a>,
+                    <a href="https://www.rerite.org/team.html">Team</a>,
                     <a href="https://www.rerite.org/activities.html"
                       >Activities</a
                     >,
@@ -3058,6 +4500,9 @@
                       >February 2026 newsletter</a
                     >,
                     <a href="https://www.rerite.org/MOST/">MOST project page</a
+                    >,
+                    <a href="https://www.rerite.org/awesome-rerite.html"
+                      >awesome-rerite resources</a
                     >, and
                     <a href="https://www.rerite.org/getinvolved.html"
                       >Get Involved</a
@@ -3067,6 +4512,10 @@
                     <a
                       href="https://www.rerite.org/activities/2026-06-22-ivs-workshop.html"
                       >IEEE IV 2026 RERITE workshop page</a
+                    >
+                    and
+                    <a href="https://www.rerite.org/ivs-2026/"
+                      >workshop program page</a
                     >.
                   </li>
                   <li>
@@ -3289,75 +4738,6 @@
       </footer>
     </div>
     <script>
-      const featurePreviews = {
-        agents: {
-          label: "Editorial feature preview",
-          length: "~900 words + one sidebar",
-          kicker: "Column 1 | Tools",
-          title: "When the reviewer has a pair programmer",
-          dek: "Coding agents will not solve reproducibility by magic. They shift the bottleneck: clear artifacts become easier to inspect, while missing instructions become visibly incomplete.",
-          excerpt:
-            'A useful 2026 standard is not "AI reproduced it." It is: a human used an auditable agent workflow to check whether links, environments, and claims line up. The column should show both the promise and the guardrails: disclosure, sandboxing, provenance logs, and human sign-off.',
-          pull: "Agents make reproducibility debt legible.",
-          tags: [
-            ["agent-assisted review", "shipped"],
-            ["sandbox log", "planned"],
-            ["human sign-off", "draft"],
-          ],
-          bars: ["32%", "72%", "48%", "86%", "58%"],
-          color: "#2f7d78",
-          notes: [
-            "One-page column with a large pull quote.",
-            "Small visual: artifact check workflow.",
-            "Sidebar: what to disclose when using agents.",
-          ],
-        },
-        available: {
-          label: "Editorial feature preview",
-          length: "~750 words + menu graphic",
-          kicker: "Column 2 | Access",
-          title: 'The end of "available on request"',
-          dek: "A request-only sentence sounds generous, but it often leaves future readers with a dead end. The replacement is a clear menu of release pathways.",
-          excerpt:
-            "The report can make this practical rather than scolding: public repository when possible; controlled access when necessary; synthetic data when privacy is the barrier; derived data when raw traces cannot move; metadata-only records when even the object cannot be released.",
-          pull: "Not every artifact can be open. Every artifact can be accounted for.",
-          tags: [
-            ["public repo", "shipped"],
-            ["controlled access", "planned"],
-            ["justified limits", "draft"],
-          ],
-          bars: ["78%", "48%", "64%", "34%", "70%"],
-          color: "#b6842e",
-          notes: [
-            "One-page field guide with a decision menu.",
-            "Visual: replace a vague request sentence with six concrete pathways.",
-            "Sidebar: sample availability statement language.",
-          ],
-        },
-        benchmarks: {
-          label: "Editorial feature preview",
-          length: "~850 words + infrastructure sketch",
-          kicker: "Column 3 | Translation",
-          title: "Benchmarks are field infrastructure",
-          dek: "Open datasets, simulation scenarios, and testbeds are not side products. They are the roads that let methods travel from paper to practice.",
-          excerpt:
-            "A benchmark is a public invitation: compare here, improve this, document tradeoffs, and make the next claim easier to understand. For transportation, that can mean shared scenarios, synthetic corridors, calibrated simulators, safety cases, or curated challenge datasets.",
-          pull: "Translation needs more than findings. It needs shared places to test them.",
-          tags: [
-            ["datasets", "shipped"],
-            ["scenarios", "planned"],
-            ["testbeds", "draft"],
-          ],
-          bars: ["42%", "56%", "82%", "66%", "88%"],
-          color: "#496f9e",
-          notes: [
-            "Two-column column page with an infrastructure sketch.",
-            "Visual: pipeline from paper claim to benchmark to practice.",
-            "Sidebar: candidate transportation benchmark areas for 2027.",
-          ],
-        },
-      };
-
       const audienceInsights = {
         publishers: {
           title: "Journals and publishers",
@@ -3560,54 +4940,6 @@
           text.textContent = label;
           item.append(stat, text);
           stats.append(item);
-        });
-      }
-
-      function setFeaturePreview(key, selectedButton) {
-        const preview = featurePreviews[key];
-        if (!preview) return;
-
-        document.querySelectorAll("[data-feature-key]").forEach((button) => {
-          const active = button === selectedButton;
-          button.classList.toggle("is-selected", active);
-          button.setAttribute("aria-expanded", active ? "true" : "false");
-        });
-
-        document.getElementById("feature-preview-label").textContent =
-          preview.label;
-        document.getElementById("feature-preview-length").textContent =
-          preview.length;
-        document.getElementById("feature-kicker").textContent = preview.kicker;
-        document.getElementById("feature-title").textContent = preview.title;
-        document.getElementById("feature-dek").textContent = preview.dek;
-        document.getElementById("feature-excerpt").textContent =
-          preview.excerpt;
-        document.getElementById("feature-pull").textContent = preview.pull;
-
-        const tags = document.getElementById("feature-tags");
-        tags.replaceChildren();
-        preview.tags.forEach(([label, state]) => {
-          const tag = document.createElement("span");
-          tag.className = `status ${state}`;
-          tag.textContent = label;
-          tags.append(tag);
-        });
-
-        const graphic = document.getElementById("feature-graphic");
-        graphic.replaceChildren();
-        preview.bars.forEach((height) => {
-          const bar = document.createElement("span");
-          bar.style.height = height;
-          bar.style.background = preview.color;
-          graphic.append(bar);
-        });
-
-        const notes = document.getElementById("feature-notes");
-        notes.replaceChildren();
-        preview.notes.forEach((item) => {
-          const li = document.createElement("li");
-          li.textContent = item;
-          notes.append(li);
         });
       }
 
@@ -4135,23 +5467,51 @@
             button.dataset.funderKey = `${row.key}-${column.key}`;
             button.setAttribute("aria-controls", "funder-detail");
             button.setAttribute("aria-expanded", "false");
+            button.setAttribute(
+              "aria-label",
+              `${row.name}, ${column.label}: ${label}. ${summary}`,
+            );
+            button.title = summary;
 
             const wrap = document.createElement("span");
+            wrap.className = "funder-compact";
             const title = document.createElement("b");
             title.textContent = label;
-            const br = document.createElement("br");
-            const text = document.createTextNode(summary);
+            const brief = document.createElement("span");
+            brief.className = "cell-brief";
+            brief.textContent = summary;
             const cue = document.createElement("span");
             cue.className = "cell-cue";
             cue.textContent = "Details";
-            wrap.append(title, br, text, cue);
+            wrap.append(title, brief, cue);
             button.append(wrap);
             grid.append(button);
           });
         });
       }
 
-      function setFunderDetail(key, selectedButton) {
+      function closeFloatingInspectors() {
+        document
+          .querySelectorAll(".explorer-detail.is-floating")
+          .forEach((panel) => panel.classList.remove("is-floating"));
+      }
+
+      function showFloatingInspector(id, shouldFloat) {
+        if (!shouldFloat) return;
+        const detail = document.getElementById(id);
+        const panel = detail ? detail.closest(".explorer-detail") : null;
+        if (!panel) return;
+        document
+          .querySelectorAll(".explorer-detail.is-floating")
+          .forEach((otherPanel) => {
+            if (otherPanel !== panel) {
+              otherPanel.classList.remove("is-floating");
+            }
+          });
+        panel.classList.add("is-floating");
+      }
+
+      function setFunderDetail(key, selectedButton, shouldScroll = false) {
         const [rowKey, columnKey] = key.split("-");
         const row = funderRows.find((candidate) => candidate.key === rowKey);
         const column = funderColumns.find(
@@ -4175,6 +5535,8 @@
         const links = document.getElementById("funder-detail-links");
         links.replaceChildren();
         row.sources.forEach((source) => links.append(makeSourceTile(source)));
+
+        showFloatingInspector("funder-detail", shouldScroll);
       }
 
       const policyCellDetails = {
@@ -4376,7 +5738,7 @@
         },
       };
 
-      function setPolicyDetail(key, selectedButton) {
+      function setPolicyDetail(key, selectedButton, shouldScroll = false) {
         const detail = policyCellDetails[key];
         if (!detail) return;
 
@@ -4414,25 +5776,47 @@
           anchor.append(title, note, cue);
           links.append(anchor);
         });
+
+        showFloatingInspector("policy-cell-detail", shouldScroll);
       }
 
       renderFunderGrid();
 
       document.querySelectorAll("[data-policy-key]").forEach((button) => {
         button.addEventListener("click", () => {
-          setPolicyDetail(button.dataset.policyKey, button);
+          setPolicyDetail(button.dataset.policyKey, button, true);
         });
       });
 
       document.querySelectorAll("[data-funder-key]").forEach((button) => {
         button.addEventListener("click", () => {
-          setFunderDetail(button.dataset.funderKey, button);
+          setFunderDetail(button.dataset.funderKey, button, true);
         });
       });
 
-      document.querySelectorAll("[data-feature-key]").forEach((button) => {
+      document.querySelectorAll("[data-close-inspector]").forEach((button) => {
         button.addEventListener("click", () => {
-          setFeaturePreview(button.dataset.featureKey, button);
+          const panel = button.closest(".explorer-detail");
+          if (panel) {
+            panel.classList.remove("is-floating");
+          }
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeFloatingInspectors();
+        }
+      });
+
+      document.querySelectorAll(".column-card").forEach((card) => {
+        card.addEventListener("toggle", () => {
+          if (!card.open) return;
+          document.querySelectorAll(".column-card[open]").forEach((openCard) => {
+            if (openCard !== card) {
+              openCard.open = false;
+            }
+          });
         });
       });
 
@@ -4450,14 +5834,6 @@
       const firstFunderCell = document.querySelector("[data-funder-key]");
       if (firstFunderCell) {
         setFunderDetail(firstFunderCell.dataset.funderKey, firstFunderCell);
-      }
-
-      const firstFeatureCard = document.querySelector("[data-feature-key]");
-      if (firstFeatureCard) {
-        setFeaturePreview(
-          firstFeatureCard.dataset.featureKey,
-          firstFeatureCard,
-        );
       }
 
       const firstAudienceCard = document.querySelector("[data-audience-key]");
